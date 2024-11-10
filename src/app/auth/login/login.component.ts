@@ -22,7 +22,6 @@ export class LoginComponent {
     this.authService.login(this.loginForm.value).subscribe(
       response => {
         console.log('Logged in successfully:', response);
-        this.authService.setLoggedIn(true);
         this.router.navigate(['/movies']);
       },
       error => {
