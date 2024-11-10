@@ -1,43 +1,48 @@
 <header class="navbar">
-    <div class="content">
-      <div class="left">
-        <a href="#" class="logo">
-          <img src="../../../assets/logo.jpg" alt="THMG Logo" width="154" height="20">
-        </a>
-      </div>
-      <div class="right">
-        <span class="search-icon">&#128270;</span> <!-- 搜索放大镜图标 -->
-        <span class="username-circle">A</span> <!-- 用户名首字母图标 -->
-      </div>
+  <div class="content">
+    <div class="left">
+      <a href="#" class="logo">
+        <img src="path/to/thmg-logo.png" alt="THMG Logo" width="154" height="20">
+      </a>
     </div>
-  </header>
-  
-  <!-- 主要内容区 -->
-  <main>
-    <section class="movie-list">
-      <!-- 示例电影项目 -->
-      <div class="movie-item" *ngFor="let movie of movies">
-        <img [src]="movie.image" alt="{{ movie.title }}">
-        <div class="movie-details">
-          <h2>{{ movie.title }}</h2>
-          <p><strong>Language:</strong> {{ movie.language }}</p>
-          <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
-          <p><strong>Duration:</strong> {{ movie.duration }}</p>
-          <p><strong>Tags:</strong> {{ movie.tags.length ? movie.tags.join(', ') : 'None' }}</p>
+    <div class="right">
+      <div class="dropdown">
+        <span class="username-circle">A</span>
+        <div class="dropdown-content">
+          <a href="#" (click)="viewUserInfo()">查看个人信息</a>
+          <a href="#" (click)="logout()">退出登录</a>
         </div>
       </div>
-    </section>
-  </main>
-  
-  <!-- 底部信息栏 -->
-  <footer class="footer">
-    <div class="content">
-      <div class="left">
-        <img src="../../../assets/logo.png" alt="THMG Logo" width="154" height="20">
-      </div>
-      <div class="right">
-        <span class="greeting">Hello, 用户名!</span>
+      <span class="search-icon" (click)="searchMovies()">&#128270;</span> <!-- 搜索放大镜图标 -->
+    </div>
+  </div>
+</header>
+
+<!-- 主要内容区 -->
+<main>
+  <section class="movie-list">
+    <div class="movie-item" *ngFor="let movie of movies" (click)="viewMovieDetails(movie.id)">
+      <img [src]="movie.image" alt="{{ movie.title }}">
+      <div class="movie-details">
+        <h2>{{ movie.title }}</h2>
+        <p><strong>Language:</strong> {{ movie.language }}</p>
+        <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+        <p><strong>Duration:</strong> {{ movie.duration }}</p>
+        <p><strong>Tags:</strong> {{ movie.tags.length ? movie.tags.join(', ') : 'None' }}</p>
+        <button (click)="toggleFavorite(movie.id)">收藏</button>
       </div>
     </div>
-  </footer>
-  
+  </section>
+</main>
+
+<!-- 底部信息栏 -->
+<footer class="footer">
+  <div class="content">
+    <div class="left">
+      <img src="path/to/thmg-logo.png" alt="THMG Logo" width="154" height="20">
+    </div>
+    <div class="right">
+      <span class="greeting">Hello, 用户名!</span>
+    </div>
+  </div>
+</footer>

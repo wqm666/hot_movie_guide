@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms'; // 确保导入 ReactiveFo
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthService } from './services/auth.service';
+import { AuthService } from '../services/auth.service';
 import { AuthGuard } from './guard/auth.guard';
 
 @NgModule({
