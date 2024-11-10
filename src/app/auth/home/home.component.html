@@ -6,14 +6,15 @@
       </a>
     </div>
     <div class="right">
+      <span class="search-icon">&#128270;</span> <!-- 搜索放大镜图标 -->
       <div class="dropdown">
-        <span class="username-circle">A</span>
+        <span class="username-circle">{{ userInfo.username.charAt(0) }}</span> <!-- 用户名首字母图标 -->
         <div class="dropdown-content">
-          <a href="#" (click)="viewUserInfo()">查看个人信息</a>
-          <a href="#" (click)="logout()">退出登录</a>
+          <a (click)="getUserInfo()">查看个人信息</a>
+          <a (click)="logout()">退出登录</a>
+          <a *ngIf="isAdmin" [routerLink]="['/admin/manage']">管理</a> <!-- 仅管理员可见 -->
         </div>
       </div>
-      <span class="search-icon" (click)="searchMovies()">&#128270;</span> <!-- 搜索放大镜图标 -->
     </div>
   </div>
 </header>
@@ -21,7 +22,7 @@
 <!-- 主要内容区 -->
 <main>
   <section class="movie-list">
-    <div class="movie-item" *ngFor="let movie of movies" (click)="viewMovieDetails(movie.id)">
+    <div class="movie-item" *ngFor="let movie of movies">
       <img [src]="movie.image" alt="{{ movie.title }}">
       <div class="movie-details">
         <h2>{{ movie.title }}</h2>
@@ -29,7 +30,9 @@
         <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
         <p><strong>Duration:</strong> {{ movie.duration }}</p>
         <p><strong>Tags:</strong> {{ movie.tags.length ? movie.tags.join(', ') : 'None' }}</p>
-        <button (click)="toggleFavorite(movie.id)">收藏</button>
+        <button (click)="addToFavorites(movie.id)">收藏</button>
+        <button (click)="removeFromFavorites(movie.favoriteId)">取消收藏</button>
+        <a [routerLink]="['/details', movie.id]">查看详情</a>
       </div>
     </div>
   </section>
@@ -42,7 +45,7 @@
       <img src="path/to/thmg-logo.png" alt="THMG Logo" width="154" height="20">
     </div>
     <div class="right">
-      <span class="greeting">Hello, 用户名!</span>
+      <span class="greeting">Hello, {{ userInfo.username }}!</span>
     </div>
   </div>
 </footer>

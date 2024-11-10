@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.navbar, .footer {
+    background-color: #333; /* 颜色块背景色 */
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.left img {
+    height: 40px; /* 设置标识图像的高度 */
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.username-circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #4CAF50; /* 用户名标识背景颜色 */
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+}
+
+.greeting {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+main {
+    padding: 20px;
+    min-height: calc(100vh - 100px); /* 确保主内容区占满剩余空间 */
+}
+
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.movie-item {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+}
+
+.movie-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movie-details {
+    margin-top: 10px;
+}

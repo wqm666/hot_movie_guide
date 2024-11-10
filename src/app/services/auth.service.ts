@@ -1,57 +1,47 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-
-export interface AuthResponse {
-  token: string;
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://127.0.0.1:5000/auth';
-  private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn') || 'false');
+  private baseUrl = 'http://127.0.0.1:5000/auth';
 
   constructor(private http: HttpClient) {}
 
   register(user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, user);
+    return this.http.post<any>(`${this.baseUrl}/register`, user);
   }
 
-  login(credentials: any): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, credentials).pipe(
-      tap(response => {
-        this.setLoggedIn(true);
-        localStorage.setItem('token', response.token);
-      })
-    );
+  login(credentials: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/login`, credentials);
+  }
+
+  getUserInfo(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/user`);
+  }
+
+  updateUserInfo(user: any): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.put<any>(`${this.baseUrl}/update`, user, { headers });
   }
 
   logout(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/logout`, {}).pipe(
-      tap(response => {
-        this.setLoggedIn(false);
-        localStorage.removeItem('token');
-      })
-    );
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post<any>(`${this.baseUrl}/logout`, {}, { headers });
+  }
+
+  deleteUser(): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.delete<any>(`${this.baseUrl}/delete_user`, { headers });
   }
 
   isLoggedIn(): boolean {
-    return this.loggedInStatus;
+    return !!localStorage.getItem('token');
   }
 
-  setLoggedIn(status: boolean): void {
-    this.loggedInStatus = status;
-    localStorage.setItem('loggedIn', JSON.stringify(status));
-  }
-
-  isAuthenticated(): boolean {
-    return this.isLoggedIn();
-  }
-
-  getToken(): string | null {
-    return localStorage.getItem('token');
+  private getToken(): string {
+    return localStorage.getItem('token') || '';
   }
 }
