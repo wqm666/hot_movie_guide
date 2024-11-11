@@ -41,6 +41,6 @@ export class AdminService {
   }
 
   private getToken(): string {
-    return localStorage.getItem('token') || '';
+    return sessionStorage.getItem('token') || '';
   }
 }

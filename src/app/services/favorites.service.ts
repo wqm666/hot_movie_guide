@@ -26,6 +26,6 @@ export class FavoritesService {
   }
 
   private getToken(): string {
-    return localStorage.getItem('token') || '';
+    return sessionStorage.getItem('token') || '';
   }
 }

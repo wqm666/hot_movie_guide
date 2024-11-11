@@ -15,11 +15,12 @@ export class AuthService {
   }
 
   login(credentials: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/login`, credentials);
+    return this.http.post<any>(`${this.baseUrl}/login`, credentials, { withCredentials: true });
   }
 
   getUserInfo(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/user`);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.get<any>(`${this.baseUrl}/user`, { withCredentials: true });
   }
 
   updateUserInfo(user: any): Observable<any> {
@@ -38,10 +39,10 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
+    return !!sessionStorage.getItem('token');
   }
 
   private getToken(): string {
-    return localStorage.getItem('token') || '';
+    return sessionStorage.getItem('token') || '';
   }
 }

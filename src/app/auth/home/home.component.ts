@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
 
   logout(): void {
     this.authService.logout().subscribe(() => {
-      localStorage.removeItem('token');
+      sessionStorage.removeItem('token');
       this.router.navigate(['/login']);
     }, error => {
       console.error('Error logging out:', error);

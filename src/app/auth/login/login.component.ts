@@ -22,7 +22,8 @@ export class LoginComponent {
     this.authService.login(this.loginForm.value).subscribe(
       response => {
         console.log('Logged in successfully:', response);
-        this.router.navigate(['/movies']);
+        sessionStorage.setItem('token', response.token); // 保存 token
+        this.router.navigate(['/home']); // 导航到主页
       },
       error => {
         console.error('Error logging in:', error);

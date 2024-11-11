@@ -39,14 +39,21 @@ export class MoviesService {
   }
 
   addMovie(movie: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}`, movie);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post<any>(`${this.baseUrl}`, movie, { headers });
   }
 
   updateMovie(movieId: string, movie: any): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}/update/${movieId}`, movie);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.put<any>(`${this.baseUrl}/update/${movieId}`, movie, { headers });
   }
 
   deleteMovie(movieId: string): Observable<any> {
-    return this.http.delete<any>(`${this.baseUrl}/delete/${movieId}`);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.delete<any>(`${this.baseUrl}/delete/${movieId}`, { headers });
+  }
+
+  private getToken(): string {
+    return sessionStorage.getItem('token') || '';
   }
 }
