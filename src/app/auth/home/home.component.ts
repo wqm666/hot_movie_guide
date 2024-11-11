@@ -4,6 +4,12 @@ import { FavoritesService } from '../../services/favorites.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
+// 定义 Image 接口
+interface Image {
+  type: string;
+  url: string;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -43,6 +49,12 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // 获取海报 URL
+  getPosterUrl(movie: any): string | undefined {
+    const poster = movie.images?.find((image: Image) => image.type === 'Poster');
+    return poster ? poster.url : undefined;
+  }
+
   addToFavorites(movieId: string): void {
     this.favoritesService.addFavorite(movieId).subscribe(() => {
       alert('Movie added to favorites');
@@ -66,5 +78,5 @@ export class HomeComponent implements OnInit {
     }, error => {
       console.error('Error logging out:', error);
     });
-  }
+  } 
 }

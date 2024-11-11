@@ -6,39 +6,42 @@
       </a>
     </div>
     <div class="right">
-      <span class="search-icon">&#128270;</span> <!-- 搜索放大镜图标 -->
+      <span class="search-icon"><i class="fas fa-search"></i></span>
       <div class="dropdown">
-        <span class="username-circle">{{ userInfo.username.charAt(0) }}</span> <!-- 用户名首字母图标 -->
+        <!-- 显示用户名首字母，如果 userInfo.username 为 null 或 undefined，显示空字符 -->
+        <span class="username-circle">{{ userInfo.username?.charAt(0) || '' }}</span>
         <div class="dropdown-content">
           <a (click)="getUserInfo()">查看个人信息</a>
           <a (click)="logout()">退出登录</a>
-          <a *ngIf="isAdmin" [routerLink]="['/admin/manage']">管理</a> <!-- 仅管理员可见 -->
+          <a *ngIf="isAdmin" [routerLink]="['/admin/manage']">管理</a>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- 主要内容区 -->
 <main>
   <section class="movie-list">
-    <div class="movie-item" *ngFor="let movie of movies">
-      <img [src]="movie.image" alt="{{ movie.title }}">
+    <div class="movie-item" *ngFor="let movie of movies; let i = index">
+      <!-- 只显示 type 为 'Poster' 的图片 -->
+      <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" alt="{{ movie.title }}">
       <div class="movie-details">
         <h2>{{ movie.title }}</h2>
         <p><strong>Language:</strong> {{ movie.language }}</p>
         <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
         <p><strong>Duration:</strong> {{ movie.duration }}</p>
-        <p><strong>Tags:</strong> {{ movie.tags.length ? movie.tags.join(', ') : 'None' }}</p>
-        <button (click)="addToFavorites(movie.id)">收藏</button>
-        <button (click)="removeFromFavorites(movie.favoriteId)">取消收藏</button>
+        <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(', ') : 'None' }}</p>
+        
+        <!-- 添加/取消收藏的按钮显示 -->
+        <button *ngIf="!movie.isFavorite" (click)="addToFavorites(movie.id)">收藏</button>
+        <button *ngIf="movie.isFavorite" (click)="removeFromFavorites(movie.favoriteId)">取消收藏</button>
+        
         <a [routerLink]="['/details', movie.id]">查看详情</a>
       </div>
     </div>
   </section>
 </main>
 
-<!-- 底部信息栏 -->
 <footer class="footer">
   <div class="content">
     <div class="left">

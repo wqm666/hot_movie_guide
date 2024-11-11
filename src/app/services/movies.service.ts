@@ -11,7 +11,8 @@ export class MoviesService {
   constructor(private http: HttpClient) {}
 
   getAllMovies(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}`, { withCredentials: true });
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.get<any[]>(`${this.baseUrl}/`, { headers, withCredentials: true });
   }
 
   getMovieById(movieId: string): Observable<any> {
