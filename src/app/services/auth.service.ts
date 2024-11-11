@@ -25,17 +25,17 @@ export class AuthService {
 
   updateUserInfo(user: any): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
-    return this.http.put<any>(`${this.baseUrl}/update`, user, { headers });
+    return this.http.put<any>(`${this.baseUrl}/update`, user, { headers, withCredentials: true });
   }
 
   logout(): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
-    return this.http.post<any>(`${this.baseUrl}/logout`, {}, { headers });
+    return this.http.post<any>(`${this.baseUrl}/logout`, {}, { headers, withCredentials: true });
   }
 
   deleteUser(): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
-    return this.http.delete<any>(`${this.baseUrl}/delete_user`, { headers });
+    return this.http.delete<any>(`${this.baseUrl}/delete_user`, { headers, withCredentials: true });
   }
 
   isLoggedIn(): boolean {

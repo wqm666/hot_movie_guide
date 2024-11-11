@@ -12,17 +12,17 @@ export class FavoritesService {
 
   addFavorite(movieId: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
-    return this.http.post<any>(`${this.baseUrl}`, { movieId }, { headers });
+    return this.http.post<any>(`${this.baseUrl}`, { movieId }, { withCredentials: true });
   }
 
   getUserFavorites(): Observable<any[]> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
-    return this.http.get<any[]>(`${this.baseUrl}/user`, { headers });
+    return this.http.get<any[]>(`${this.baseUrl}/user`, { withCredentials: true });
   }
 
   deleteFavorite(favoriteId: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
-    return this.http.delete<any>(`${this.baseUrl}/${favoriteId}`, { headers });
+    return this.http.delete<any>(`${this.baseUrl}/${favoriteId}`, { withCredentials: true });
   }
 
   private getToken(): string {
