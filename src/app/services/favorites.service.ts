@@ -10,22 +10,15 @@ export class FavoritesService {
 
   constructor(private http: HttpClient) {}
 
-  addFavorite(movieId: string): Observable<any> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
-    return this.http.post<any>(`${this.baseUrl}`, { movieId }, { withCredentials: true });
+  addFavorite(movie_id: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/`, { movie_id }, { withCredentials: true });
   }
 
   getUserFavorites(): Observable<any[]> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
     return this.http.get<any[]>(`${this.baseUrl}/user`, { withCredentials: true });
   }
 
-  deleteFavorite(favoriteId: string): Observable<any> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
-    return this.http.delete<any>(`${this.baseUrl}/${favoriteId}`, { withCredentials: true });
-  }
-
-  private getToken(): string {
-    return sessionStorage.getItem('token') || '';
+  deleteFavorite(favorite_id: string): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/${favorite_id}`, { withCredentials: true });
   }
 }

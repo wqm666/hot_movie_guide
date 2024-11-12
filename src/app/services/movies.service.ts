@@ -11,16 +11,15 @@ export class MoviesService {
   constructor(private http: HttpClient) {}
 
   getAllMovies(): Observable<any[]> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
-    return this.http.get<any[]>(`${this.baseUrl}/`, { headers, withCredentials: true });
+    return this.http.get<any[]>(`${this.baseUrl}/`, { withCredentials: true });
   }
 
-  getMovieById(movieId: string): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/${movieId}`, { withCredentials: true });
+  getMovieById(movie_id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${movie_id}`, { withCredentials: true });
   }
 
-  getMovieDetails(movieId: string, detailId: string): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/details/${movieId}/${detailId}`, { withCredentials: true });
+  getMovieDetails(movie_id: string, detailId: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/details/${movie_id}/${detailId}`, { withCredentials: true });
   }
 
   filterMovies(criteria: any): Observable<any[]> {
@@ -37,9 +36,5 @@ export class MoviesService {
 
   summarizeMovies(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/summarize`, { withCredentials: true });
-  }
-
-  private getToken(): string {
-    return sessionStorage.getItem('token') || '';
   }
 }

@@ -24,9 +24,11 @@ export class LoginComponent {
         console.log('Logged in successfully:', response);
         sessionStorage.setItem('token', response.token); // 保存 token
         this.router.navigate(['/home']); // 导航到主页
+        alert('Login successfully');
       },
       error => {
         console.error('Error logging in:', error);
+        alert('Login failed');
       }
     );
   }

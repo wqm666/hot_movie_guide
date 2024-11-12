@@ -19,22 +19,21 @@ export class AuthService {
   }
 
   getUserInfo(): Observable<any> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
     return this.http.get<any>(`${this.baseUrl}/user`, { withCredentials: true });
   }
 
   updateUserInfo(user: any): Observable<any> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    const headers = new HttpHeaders().set('x-access-token', this.getToken());
     return this.http.put<any>(`${this.baseUrl}/update`, user, { headers, withCredentials: true });
   }
 
   logout(): Observable<any> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    const headers = new HttpHeaders().set('x-access-token', this.getToken());
     return this.http.post<any>(`${this.baseUrl}/logout`, {}, { headers, withCredentials: true });
   }
 
   deleteUser(): Observable<any> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    const headers = new HttpHeaders().set('x-access-token', this.getToken());
     return this.http.delete<any>(`${this.baseUrl}/delete_user`, { headers, withCredentials: true });
   }
 

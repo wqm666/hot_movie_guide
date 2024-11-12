@@ -28,7 +28,7 @@ body {
 }
 
 .left img {
-    height: 40px; /* 设置标识图像的高度 */
+    height: auto; 
 }
 
 .right {
@@ -119,3 +119,29 @@ main {
 .movie-details {
     margin-top: 10px;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .pagination button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .pagination button:hover {
+    background-color: #45a049;
+  }
+  
+  .pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }

@@ -24,9 +24,11 @@ export class RegisterComponent {
       response => {
         console.log('User registered successfully:', response);
         this.router.navigate(['/login']);
+        alert('Rigister successfully');
       },
       error => {
         console.error('Error registering user:', error);
+        alert('Rigister failed');
       }
     );
   }

@@ -2,18 +2,17 @@
   <div class="content">
     <div class="left">
       <a href="home" class="logo">
-        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="154" height="20">
+        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="30">
       </a>
     </div>
     <div class="right">
       <span class="search-icon"><i class="fas fa-search"></i></span>
       <div class="dropdown">
-        <!-- 显示用户名首字母，如果 userInfo.username 为 null 或 undefined，显示空字符 -->
         <span class="username-circle">{{ userInfo.username?.charAt(0) || '' }}</span>
         <div class="dropdown-content">
-          <a (click)="getUserInfo()">查看个人信息</a>
-          <a (click)="logout()">退出登录</a>
-          <a *ngIf="isAdmin" [routerLink]="['/admin/manage']">管理</a>
+          <a (click)="getUserInfo()">{{ userInfo.username }}</a>
+          <a (click)="logout()">Logout</a>
+          <a *ngIf="isAdmin" [routerLink]="['/admin/manage']">Manage</a>
         </div>
       </div>
     </div>
@@ -22,8 +21,7 @@
 
 <main>
   <section class="movie-list">
-    <div class="movie-item" *ngFor="let movie of movies; let i = index">
-      <!-- 只显示 type 为 'Poster' 的图片 -->
+    <div class="movie-item" *ngFor="let movie of currentMovies; let i = index">
       <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" alt="{{ movie.title }}">
       <div class="movie-details">
         <h2>{{ movie.title }}</h2>
@@ -31,21 +29,25 @@
         <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
         <p><strong>Duration:</strong> {{ movie.duration }}</p>
         <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(', ') : 'None' }}</p>
-        
-        <!-- 添加/取消收藏的按钮显示 -->
-        <button *ngIf="!movie.isFavorite" (click)="addToFavorites(movie.id)">收藏</button>
-        <button *ngIf="movie.isFavorite" (click)="removeFromFavorites(movie.favoriteId)">取消收藏</button>
-        
-        <a [routerLink]="['/details', movie.id]">查看详情</a>
+        <button *ngIf="!movie.isFavorite" (click)="addToFavorites(movie._id)">Star</button>
+        <button *ngIf="movie.isFavorite" (click)="removeFromFavorites(movie.favorite_id)">Stared</button>
+        <a [routerLink]="['/details', movie._id]">Details</a>
       </div>
     </div>
   </section>
+
+  <!-- 分页按钮 -->
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
 </main>
 
 <footer class="footer">
   <div class="content">
     <div class="left">
-      <img src="../../../assets/logo.jpg" alt="THMG Logo" width="154" height="20">
+      <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="auto">
     </div>
     <div class="right">
       <span class="greeting">Hello, {{ userInfo.username }}!</span>
