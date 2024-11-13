@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   movies: any[] = [];
   favorites: any[] = [];
   userInfo: any = {};
-  isAdmin: boolean = false;
+  is_admin: boolean = false;
 
   currentPage: number = 1;
   moviesPerPage: number = 12;
@@ -32,24 +32,33 @@ export class HomeComponent implements OnInit {
 
   loadMoviesAndFavorites(): void {
     this.moviesService.getAllMovies().subscribe((movies: any[]) => {
+      this.movies = movies;
       this.favoritesService.getUserFavorites().subscribe((favorites: any[]) => {
         this.favorites = favorites;
-        this.movies = movies.map(movie => {
-          const favorite = this.favorites.find(fav => fav.movie_id === movie._id);
-          return { ...movie, isFavorite: !!favorite, favorite_id: favorite ? favorite._id : null };
-        });
+        this.updateMoviesWithFavorites();
       }, error => {
+        // 处理获取收藏列表失败的情况，仍然加载电影
         console.error('Error fetching favorites:', error);
+        this.updateMoviesWithFavorites(); // 即使收藏列表为空，仍需更新电影列表
       });
     }, error => {
       console.error('Error fetching movies:', error);
     });
   }
+  
+  // 新增一个方法来更新电影的收藏状态
+  updateMoviesWithFavorites(): void {
+    this.movies = this.movies.map(movie => {
+      const favorite = this.favorites.find(fav => fav.movie_id === movie._id);
+      return { ...movie, isFavorite: !!favorite, favorite_id: favorite ? favorite._id : null };
+    });
+  }
+  
 
   getUserInfo(): void {
     this.authService.getUserInfo().subscribe(data => {
       this.userInfo = data;
-      this.isAdmin = this.userInfo.isAdmin;
+      this.is_admin = this.userInfo.is_admin;
     }, error => {
       console.error('Error fetching user info:', error);
     });

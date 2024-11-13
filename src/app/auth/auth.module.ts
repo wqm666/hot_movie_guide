@@ -7,6 +7,11 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { DetailsComponent } from './details/details.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { QueryComponent } from './query/query.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { AuthService } from '../services/auth.service';
 import { AuthGuard } from './guard/auth.guard';
 
@@ -14,7 +19,9 @@ import { AuthGuard } from './guard/auth.guard';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    DetailsComponent,
+    UserInfoComponent
   ],
   imports: [
     CommonModule,

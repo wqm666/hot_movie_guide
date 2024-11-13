@@ -10,9 +10,9 @@
       <div class="dropdown">
         <span class="username-circle">{{ userInfo.username?.charAt(0) || '' }}</span>
         <div class="dropdown-content">
-          <a (click)="getUserInfo()">{{ userInfo.username }}</a>
+          <a (click)="getUserInfo()" [routerLink]="['/user-info']">{{ userInfo.username }}</a>
           <a (click)="logout()">Logout</a>
-          <a *ngIf="isAdmin" [routerLink]="['/admin/manage']">Manage</a>
+          <a *ngIf="is_admin" [routerLink]="['/admin/manage']">Manage</a>
         </div>
       </div>
     </div>

@@ -1,1 +1,29 @@
-<p>details works!</p>
+<div class="details-container" *ngIf="movie">
+  <h1>{{ movie.title }}</h1>
+  <img [src]="movie.images[0]?.url" alt="{{ movie.title }}">
+  <p><strong>Language:</strong> {{ movie.language || 'None' }}</p>
+  <p><strong>Release Date:</strong> {{ movie.release_date || 'None' }}</p>
+  <p><strong>Duration:</strong> {{ movie.duration || 'None' }}</p>
+  <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(', ') : 'None' }}</p>
+  <div>
+    <button *ngIf="!isFavorite" (click)="addToFavorites()" class="btn btn-primary">Star</button>
+    <button *ngIf="isFavorite" (click)="removeFromFavorites()" class="btn btn-secondary">Stared</button>
+  </div>
+  <h2>Details</h2>
+  <div *ngFor="let detail of movie.details">
+    <p><strong>Director:</strong> {{ detail.director || 'None' }}</p>
+    <p><strong>Cast:</strong> {{ detail.cast || 'None' }}</p>
+    <p><strong>Storyline:</strong> {{ detail.storyline || 'None' }}</p>
+  </div>
+  <h2>Videos</h2>
+  <div *ngFor="let video of movie.videos">
+    <p><strong>Kind:</strong> {{ video.kind || 'None' }}</p>
+    <p><strong>Language:</strong> {{ video.language || 'None' }}</p>
+    <p><strong>Source:</strong> {{ video.source || 'None' }}</p>
+    <a [href]="video.url" target="_blank">{{ video.url }}</a>
+  </div>
+  <h2>Reviews</h2>
+  <div *ngFor="let feeder of movie.feeders">
+    <p><a [href]="feeder.url" target="_blank">{{ feeder.name }}</a></p>
+  </div>
+</div>

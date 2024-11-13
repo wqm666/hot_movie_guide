@@ -1,0 +1,41 @@
+.details-container {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.details-container h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.details-container img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.details-container p {
+  font-size: 1em;
+  margin: 5px 0;
+}
+
+.details-container button {
+  padding: 10px 20px;
+  margin-right: 10px;
+}
+
+.details-container iframe {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.details-container h2 {
+  margin-top: 30px;
+}

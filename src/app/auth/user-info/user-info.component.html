@@ -1,0 +1,45 @@
+<header class="navbar">
+    <div class="content">
+      <div class="left">
+        <a [routerLink]="'/home'" class="logo">
+          <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="30">
+        </a>
+      </div>
+      <div class="right">
+        <span class="search-icon"><i class="fas fa-search"></i></span>
+        <div class="dropdown">
+          <span class="username-circle">{{ userInfo?.username?.charAt(0) || '' }}</span>
+          <div class="dropdown-content">
+            <a (click)="getUserInfo()" [routerLink]="['/user-info']">{{ userInfo?.username }}</a>
+            <a (click)="logout()">Logout</a>
+            <a *ngIf="is_admin" [routerLink]="['/admin/manage']">Manage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <main class="user-info-container">
+    <h1>User Information</h1>
+    <p><strong>Username:</strong> {{ userInfo?.username || 'None' }}</p>
+    <p><strong>Email:</strong> {{ userInfo?.email || 'None' }}</p>
+    <button (click)="deleteUser()" class="btn btn-danger">Delete Account</button>
+    
+    <div class="navigation">
+      <a [routerLink]="['/home']" class="btn btn-primary">Home</a>
+      <a [routerLink]="['/favorites']" class="btn btn-primary">Favorites</a>
+      <a [routerLink]="['/details']" class="btn btn-primary">Details</a>
+    </div>
+  </main>
+  
+  <footer class="footer">
+    <div class="content">
+      <div class="left">
+        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="auto">
+      </div>
+      <div class="right">
+        <span class="greeting">Hello, {{ userInfo?.username }}!</span>
+      </div>
+    </div>
+  </footer>
+  
