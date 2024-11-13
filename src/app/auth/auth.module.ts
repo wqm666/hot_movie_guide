@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth-routing.module';
 import { RouterModule } from '@angular/router';
 
@@ -11,7 +11,6 @@ import { DetailsComponent } from './details/details.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { QueryComponent } from './query/query.component';
-import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { AuthService } from '../services/auth.service';
 import { AuthGuard } from './guard/auth.guard';
 
@@ -21,11 +20,13 @@ import { AuthGuard } from './guard/auth.guard';
     RegisterComponent,
     HomeComponent,
     DetailsComponent,
+    FavoritesComponent, // 确保声明 FavoritesComponent
     UserInfoComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     AuthRoutingModule,
     RouterModule
   ],

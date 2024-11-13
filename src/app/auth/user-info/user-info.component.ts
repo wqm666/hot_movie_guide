@@ -12,6 +12,7 @@ export class UserInfoComponent implements OnInit {
   userInfo: any = {};
   favorites: any[] = [];
   is_admin: boolean = false;
+  editing: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -37,6 +38,15 @@ export class UserInfoComponent implements OnInit {
       this.favorites = data;
     }, error => {
       console.error('Error fetching favorites:', error);
+    });
+  }
+
+  updateUserInfo(): void {
+    this.authService.updateUserInfo(this.userInfo).subscribe(() => {
+      alert('User information updated successfully');
+      this.editing = false;
+    }, error => {
+      console.error('Error updating user info:', error);
     });
   }
 
