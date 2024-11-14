@@ -39,9 +39,16 @@ export class FavoritesComponent implements OnInit {
   getUserFavorites(): void {
     this.favoritesService.getUserFavorites().subscribe(favorites => {
       this.favorites = favorites;
-      this.loadFavoriteMovies();
+      if (this.favorites.length > 0) {
+        this.loadFavoriteMovies();
+      }
     }, error => {
-      console.error('Error fetching favorites:', error);
+      if (error.status === 404) {
+        // 处理404错误，表示没有收藏电影
+        this.favorites = [];
+      } else {
+        console.error('Error fetching favorites:', error);
+      }
     });
   }
 

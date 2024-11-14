@@ -37,8 +37,10 @@ body {
 
 .search-icon {
   font-size: 20px;
-  cursor: pointer;
+  cursor: pointer; /* 确保指针形状改变，提示用户可以点击 */
   margin-right: 10px;
+  color: #fff; /* 确保放大镜图标颜色可见 */
+  text-decoration: none; /* 确保没有下划线 */
 }
 
 .username-circle {

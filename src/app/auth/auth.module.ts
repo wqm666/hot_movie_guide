@@ -21,7 +21,8 @@ import { AuthGuard } from './guard/auth.guard';
     HomeComponent,
     DetailsComponent,
     FavoritesComponent, // 确保声明 FavoritesComponent
-    UserInfoComponent
+    UserInfoComponent,
+    QueryComponent
   ],
   imports: [
     CommonModule,

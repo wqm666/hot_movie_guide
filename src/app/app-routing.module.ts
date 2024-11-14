@@ -9,7 +9,7 @@ import { UserInfoComponent } from './auth/user-info/user-info.component';
 import { QueryComponent } from './auth/query/query.component';
 import { AuthGuard } from './auth/guard/auth.guard';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },

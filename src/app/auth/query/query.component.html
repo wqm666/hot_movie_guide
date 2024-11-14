@@ -1,1 +1,61 @@
-<p>query works!</p>
+<header class="navbar">
+    <div class="content">
+      <div class="left">
+        <a [routerLink]="['/home']" class="logo">
+          <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="30">
+        </a>
+      </div>
+      <div class="right">
+        <a [routerLink]="['/query']" class="search-icon"><i class="fas fa-search"></i></a> <!-- 确保这是一个 <a> 标签 -->
+        <div class="dropdown">
+          <span class="username-circle">{{ userInfo?.username?.charAt(0) || '' }}</span>
+          <div class="dropdown-content">
+            <a (click)="getUserInfo()" [routerLink]="['/user-info']">{{ userInfo?.username }}</a>
+            <a (click)="logout()">Logout</a>
+            <a *ngIf="is_admin" [routerLink]="['/admin/manage']">Manage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  
+  <main>
+    <section class="query-section">
+      <h1>Movie Search</h1>
+      <div class="query-form">
+        <input type="text" placeholder="Enter movie title or ID" [(ngModel)]="searchQuery">
+        <button (click)="searchMovies()">Search</button>
+      </div>
+      <div *ngIf="movies.length > 0; else noMovies">
+        <div class="movie-list">
+          <div class="movie-item" *ngFor="let movie of movies">
+            <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" alt="{{ movie?.title }}">
+            <div class="movie-details">
+              <h2>{{ movie?.title }}</h2>
+              <p><strong>Language:</strong> {{ movie?.language }}</p>
+              <p><strong>Release Date:</strong> {{ movie?.release_date }}</p>
+              <p><strong>Duration:</strong> {{ movie?.duration }}</p>
+              <p><strong>Tags:</strong> {{ movie?.tags?.length ? movie?.tags?.join(', ') : 'None' }}</p>
+              <a *ngIf="movie?._id" [routerLink]="['/details', movie?._id]">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noMovies>
+        <p>No movies found. Try a different query.</p>
+      </ng-template>
+    </section>
+  </main>
+  
+  <footer class="footer">
+    <div class="content">
+      <div class="left">
+        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="auto">
+      </div>
+      <div class="right">
+        <span class="greeting">Hello, {{ userInfo?.username }}!</span>
+      </div>
+    </div>
+  </footer>
+  

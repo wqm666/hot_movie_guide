@@ -64,8 +64,10 @@ export class UserInfoComponent implements OnInit {
   logout(): void {
     this.authService.logout().subscribe(() => {
       this.router.navigate(['/login']);
+      alert('Logout successfully');
     }, error => {
       console.error('Error logging out:', error);
+      alert('Logout failed');
     });
   }
 }
