@@ -42,19 +42,6 @@ export class QueryComponent implements OnInit {
     });
   }
 
-  searchById(): void {
-    const baseId = '67167639ee56fe2ac14628e0';
-    const hexId = (parseInt(this.searchQuery, 10) + parseInt(baseId, 16)).toString(16);
-    this.moviesService.getMovieById(hexId).subscribe(movie => {
-      this.movies = [movie];
-      this.updatePagination();
-    }, error => {
-      console.error('Error fetching movie by ID:', error);
-      this.movies = [];
-      this.updatePagination();
-    });
-  }
-
   filterMovies(): void {
     const criteria = { language: this.filterLanguage };
     this.moviesService.filterMovies(criteria).subscribe(movies => {
@@ -81,10 +68,10 @@ export class QueryComponent implements OnInit {
 
   aggregateMovies(): void {
     const criteria = [
-      { $group: { _id: "$details.director", total_movies: { $sum: 1 }, average_duration: { $avg: "$duration" } } }
+      { $group: { _id: "$language", total_movies: { $sum: 1 }, average_duration: { $avg: "$duration" } } }
     ];
-    this.moviesService.aggregateMovies(criteria).subscribe(movies => {
-      this.movies = movies;
+    this.moviesService.aggregateMovies(criteria).subscribe(results => {
+      this.movies = results;
       this.updatePagination();
     }, error => {
       console.error('Error aggregating movies:', error);

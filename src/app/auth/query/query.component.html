@@ -23,12 +23,6 @@
   <section class="query-section">
     <h1>Movie Search</h1>
     <div class="query-form">
-      <label for="searchQuery">Enter ID or 1-based index:</label>
-      <input id="searchQuery" type="text" placeholder="Enter query" [(ngModel)]="searchQuery">
-      <button (click)="searchById()">Search by ID</button>
-    </div>
-
-    <div class="query-form">
       <h3>Filter Options</h3>
       <label for="language">Language:</label>
       <select id="language" [(ngModel)]="filterLanguage">
