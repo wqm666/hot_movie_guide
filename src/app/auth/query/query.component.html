@@ -26,7 +26,7 @@
       <h3>Filter Options</h3>
       <label for="language">Language:</label>
       <select id="language" [(ngModel)]="filterLanguage">
-        <option value="">All</option>
+        <option value="-">-</option>
         <option value="ar">Arabic</option>
         <option value="as">Assamese</option>
         <option value="bn">Bengali</option>
@@ -91,8 +91,8 @@
       </select>
       <label for="sortOrder">Order:</label>
       <select id="sortOrder" [(ngModel)]="sortOrder">
-        <option value="1">Ascending</option>
-        <option value="-1">Descending</option>
+        <option value=1>Ascending</option>
+        <option value=-1>Descending</option>
       </select>
       <button (click)="sortMovies()">Sort</button>
     </div>
@@ -101,26 +101,28 @@
       <h3>Aggregate Options</h3>
       <button (click)="aggregateMovies()">Aggregate</button>
     </div>
+  </section>
 
-    <div *ngIf="currentMovies.length > 0; else noMovies">
-      <div class="movie-list">
-        <div class="movie-item" *ngFor="let movie of currentMovies; let i = index">
-          <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" (error)="handleImageError($event)" alt="{{ movie.title }}">
-          <div class="movie-details">
-            <h2>{{ movie.title }}</h2>
-            <p><strong>Language:</strong> {{ movie.language }}</p>
-            <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
-            <p><strong>Duration:</strong> {{ movie.duration }}</p>
-            <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(', ') : 'None' }}</p>
-            <a [routerLink]="['/details', movie._id]">Details</a>
-          </div>
+  <div *ngIf="currentMovies.length > 0; else noMovies">
+    <div class="movie-list">
+      <div class="movie-item" *ngFor="let movie of currentMovies; let i = index">
+        <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" (error)="handleImageError($event)" alt="{{ movie.title }}">
+        <div class="movie-details">
+          <h2>{{ movie.title }}</h2>
+          <p><strong>Language:</strong> {{ movie.language }}</p>
+          <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+          <p><strong>Duration:</strong> {{ movie.duration }}</p>
+          <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(', ') : 'None' }}</p>
+                  <button *ngIf="!movie.isFavorite" (click)="addToFavorites(movie._id)">Star</button>
+        <button *ngIf="movie.isFavorite" (click)="removeFromFavorites(movie.favorite_id)">Stared</button>
+          <a [routerLink]="['/details', movie._id]">Details</a>
         </div>
       </div>
     </div>
-    <ng-template #noMovies>
-      <p>No movies found. Try a different query.</p>
-    </ng-template>
-  </section>
+  </div>
+  <ng-template #noMovies>
+    <p>No movies found. Try a different query.</p>
+  </ng-template>
 
   <div class="pagination">
     <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>

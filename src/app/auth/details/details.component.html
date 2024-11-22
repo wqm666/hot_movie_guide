@@ -22,7 +22,7 @@
     <p><strong>Source:</strong> {{ video.source || 'None' }}</p>
     <a [href]="video.url" target="_blank">{{ video.url }}</a>
   </div>
-  <h2>Reviews</h2>
+  <h2>Feeders</h2>
   <div *ngFor="let feeder of movie.feeders">
     <p><a [href]="feeder.url" target="_blank">{{ feeder.name }}</a></p>
   </div>

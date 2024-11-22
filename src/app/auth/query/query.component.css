@@ -135,28 +135,54 @@
     background-color: #0056b3;
   }
   
-  .movie-list {
+.movie-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-  }
-  
-  .movie-item {
+    overflow: auto; 
+}
+
+.movie-item {
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 200px;
     text-align: center;
-  }
-  
-  .movie-item img {
+}
+
+.movie-item img {
     width: 100%;
     border-radius: 10px;
-  }
-  
-  .movie-details {
+}
+
+.movie-details {
     margin-top: 10px;
+}
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
   }
   
+  .pagination button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .pagination button:hover {
+    background-color: #45a049;
+  }
+  
+  .pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
