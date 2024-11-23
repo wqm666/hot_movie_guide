@@ -1,0 +1,69 @@
+<!-- manage.component.html -->
+<header class="navbar">
+  <div class="content">
+    <div class="left">
+      <a [routerLink]="['/home']" class="logo">
+        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="30">
+      </a>
+    </div>
+    <div class="right">
+      <a [routerLink]="['/query']" class="search-icon"><i class="fas fa-search"></i></a>
+      <div class="dropdown">
+        <span class="username-circle">{{ userInfo?.username?.charAt(0) || '' }}</span>
+        <div class="dropdown-content">
+          <a (click)="getUserInfo()" [routerLink]="['/user-info']">{{ userInfo?.username }}</a>
+          <a (click)="logout()">Logout</a>
+          <a *ngIf="is_admin" [routerLink]="['/admin/manage']">Manage</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="admin-section">
+    <h1>Admin Management</h1>
+
+    <div class="admin-functions">
+      <!-- 电影管理部分 -->
+      <h2>Manage Movies</h2>
+      <button (click)="addMovie()">Add Movie</button>
+      <button (click)="deleteMovie()">Delete Movie</button>
+      <button (click)="editMovie()">Edit Movie</button>
+
+      <!-- 用户管理部分 -->
+      <h2>Manage Users</h2>
+      <button (click)="getAllUsers()">Get All Users</button>
+    </div>
+
+    <!-- 显示所有用户信息 -->
+    <div *ngIf="users.length > 0">
+      <h3>All Users</h3>
+      <div *ngFor="let user of users">
+        <p>{{ user.username }}</p>
+        <button (click)="toggleAdmin(user._id)">Toggle Admin</button>
+      </div>
+    </div>
+
+    <!-- 显示所有电影信息 -->
+    <div *ngIf="movies.length > 0">
+      <h3>All Movies</h3>
+      <div *ngFor="let movie of movies">
+        <p>{{ movie.title }}</p>
+        <button (click)="editMovie(movie._id)">Edit</button>
+        <button (click)="deleteMovie(movie._id)">Delete</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="content">
+    <div class="left">
+      <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="auto">
+    </div>
+    <div class="right">
+      <span class="greeting">Hello, {{ userInfo?.username }}!</span>
+    </div>
+  </div>
+</footer>
