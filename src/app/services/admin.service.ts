@@ -27,17 +27,17 @@ export class AdminService {
 
   addMovie(movie: any): Observable<any> {
     const headers = new HttpHeaders().set('x-access-token', this.getToken());
-    return this.http.post<any>('http://127.0.0.1:5000/movies', movie, { headers, withCredentials: true });
+    return this.http.post<any>('http://127.0.0.1:5000/movies/', movie, { headers, withCredentials: true });
   }
 
   updateMovie(movie_id: string, movie: any): Observable<any> {
     const headers = new HttpHeaders().set('x-access-token', this.getToken());
-    return this.http.put<any>(`http://127.0.0.1:5000/movies/update/${movie_id}`, movie, { headers, withCredentials: true })
+    return this.http.put<any>(`http://127.0.0.1:5000/movies/${movie_id}`, movie, { headers, withCredentials: true })
   }
 
   deleteMovie(movie_id: string): Observable<any> {
     const headers = new HttpHeaders().set('x-access-token', this.getToken());
-    return this.http.delete<any>(`http://127.0.0.1:5000/movies/delete/${movie_id}`, { headers, withCredentials: true });
+    return this.http.delete<any>(`http://127.0.0.1:5000/movies/${movie_id}`, { headers, withCredentials: true });
   }
 
   private getToken(): string {

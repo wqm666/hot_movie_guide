@@ -1,139 +1,204 @@
-/* manage.component.css */
+/* Existing styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* 全局样式 */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
+  color: #333;
 }
 
-/* 导航栏样式 */
-.navbar {
-  background-color: #333;
+.navbar, .footer {
+  background-color: #333; /* 颜色块背景色 */
   color: #fff;
-  padding: 10px 0;
-}
-
-.navbar .content {
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  margin: 0 auto;
 }
 
-.navbar .logo img {
-  max-height: 30px;
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.navbar .search-icon {
-  margin-right: 20px;
+.left img {
+  height: auto; 
 }
 
-.navbar .dropdown {
-  position: relative;
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  font-size: 20px;
+  cursor: pointer; /* 确保指针形状改变，提示用户可以点击 */
+  margin-right: 10px;
+  color: #fff; /* 确保放大镜图标颜色可见 */
+  text-decoration: none; /* 确保没有下划线 */
+}
+
+.username-circle {
   display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #4CAF50; /* 用户名标识背景颜色 */
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  position: relative;
 }
 
-.navbar .dropdown-content {
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  right: 0;
+  background-color: #fff;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-.navbar .dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.navbar .dropdown-content a {
+.dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.navbar .dropdown-content a:hover {
+.dropdown-content a:hover {
   background-color: #f1f1f1;
 }
 
-/* 管理页面样式 */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.greeting {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+main {
+  padding: 20px;
+  min-height: calc(100vh - 100px); /* 确保主内容区占满剩余空间 */
+}
+
 .admin-section {
-  width: 90%;
-  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.admin-functions {
-  margin-bottom: 20px;
-}
-
-.admin-functions h2 {
-  font-size: 1.5em;
-  margin-top: 0;
-}
-
+.admin-functions h2,
+.admin-functions h3,
 .admin-functions button {
-  margin-right: 10px;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+  text-align: center; 
 }
 
-.admin-functions button:hover {
-  background-color: #555;
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  overflow: auto; 
 }
 
-.admin-section h3 {
-  font-size: 1.2em;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-}
-
-.admin-section .movie-item,
-.admin-section .user-item {
+.movie-item {
   background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  text-align: center;
 }
 
-.admin-section .movie-item button,
-.admin-section .user-item button {
-  padding: 5px 10px;
-  background-color: #333;
-  color: #fff;
+.movie-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.movie-details {
+  margin-top: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  background-color: #4CAF50;
+  color: white;
   border: none;
+  padding: 10px;
+  margin: 0 5px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
-.admin-section .movie-item button:hover,
-.admin-section .user-item button:hover {
-  background-color: #555;
+.pagination button:hover {
+  background-color: #45a049;
 }
 
-/* 页脚样式 */
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
-.footer .content {
+/* 电影表单样式 */
+.admin-functions form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 20px auto; /* 居中 */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  margin: 0 auto;
+  flex-direction: column;
 }
 
-.footer img {
-  max-height: 30px;
+.admin-functions form label {
+  margin-bottom: 5px;
+}
+
+.admin-functions form input[type="text"],
+.admin-functions form input[type="date"],
+.admin-functions form input[type="number"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.admin-functions form button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  margin-bottom: 10px; /* 添加底部边距以便多个按钮显示时有间距 */
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  align-self: center; /* 居中按钮 */
+}
+
+.admin-functions form button:hover {
+  background-color: #45a049;
 }

@@ -19,6 +19,9 @@ export class ManageComponent implements OnInit {
   showAddMovieForm: boolean = false; // 控制是否显示添加电影表单
   showEditMovieForm: boolean = false; // 控制是否显示编辑电影表单
 
+  currentPage: number = 1;
+  moviesPerPage: number = 12;
+
   constructor(
     private moviesService: MoviesService,
     private adminService: AdminService,
@@ -119,5 +122,40 @@ export class ManageComponent implements OnInit {
       console.error('Error logging out:', error);
       alert('Logout failed');
     });
+  }
+
+  handleImageError(event: Event) {
+    const target = event.target as HTMLImageElement;
+    target.src = '../../../assets/default-image.jpg';  // 设置默认图片路径
+  }
+
+  getPosterUrl(movie: any): string | undefined {
+    return movie.images.find((image: any) => image.type === 'Poster')?.url;
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.movies.length / this.moviesPerPage);
+  }
+
+  setCurrentPage(page: number): void {
+    this.currentPage = page;
+  }
+
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  get currentMovies(): any[] {
+    const startIndex = (this.currentPage - 1) * this.moviesPerPage;
+    const endIndex = startIndex + this.moviesPerPage;
+    return this.movies.slice(startIndex, endIndex);
   }
 }
