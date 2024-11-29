@@ -27,9 +27,32 @@
     <div class="admin-functions">
       <!-- 电影管理部分 -->
       <h2>Manage Movies</h2>
-      <button (click)="addMovie()">Add Movie</button>
-      <button (click)="deleteMovie()">Delete Movie</button>
-      <button (click)="editMovie()">Edit Movie</button>
+      <button (click)="showAddMovieFormToggle()">Add Movie</button>
+      <div *ngIf="showAddMovieForm">
+        <h3>Add New Movie</h3>
+        <form (submit)="addMovie()">
+          <label for="title">Title:</label>
+          <input type="text" id="title" [(ngModel)]="newMovie.title" name="title" required>
+          
+          <label for="language">Language:</label>
+          <input type="text" id="language" [(ngModel)]="newMovie.language" name="language" required>
+          
+          <label for="image">Image URL:</label>
+          <input type="text" id="image" [(ngModel)]="newMovie.image" name="image">
+
+          <label for="release_date">Release Date:</label>
+          <input type="date" id="release_date" [(ngModel)]="newMovie.release_date" name="release_date" required>
+          
+          <label for="duration">Duration:</label>
+          <input type="number" id="duration" [(ngModel)]="newMovie.duration" name="duration" required>
+
+          <label for="tags">Tags:</label>
+          <input type="text" id="tags" [(ngModel)]="newMovie.tags" name="tags">
+          
+          <button type="submit">Save</button>
+          <button type="button" (click)="showAddMovieFormToggle()">Cancel</button>
+        </form>
+      </div>
 
       <!-- 用户管理部分 -->
       <h2>Manage Users</h2>
@@ -39,7 +62,7 @@
     <!-- 显示所有用户信息 -->
     <div *ngIf="users.length > 0">
       <h3>All Users</h3>
-      <div *ngFor="let user of users">
+      <div *ngFor="let user of users" class="user-item">
         <p>{{ user.username }}</p>
         <button (click)="toggleAdmin(user._id)">Toggle Admin</button>
       </div>
@@ -48,11 +71,38 @@
     <!-- 显示所有电影信息 -->
     <div *ngIf="movies.length > 0">
       <h3>All Movies</h3>
-      <div *ngFor="let movie of movies">
+      <div *ngFor="let movie of movies" class="movie-item">
         <p>{{ movie.title }}</p>
-        <button (click)="editMovie(movie._id)">Edit</button>
+        <button (click)="showEditMovieFormToggle(movie)">Edit</button>
         <button (click)="deleteMovie(movie._id)">Delete</button>
       </div>
+    </div>
+
+    <!-- 编辑电影表单 -->
+    <div *ngIf="showEditMovieForm">
+      <h3>Edit Movie</h3>
+      <form (submit)="editMovie(selectedMovie._id)">
+        <label for="edit-title">Title:</label>
+        <input type="text" id="edit-title" [(ngModel)]="selectedMovie.title" name="edit-title" required>
+        
+        <label for="edit-language">Language:</label>
+        <input type="text" id="edit-language" [(ngModel)]="selectedMovie.language" name="edit-language" required>
+        
+        <label for="edit-image">Image URL:</label>
+        <input type="text" id="edit-image" [(ngModel)]="selectedMovie.image" name="edit-image">
+
+        <label for="edit-release_date">Release Date:</label>
+        <input type="date" id="edit-release_date" [(ngModel)]="selectedMovie.release_date" name="edit-release_date" required>
+        
+        <label for="edit-duration">Duration:</label>
+        <input type="number" id="edit-duration" [(ngModel)]="selectedMovie.duration" name="edit-duration" required>
+
+        <label for="edit-tags">Tags:</label>
+        <input type="text" id="edit-tags" [(ngModel)]="selectedMovie.tags" name="edit-tags">
+        
+        <button type="submit">Save</button>
+        <button type="button" (click)="showEditMovieFormToggle(selectedMovie)">Cancel</button>
+      </form>
     </div>
   </section>
 </main>

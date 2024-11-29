@@ -14,6 +14,10 @@ export class ManageComponent implements OnInit {
   is_admin: boolean = false;
   users: any[] = [];
   movies: any[] = [];
+  newMovie: any = {}; // 用于存储新电影的数据
+  selectedMovie: any = {}; // 用于存储选中的电影数据
+  showAddMovieForm: boolean = false; // 控制是否显示添加电影表单
+  showEditMovieForm: boolean = false; // 控制是否显示编辑电影表单
 
   constructor(
     private moviesService: MoviesService,
@@ -63,8 +67,37 @@ export class ManageComponent implements OnInit {
     });
   }
 
+  showAddMovieFormToggle(): void {
+    this.showAddMovieForm = !this.showAddMovieForm;
+  }
+
   addMovie(): void {
-    // 显示添加电影的表单，获取输入数据并调用添加电影的 API
+    this.adminService.addMovie(this.newMovie).subscribe(() => {
+      alert('Movie added successfully');
+      this.loadMovies(); // 重新加载电影列表
+      this.newMovie = {}; // 重置表单
+      this.showAddMovieForm = false; // 隐藏表单
+    }, error => {
+      console.error('Error adding movie:', error);
+      alert('Add movie failed');
+    });
+  }
+
+  showEditMovieFormToggle(movie: any): void {
+    this.selectedMovie = { ...movie };
+    this.showEditMovieForm = !this.showEditMovieForm;
+  }
+
+  editMovie(movieId: string): void {
+    this.adminService.updateMovie(movieId, this.selectedMovie).subscribe(() => {
+      alert('Movie updated successfully');
+      this.loadMovies(); // 重新加载电影列表
+      this.selectedMovie = {}; // 重置表单
+      this.showEditMovieForm = false; // 隐藏表单
+    }, error => {
+      console.error('Error updating movie:', error);
+      alert('Update movie failed');
+    });
   }
 
   deleteMovie(movieId: string): void {
@@ -75,14 +108,6 @@ export class ManageComponent implements OnInit {
       console.error('Error deleting movie:', error);
       alert('Delete movie failed');
     });
-  }
-
-  editMovie(movieId: string): void {
-    // 显示编辑电影的表单，获取输入数据并调用更新电影的 API
-  }
-
-  updateMovie(): void {
-    // 更新电影信息的方法
   }
 
   logout(): void {
