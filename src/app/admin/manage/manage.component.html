@@ -6,7 +6,7 @@
       </a>
     </div>
     <div class="right">
-      <a [routerLink]="['/query']" class="search-icon"><i class="fas fa-search"></i></a> <!-- 确保这是一个 <a> 标签 -->
+      <a [routerLink]="['/query']" class="search-icon"><i class="fas fa-search"></i></a>
       <div class="dropdown">
         <span class="username-circle">{{ userInfo?.username?.charAt(0) || '' }}</span>
         <div class="dropdown-content">
@@ -47,9 +47,54 @@
 
           <label for="tags">Tags:</label>
           <input type="text" id="tags" [(ngModel)]="newMovie.tags" name="tags">
+
+          <label for="details">Details (JSON Format):</label>
+          <textarea id="details" [(ngModel)]="newMovie.details" name="details"></textarea>
+
+          <label for="videos">Videos (JSON Format):</label>
+          <textarea id="videos" [(ngModel)]="newMovie.videos" name="videos"></textarea>
+
+          <label for="feeders">Feeders (JSON Format):</label>
+          <textarea id="feeders" [(ngModel)]="newMovie.feeders" name="feeders"></textarea>
           
           <button type="submit">Save</button>
           <button type="button" (click)="showAddMovieFormToggle()">Cancel</button>
+        </form>
+      </div>
+
+      <!-- 编辑电影表单 -->
+      <div *ngIf="showEditMovieForm">
+        <h3>Edit Movie</h3>
+        <form (submit)="editMovie(selectedMovie._id)">
+          <label for="edit-title">Title:</label>
+          <input type="text" id="edit-title" [(ngModel)]="selectedMovie.title" name="edit-title" required>
+          
+          <label for="edit-language">Language:</label>
+          <input type="text" id="edit-language" [(ngModel)]="selectedMovie.language" name="edit-language" required>
+          
+          <label for="edit-image">Image URL:</label>
+          <input type="text" id="edit-image" [(ngModel)]="selectedMovie.image" name="edit-image">
+
+          <label for="edit-release_date">Release Date:</label>
+          <input type="date" id="edit-release_date" [(ngModel)]="selectedMovie.release_date" name="edit-release_date" required>
+          
+          <label for="edit-duration">Duration:</label>
+          <input type="number" id="edit-duration" [(ngModel)]="selectedMovie.duration" name="edit-duration" required>
+
+          <label for="edit-tags">Tags:</label>
+          <input type="text" id="edit-tags" [(ngModel)]="selectedMovie.tags" name="edit-tags">
+
+          <label for="edit-details">Details (JSON Format):</label>
+          <textarea id="edit-details" [(ngModel)]="selectedMovie.details" name="edit-details"></textarea>
+
+          <label for="edit-videos">Videos (JSON Format):</label>
+          <textarea id="edit-videos" [(ngModel)]="selectedMovie.videos" name="edit-videos"></textarea>
+
+          <label for="edit-feeders">Feeders (JSON Format):</label>
+          <textarea id="edit-feeders" [(ngModel)]="selectedMovie.feeders" name="edit-feeders"></textarea>
+          
+          <button type="submit">Save</button>
+          <button type="button" (click)="showEditMovieFormToggle(selectedMovie)">Cancel</button>
         </form>
       </div>
     </div>
@@ -63,18 +108,23 @@
           <p><strong>Language:</strong> {{ movie.language }}</p>
           <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
           <p><strong>Duration:</strong> {{ movie.duration }}</p>
-          <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(', ') : 'None' }}</p>
+          <p><strong>Tags:</strong> {{ movie.tags && isArray(movie.tags) ? movie.tags.join(', ') : 'None' }}</p>
+          <p><strong>Details:</strong> {{ movie.details && isArray(movie.details) ? mapArray(movie.details, 'title').join(', ') : 'None' }}</p>
+          <p><strong>Videos:</strong> {{ movie.videos && isArray(movie.videos) ? mapArray(movie.videos, 'url').join(', ') : 'None' }}</p>
+          <p><strong>Feeders:</strong> {{ movie.feeders && isArray(movie.feeders) ? mapArray(movie.feeders, 'name').join(', ') : 'None' }}</p>
           <button (click)="showEditMovieFormToggle(movie)">Edit</button>
           <button (click)="deleteMovie(movie._id)">Delete</button>
         </div>
       </div>
     </div>
 
-    <!-- 分页按钮 -->
+    <!-- 分页按钮和输入跳转 -->
     <div class="pagination" *ngIf="totalPages > 1">
       <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
       <span>Page {{ currentPage }} of {{ totalPages }}</span>
       <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+      <input type="number" [(ngModel)]="gotoPageNumber" placeholder="Page #" min="1" [max]="totalPages">
+      <button (click)="jumpToPage()">Go</button>
     </div>
 
     <!-- 用户管理部分 -->
@@ -92,33 +142,6 @@
           {{ user.is_admin ? 'Revoke Admin' : 'Make Admin' }}
         </button>
       </div>
-    </div>
-
-    <!-- 编辑电影表单 -->
-    <div *ngIf="showEditMovieForm">
-      <h3>Edit Movie</h3>
-      <form (submit)="editMovie(selectedMovie._id)">
-        <label for="edit-title">Title:</label>
-        <input type="text" id="edit-title" [(ngModel)]="selectedMovie.title" name="edit-title" required>
-        
-        <label for="edit-language">Language:</label>
-        <input type="text" id="edit-language" [(ngModel)]="selectedMovie.language" name="edit-language" required>
-        
-        <label for="edit-image">Image URL:</label>
-        <input type="text" id="edit-image" [(ngModel)]="selectedMovie.image" name="edit-image">
-
-        <label for="edit-release_date">Release Date:</label>
-        <input type="date" id="edit-release_date" [(ngModel)]="selectedMovie.release_date" name="edit-release_date" required>
-        
-        <label for="edit-duration">Duration:</label>
-        <input type="number" id="edit-duration" [(ngModel)]="selectedMovie.duration" name="edit-duration" required>
-
-        <label for="edit-tags">Tags:</label>
-        <input type="text" id="edit-tags" [(ngModel)]="selectedMovie.tags" name="edit-tags">
-        
-        <button type="submit">Save</button>
-        <button type="button" (click)="showEditMovieFormToggle(selectedMovie)">Cancel</button>
-      </form>
     </div>
   </section>
 </main>

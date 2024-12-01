@@ -14,6 +14,11 @@ export class FavoritesComponent implements OnInit {
   favorites: any[] = [];
   userInfo: any = {};
   is_admin: boolean = false;
+  currentPage: number = 1;
+  moviesPerPage: number = 12;
+  gotoPageNumber: number = 1; // 用户输入的页码
+  totalPages: number = 1; // 初始化总页数变量
+  currentMovies: any[] = []; // 用于存储当前显示的电影列表
 
   constructor(
     private moviesService: MoviesService,
@@ -42,10 +47,12 @@ export class FavoritesComponent implements OnInit {
       if (this.favorites.length > 0) {
         this.loadFavoriteMovies();
       }
+      this.updatePagination();
     }, error => {
       if (error.status === 404) {
         // 处理404错误，表示没有收藏电影
         this.favorites = [];
+        this.updatePagination();
       } else {
         console.error('Error fetching favorites:', error);
       }
@@ -57,10 +64,39 @@ export class FavoritesComponent implements OnInit {
     this.favorites.forEach(favorite => {
       this.moviesService.getMovieById(favorite.movie_id).subscribe(movie => {
         this.movies.push({ ...movie, favorite_id: favorite._id, isFavorite: true });
+        this.updatePagination();
       }, error => {
         console.error('Error fetching movie:', error);
       });
     });
+  }
+
+  updatePagination(): void {
+    this.totalPages = Math.ceil(this.movies.length / this.moviesPerPage);
+    this.currentMovies = this.movies.slice((this.currentPage - 1) * this.moviesPerPage, this.currentPage * this.moviesPerPage);
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updatePagination();
+    }
+  }
+
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatePagination();
+    }
+  }
+
+  jumpToPage(): void {
+    if (this.gotoPageNumber >= 1 && this.gotoPageNumber <= this.totalPages) {
+      this.currentPage = this.gotoPageNumber;
+      this.updatePagination();
+    } else {
+      alert('Invalid page number');
+    }
   }
 
   addToFavorites(movie_id: string): void {
@@ -77,6 +113,7 @@ export class FavoritesComponent implements OnInit {
     this.favoritesService.deleteFavorite(favorite_id).subscribe(() => {
       alert('Movie removed from favorites');
       this.movies = this.movies.filter(movie => movie.favorite_id !== favorite_id);
+      this.updatePagination();
     }, error => {
       console.error('Error removing from favorites:', error);
       alert('Remove favorites failed');

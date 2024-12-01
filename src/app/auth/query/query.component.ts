@@ -24,6 +24,7 @@ export class QueryComponent implements OnInit {
   currentPage: number = 1; // 当前页码
   totalPages: number = 1; // 总页数
   moviesPerPage: number = 12; // 每页显示电影数量
+  gotoPageNumber: number = 1; // 用户输入的页码
 
   constructor(
     private moviesService: MoviesService,
@@ -141,6 +142,15 @@ export class QueryComponent implements OnInit {
     if (this.currentPage > 1) {
       this.currentPage--;
       this.updatePagination();
+    }
+  }
+
+  jumpToPage(): void {
+    if (this.gotoPageNumber >= 1 && this.gotoPageNumber <= this.totalPages) {
+      this.currentPage = this.gotoPageNumber;
+      this.updatePagination();
+    } else {
+      alert('Invalid page number');
     }
   }
 

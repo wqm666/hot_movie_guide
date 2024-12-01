@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   currentPage: number = 1;
   moviesPerPage: number = 12;
+  gotoPageNumber: number = 1; // 用户输入的页码
 
   constructor(
     private moviesService: MoviesService,
@@ -131,6 +132,14 @@ export class HomeComponent implements OnInit {
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
+    }
+  }
+
+  jumpToPage(): void {
+    if (this.gotoPageNumber >= 1 && this.gotoPageNumber <= this.totalPages) {
+      this.setCurrentPage(this.gotoPageNumber);
+    } else {
+      alert('Invalid page number');
     }
   }
 

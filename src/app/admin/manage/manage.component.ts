@@ -21,6 +21,7 @@ export class ManageComponent implements OnInit {
 
   currentPage: number = 1;
   moviesPerPage: number = 12;
+  gotoPageNumber: number = 1; // 用户输入的页码
 
   constructor(
     private moviesService: MoviesService,
@@ -75,6 +76,13 @@ export class ManageComponent implements OnInit {
   }
 
   addMovie(): void {
+    // 初始化电影的各字段
+    this.newMovie.tags = this.newMovie.tags || [];
+    this.newMovie.images = this.newMovie.images || [];
+    this.newMovie.details = this.newMovie.details || [];
+    this.newMovie.videos = this.newMovie.videos || [];
+    this.newMovie.feeders = this.newMovie.feeders || [];
+
     this.adminService.addMovie(this.newMovie).subscribe(() => {
       alert('Movie added successfully');
       this.loadMovies(); // 重新加载电影列表
@@ -92,7 +100,17 @@ export class ManageComponent implements OnInit {
   }
 
   editMovie(movieId: string): void {
-    this.adminService.updateMovie(movieId, this.selectedMovie).subscribe(() => {
+    const updatedMovie = { ...this.selectedMovie };
+
+    // 确保各字段是数组
+    updatedMovie.tags = Array.isArray(updatedMovie.tags) ? updatedMovie.tags : [];
+    updatedMovie.images = Array.isArray(updatedMovie.images) ? updatedMovie.images : [];
+    updatedMovie.details = Array.isArray(updatedMovie.details) ? updatedMovie.details : [];
+    updatedMovie.videos = Array.isArray(updatedMovie.videos) ? updatedMovie.videos : [];
+    updatedMovie.feeders = Array.isArray(updatedMovie.feeders) ? updatedMovie.feeders : [];
+
+    delete updatedMovie._id; // 确保删除 _id 字段
+    this.adminService.updateMovie(movieId, updatedMovie).subscribe(() => {
       alert('Movie updated successfully');
       this.loadMovies(); // 重新加载电影列表
       this.selectedMovie = {}; // 重置表单
@@ -130,7 +148,18 @@ export class ManageComponent implements OnInit {
   }
 
   getPosterUrl(movie: any): string | undefined {
-    return movie.images.find((image: any) => image.type === 'Poster')?.url;
+    if (movie.images && Array.isArray(movie.images)) {
+      return movie.images.find((image: any) => image.type === 'Poster')?.url;
+    }
+    return undefined; // 或者返回一个默认图片的 URL
+  }
+
+  isArray(value: any): boolean {
+    return Array.isArray(value);
+  }
+
+  mapArray(array: any[], key: string): any[] {
+    return array.map(item => item[key]);
   }
 
   get totalPages(): number {
@@ -150,6 +179,14 @@ export class ManageComponent implements OnInit {
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
+    }
+  }
+
+  jumpToPage(): void {
+    if (this.gotoPageNumber >= 1 && this.gotoPageNumber <= this.totalPages) {
+      this.setCurrentPage(this.gotoPageNumber);
+    } else {
+      alert('Invalid page number');
     }
   }
 

@@ -113,8 +113,8 @@
           <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
           <p><strong>Duration:</strong> {{ movie.duration }}</p>
           <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(', ') : 'None' }}</p>
-                  <button *ngIf="!movie.isFavorite" (click)="addToFavorites(movie._id)">Star</button>
-        <button *ngIf="movie.isFavorite" (click)="removeFromFavorites(movie.favorite_id)">Stared</button>
+          <button *ngIf="!movie.isFavorite" (click)="addToFavorites(movie._id)">Star</button>
+          <button *ngIf="movie.isFavorite" (click)="removeFromFavorites(movie.favorite_id)">Stared</button>
           <a [routerLink]="['/details', movie._id]">Details</a>
         </div>
       </div>
@@ -128,6 +128,9 @@
     <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
     <span>Page {{ currentPage }} of {{ totalPages }}</span>
     <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    <!-- 新增输入框和按钮 -->
+    <input type="number" [(ngModel)]="gotoPageNumber" placeholder="Page #" min="1" [max]="totalPages">
+    <button (click)="jumpToPage()">Go</button>
   </div>
 </main>
 
