@@ -1,0 +1,1065 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>hot-movie-guide documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">hot-movie-guide documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UserInfoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/auth/user-info/user-info.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user-info</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./user-info.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user-info.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#editing" >editing</a>
+                            </li>
+                            <li>
+                                <a href="#favorites" >favorites</a>
+                            </li>
+                            <li>
+                                <a href="#is_admin" >is_admin</a>
+                            </li>
+                            <li>
+                                <a href="#userInfo" >userInfo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#deleteUser" >deleteUser</a>
+                            </li>
+                            <li>
+                                <a href="#getUserFavorites" >getUserFavorites</a>
+                            </li>
+                            <li>
+                                <a href="#getUserInfo" >getUserInfo</a>
+                            </li>
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#updateUserInfo" >updateUserInfo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, favoritesService: <a href="../injectables/FavoritesService.html" target="_self">FavoritesService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/auth/user-info/user-info.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>favoritesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FavoritesService.html" target="_self" >FavoritesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteUser"></a>
+                    <span class="name">
+                        <span ><b>deleteUser</b></span>
+                        <a href="#deleteUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteUser()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/auth/user-info/user-info.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserFavorites"></a>
+                    <span class="name">
+                        <span ><b>getUserFavorites</b></span>
+                        <a href="#getUserFavorites"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserFavorites()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/app/auth/user-info/user-info.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserInfo"></a>
+                    <span class="name">
+                        <span ><b>getUserInfo</b></span>
+                        <a href="#getUserInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserInfo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/app/auth/user-info/user-info.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/auth/user-info/user-info.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="23"
+                                    class="link-to-prism">src/app/auth/user-info/user-info.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUserInfo"></a>
+                    <span class="name">
+                        <span ><b>updateUserInfo</b></span>
+                        <a href="#updateUserInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateUserInfo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">src/app/auth/user-info/user-info.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editing"></a>
+                    <span class="name">
+                        <span ><b>editing</b></span>
+                        <a href="#editing"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/auth/user-info/user-info.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="favorites"></a>
+                    <span class="name">
+                        <span ><b>favorites</b></span>
+                        <a href="#favorites"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/auth/user-info/user-info.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="is_admin"></a>
+                    <span class="name">
+                        <span ><b>is_admin</b></span>
+                        <a href="#is_admin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/auth/user-info/user-info.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userInfo"></a>
+                    <span class="name">
+                        <span ><b>userInfo</b></span>
+                        <a href="#userInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/auth/user-info/user-info.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { AuthService } from &#x27;../../services/auth.service&#x27;;
+import { FavoritesService } from &#x27;../../services/favorites.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-user-info&#x27;,
+  templateUrl: &#x27;./user-info.component.html&#x27;,
+  styleUrls: [&#x27;./user-info.component.css&#x27;]
+})
+export class UserInfoComponent implements OnInit {
+  userInfo: any &#x3D; {};
+  favorites: any[] &#x3D; [];
+  is_admin: boolean &#x3D; false;
+  editing: boolean &#x3D; false;
+
+  constructor(
+    private authService: AuthService,
+    private favoritesService: FavoritesService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.getUserInfo();
+  }
+
+  getUserInfo(): void {
+    this.authService.getUserInfo().subscribe(data &#x3D;&gt; {
+      this.userInfo &#x3D; data;
+      this.is_admin &#x3D; this.userInfo.is_admin;
+    }, error &#x3D;&gt; {
+      console.error(&#x27;Error fetching user info:&#x27;, error);
+    });
+  }
+
+  getUserFavorites(): void {
+    this.favoritesService.getUserFavorites().subscribe(data &#x3D;&gt; {
+      this.favorites &#x3D; data;
+    }, error &#x3D;&gt; {
+      console.error(&#x27;Error fetching favorites:&#x27;, error);
+    });
+  }
+
+  updateUserInfo(): void {
+    this.authService.updateUserInfo(this.userInfo).subscribe(() &#x3D;&gt; {
+      alert(&#x27;User information updated successfully&#x27;);
+      this.editing &#x3D; false;
+    }, error &#x3D;&gt; {
+      console.error(&#x27;Error updating user info:&#x27;, error);
+    });
+  }
+
+  deleteUser(): void {
+    if (confirm(&#x27;Are you sure you want to delete your account? This action cannot be undone.&#x27;)) {
+      this.authService.deleteUser().subscribe(() &#x3D;&gt; {
+        alert(&#x27;Your account has been deleted.&#x27;);
+        this.router.navigate([&#x27;/login&#x27;]);
+      }, error &#x3D;&gt; {
+        console.error(&#x27;Error deleting user:&#x27;, error);
+      });
+    }
+  }
+
+  logout(): void {
+    this.authService.logout().subscribe(() &#x3D;&gt; {
+      this.router.navigate([&#x27;/login&#x27;]);
+      alert(&#x27;Logout successfully&#x27;);
+    }, error &#x3D;&gt; {
+      console.error(&#x27;Error logging out:&#x27;, error);
+      alert(&#x27;Logout failed&#x27;);
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;header class&#x3D;&quot;navbar&quot;&gt;
+  &lt;div class&#x3D;&quot;content&quot;&gt;
+    &lt;div class&#x3D;&quot;left&quot;&gt;
+      &lt;a [routerLink]&#x3D;&quot;[&#x27;/home&#x27;]&quot; class&#x3D;&quot;logo&quot;&gt;
+        &lt;img src&#x3D;&quot;../../../assets/logo.jpg&quot; alt&#x3D;&quot;THMG Logo&quot; width&#x3D;&quot;100&quot; height&#x3D;&quot;30&quot;&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;right&quot;&gt;
+      &lt;a [routerLink]&#x3D;&quot;[&#x27;/query&#x27;]&quot; class&#x3D;&quot;search-icon&quot;&gt;&lt;i class&#x3D;&quot;fas fa-search&quot;&gt;&lt;/i&gt;&lt;/a&gt; &lt;!-- 确保这是一个 &lt;a&gt; 标签 --&gt;
+      &lt;div class&#x3D;&quot;dropdown&quot;&gt;
+        &lt;span class&#x3D;&quot;username-circle&quot;&gt;{{ userInfo?.username?.charAt(0) || &#x27;&#x27; }}&lt;/span&gt;
+        &lt;div class&#x3D;&quot;dropdown-content&quot;&gt;
+          &lt;a (click)&#x3D;&quot;getUserInfo()&quot; [routerLink]&#x3D;&quot;[&#x27;/user-info&#x27;]&quot;&gt;{{ userInfo?.username }}&lt;/a&gt;
+          &lt;a (click)&#x3D;&quot;logout()&quot;&gt;Logout&lt;/a&gt;
+          &lt;a *ngIf&#x3D;&quot;is_admin&quot; [routerLink]&#x3D;&quot;[&#x27;/admin/manage&#x27;]&quot;&gt;Manage&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+  
+  &lt;main class&#x3D;&quot;user-info-container&quot;&gt;
+    &lt;h1&gt;User Information&lt;/h1&gt;
+    &lt;p&gt;&lt;strong&gt;Username:&lt;/strong&gt;&lt;/p&gt;
+    &lt;input type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;userInfo.username&quot; class&#x3D;&quot;form-control&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Password:&lt;/strong&gt;&lt;/p&gt;
+    &lt;input type&#x3D;&quot;password&quot; [(ngModel)]&#x3D;&quot;userInfo.password&quot; class&#x3D;&quot;form-control&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Email:&lt;/strong&gt;&lt;/p&gt;
+    &lt;input type&#x3D;&quot;email&quot; [(ngModel)]&#x3D;&quot;userInfo.email&quot; class&#x3D;&quot;form-control&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Is_Admin:&lt;/strong&gt; {{ is_admin ? &#x27;Yes&#x27; : &#x27;No&#x27; }}&lt;/p&gt;
+    &lt;button (click)&#x3D;&quot;updateUserInfo()&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Update&lt;/button&gt;
+    &lt;button (click)&#x3D;&quot;deleteUser()&quot; class&#x3D;&quot;btn btn-danger&quot;&gt;Delete Account&lt;/button&gt;
+    
+    &lt;div class&#x3D;&quot;navigation&quot;&gt;
+      &lt;a [routerLink]&#x3D;&quot;[&#x27;/home&#x27;]&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Home&lt;/a&gt;
+      &lt;a [routerLink]&#x3D;&quot;[&#x27;/favorites&#x27;]&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Favorites&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+  
+  &lt;footer class&#x3D;&quot;footer&quot;&gt;
+    &lt;div class&#x3D;&quot;content&quot;&gt;
+      &lt;div class&#x3D;&quot;left&quot;&gt;
+        &lt;img src&#x3D;&quot;../../../assets/logo.jpg&quot; alt&#x3D;&quot;THMG Logo&quot; width&#x3D;&quot;100&quot; height&#x3D;&quot;auto&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;right&quot;&gt;
+        &lt;span class&#x3D;&quot;greeting&quot;&gt;Hello, {{ userInfo?.username }}!&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+  </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./user-info.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.navbar, .footer {
+  background-color: #333; /* 颜色块背景色 */
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.left img {
+  height: auto;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  font-size: 20px;
+  cursor: pointer; /* 确保指针形状改变，提示用户可以点击 */
+  margin-right: 10px;
+  color: #fff; /* 确保放大镜图标颜色可见 */
+  text-decoration: none; /* 确保没有下划线 */
+}
+
+.username-circle {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #4CAF50; /* 用户名标识背景颜色 */
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.greeting {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+main {
+  padding: 20px;
+  min-height: calc(100vh - 100px); /* 确保主内容区占满剩余空间 */
+}
+
+.user-info-container {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.user-info-container h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.user-info-container p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.user-info-container .btn {
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><header class="navbar">  <div class="content">    <div class="left">      <a [routerLink]="[\'/home\']" class="logo">        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="30">      </a>    </div>    <div class="right">      <a [routerLink]="[\'/query\']" class="search-icon"><i class="fas fa-search"></i></a> <!-- 确保这是一个 <a> 标签 -->      <div class="dropdown">        <span class="username-circle">{{ userInfo?.username?.charAt(0) || \'\' }}</span>        <div class="dropdown-content">          <a (click)="getUserInfo()" [routerLink]="[\'/user-info\']">{{ userInfo?.username }}</a>          <a (click)="logout()">Logout</a>          <a *ngIf="is_admin" [routerLink]="[\'/admin/manage\']">Manage</a>        </div>      </div>    </div>  </div></header>    <main class="user-info-container">    <h1>User Information</h1>    <p><strong>Username:</strong></p>    <input type="text" [(ngModel)]="userInfo.username" class="form-control">    <p><strong>Password:</strong></p>    <input type="password" [(ngModel)]="userInfo.password" class="form-control">    <p><strong>Email:</strong></p>    <input type="email" [(ngModel)]="userInfo.email" class="form-control">    <p><strong>Is_Admin:</strong> {{ is_admin ? \'Yes\' : \'No\' }}</p>    <button (click)="updateUserInfo()" class="btn btn-primary">Update</button>    <button (click)="deleteUser()" class="btn btn-danger">Delete Account</button>        <div class="navigation">      <a [routerLink]="[\'/home\']" class="btn btn-primary">Home</a>      <a [routerLink]="[\'/favorites\']" class="btn btn-primary">Favorites</a>    </div>  </main>    <footer class="footer">    <div class="content">      <div class="left">        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="auto">      </div>      <div class="right">        <span class="greeting">Hello, {{ userInfo?.username }}!</span>      </div>    </div>  </footer>  </div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FavoritesComponent', 'selector': 'app-favorites'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ManageComponent', 'selector': 'app-manage'},{'name': 'QueryComponent', 'selector': 'app-query'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'UserInfoComponent', 'selector': 'app-user-info'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'UserInfoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserInfoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
