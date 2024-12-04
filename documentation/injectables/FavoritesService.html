@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service to manage user&#39;s favorite movies.</p>
+
+            </p>
 
 
 
@@ -182,7 +189,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/services/favorites.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/favorites.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -196,6 +203,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -210,6 +218,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The HTTP client service used for making HTTP requests.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -245,14 +259,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">src/app/services/favorites.service.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/app/services/favorites.service.ts:33</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Adds a movie to the user&#39;s favorites.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -263,6 +279,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -277,6 +294,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the movie to be added to the favorites.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -286,7 +309,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>An observable that emits the response from the server.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -312,14 +338,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="21"
-                                    class="link-to-prism">src/app/services/favorites.service.ts:21</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/services/favorites.service.ts:53</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Deletes a movie from the user&#39;s favorites.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -330,6 +358,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -344,6 +373,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the favorite to be deleted.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -353,7 +388,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>An observable that emits the response from the server.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -379,19 +417,27 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">src/app/services/favorites.service.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/services/favorites.service.ts:43</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Gets the user&#39;s favorite movies.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>Observable&lt;any[]&gt;</code>
 
                         </div>
+                            <div class="io-description">
+                                <ul>
+<li>An observable that emits the list of the user&#39;s favorite movies.</li>
+</ul>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -427,10 +473,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/services/favorites.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/favorites.service.ts:18</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Base URL for the favorites endpoint.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -441,30 +493,61 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 
+/**
+ * Service to manage user&#x27;s favorite movies.
+ * @since v1.0.0
+ * @autor Zirun Wang
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class FavoritesService {
+  /**
+   * Base URL for the favorites endpoint.
+   * @private
+   */
   private baseUrl &#x3D; &#x27;http://127.0.0.1:5000/favorites&#x27;;
 
+  /**
+   * @constructor
+   * @param { HttpClient } http - The HTTP client service used for making HTTP requests.
+   */
   constructor(private http: HttpClient) {}
 
+  /**
+   * Adds a movie to the user&#x27;s favorites.
+   * @param { string } movie_id - The ID of the movie to be added to the favorites.
+   * @returns { Observable&lt;any&gt; } - An observable that emits the response from the server.
+   * @since v1.0.0
+   * @todo Add error handling for HTTP request
+   */
   addFavorite(movie_id: string): Observable&lt;any&gt; {
     return this.http.post&lt;any&gt;(&#x60;${this.baseUrl}/&#x60;, { movie_id }, { withCredentials: true });
   }
 
+  /**
+   * Gets the user&#x27;s favorite movies.
+   * @returns { Observable&lt;any[]&gt; } - An observable that emits the list of the user&#x27;s favorite movies.
+   * @since v1.0.0
+   * @todo Optimize caching for user favorites
+   */
   getUserFavorites(): Observable&lt;any[]&gt; {
     return this.http.get&lt;any[]&gt;(&#x60;${this.baseUrl}/user&#x60;, { withCredentials: true });
   }
 
+  /**
+   * Deletes a movie from the user&#x27;s favorites.
+   * @param { string } favorite_id - The ID of the favorite to be deleted.
+   * @returns { Observable&lt;any&gt; } - An observable that emits the response from the server.
+   * @since v1.0.0
+   */
   deleteFavorite(favorite_id: string): Observable&lt;any&gt; {
     return this.http.delete&lt;any&gt;(&#x60;${this.baseUrl}/${favorite_id}&#x60;, { withCredentials: true });
   }
-}
-</code></pre>
+}</code></pre>
     </div>
 
 </div>

@@ -129,8 +129,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">// app-routing.module.ts
-import { NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { LoginComponent } from &#x27;./auth/login/login.component&#x27;;
 import { RegisterComponent } from &#x27;./auth/register/register.component&#x27;;
@@ -142,7 +141,7 @@ import { QueryComponent } from &#x27;./auth/query/query.component&#x27;;
 import { ManageComponent } from &#x27;./admin/manage/manage.component&#x27;;
 import { AuthGuard } from &#x27;./auth/guard/auth.guard&#x27;;
 
-const routes: Routes &#x3D; [
+export const routes: Routes &#x3D; [
   { path: &#x27;login&#x27;, component: LoginComponent },
   { path: &#x27;register&#x27;, component: RegisterComponent },
   { path: &#x27;home&#x27;, component: HomeComponent, canActivate: [AuthGuard] },

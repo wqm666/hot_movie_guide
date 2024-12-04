@@ -4,7 +4,17 @@ import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app-routing.module';
 
+/**
+ * Application configuration for the Angular app.
+ * Provides zone change detection, router, and HTTP client.
+ * @since v1.0.0
+ * @autor Your Name
+ */
 export const appConfig: ApplicationConfig = {
+  /**
+   * Array of providers for the application.
+   * @type { Array<Provider> }
+   */
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),

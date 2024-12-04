@@ -124,6 +124,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for handling user registration.
+Provides a form for users to enter their registration details and handles registration logic.</p>
+
+    </p>
 
 
 
@@ -227,7 +235,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/auth/register/register.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/auth/register/register.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -241,6 +249,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -255,6 +264,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The form builder service to create forms.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>authService</td>
@@ -267,6 +282,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The authentication service used for registering.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -279,6 +300,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The router service used for navigation.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -318,14 +345,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="22"
-                                    class="link-to-prism">src/app/auth/register/register.component.ts:22</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/auth/register/register.component.ts:43</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Submits the registration form.
+Calls the authentication service to register the user and handles the response.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -360,10 +390,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/auth/register/register.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/auth/register/register.component.ts:22</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The form group for the registration form.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -378,14 +414,30 @@ import { FormBuilder, FormGroup } from &#x27;@angular/forms&#x27;;
 import { AuthService } from &#x27;../../services/auth.service&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 
+/**
+ * Component for handling user registration.
+ * Provides a form for users to enter their registration details and handles registration logic.
+ * @since v1.0.0
+ * @autor Zirun Wang
+ */
 @Component({
   selector: &#x27;app-register&#x27;,
   templateUrl: &#x27;./register.component.html&#x27;,
   styleUrls: [&#x27;./register.component.css&#x27;]
 })
 export class RegisterComponent {
+  /**
+   * The form group for the registration form.
+   * @type { FormGroup }
+   */
   registerForm: FormGroup;
 
+  /**
+   * @constructor
+   * @param { FormBuilder } fb - The form builder service to create forms.
+   * @param { AuthService } authService - The authentication service used for registering.
+   * @param { Router } router - The router service used for navigation.
+   */
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.registerForm &#x3D; this.fb.group({
       username: [&#x27;&#x27;],
@@ -394,21 +446,25 @@ export class RegisterComponent {
     });
   }
 
+  /**
+   * Submits the registration form.
+   * Calls the authentication service to register the user and handles the response.
+   * @since v1.0.0
+   */
   onSubmit(): void {
     this.authService.register(this.registerForm.value).subscribe(
       response &#x3D;&gt; {
         console.log(&#x27;User registered successfully:&#x27;, response);
         this.router.navigate([&#x27;/login&#x27;]);
-        alert(&#x27;Rigister successfully&#x27;);
+        alert(&#x27;Register successfully&#x27;);
       },
       error &#x3D;&gt; {
         console.error(&#x27;Error registering user:&#x27;, error);
-        alert(&#x27;Rigister failed&#x27;);
+        alert(&#x27;Register failed&#x27;);
       }
     );
   }
-}
-</code></pre>
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">

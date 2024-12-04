@@ -121,6 +121,13 @@
             </p>
 
 
+                <p class="comment">
+                <h3>Description</h3>
+                </p>
+                <p class="comment">
+                    <p>Guard to protect routes that require authentication.</p>
+
+                </p>
 
 
 
@@ -164,7 +171,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/auth/guard/auth.guard.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/auth/guard/auth.guard.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -178,6 +185,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -192,6 +200,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The authentication service to check login status.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -204,6 +218,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The router service to navigate if authentication fails.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -239,14 +259,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">src/app/auth/guard/auth.guard.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">src/app/auth/guard/auth.guard.ts:30</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Determines if a route can be activated based on the user&#39;s authentication status.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -257,6 +279,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -271,6 +294,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The activated route snapshot.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>state</td>
@@ -283,6 +312,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The router state snapshot.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -292,7 +327,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>True if the user is authenticated, otherwise false.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -306,15 +344,32 @@
             <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from &#x27;@angular/router&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-import { AuthService } from &#x27;../../services/auth.service&#x27;; // 确保导入路径正确
+import { AuthService } from &#x27;../../services/auth.service&#x27;;
 
+/**
+ * Guard to protect routes that require authentication.
+ * @since v1.0.0
+ * @autor Zirun Wang
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class AuthGuard implements CanActivate {
 
+  /**
+   * @constructor
+   * @param { AuthService } authService - The authentication service to check login status.
+   * @param { Router } router - The router service to navigate if authentication fails.
+   */
   constructor(private authService: AuthService, private router: Router) {}
 
+  /**
+   * Determines if a route can be activated based on the user&#x27;s authentication status.
+   * @param { ActivatedRouteSnapshot } next - The activated route snapshot.
+   * @param { RouterStateSnapshot } state - The router state snapshot.
+   * @returns { Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean } - True if the user is authenticated, otherwise false.
+   * @since v1.0.0
+   */
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -326,8 +381,7 @@ export class AuthGuard implements CanActivate {
       return false;
     }
   }
-}
-</code></pre>
+}</code></pre>
         </div>
 </div>
 

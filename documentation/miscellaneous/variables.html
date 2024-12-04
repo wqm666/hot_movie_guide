@@ -143,6 +143,10 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
+  /**
+   * Array of providers for the application.
+   * @type { Array&lt;Provider&gt; }
+   */
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
@@ -152,6 +156,13 @@
                     </td>
                 </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Application configuration for the Angular app.
+Provides zone change detection, router, and HTTP client.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>

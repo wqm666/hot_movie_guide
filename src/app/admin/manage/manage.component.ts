@@ -14,14 +14,14 @@ export class ManageComponent implements OnInit {
   is_admin: boolean = false;
   users: any[] = [];
   movies: any[] = [];
-  newMovie: any = {}; // 用于存储新电影的数据
-  selectedMovie: any = {}; // 用于存储选中的电影数据
-  showAddMovieForm: boolean = false; // 控制是否显示添加电影表单
-  showEditMovieForm: boolean = false; // 控制是否显示编辑电影表单
+  newMovie: any = {};
+  selectedMovie: any = {};
+  showAddMovieForm: boolean = false;
+  showEditMovieForm: boolean = false;
 
   currentPage: number = 1;
   moviesPerPage: number = 12;
-  gotoPageNumber: number = 1; // 用户输入的页码
+  gotoPageNumber: number = 1;
 
   constructor(
     private moviesService: MoviesService,
@@ -64,7 +64,7 @@ export class ManageComponent implements OnInit {
   toggleAdmin(userId: string): void {
     this.adminService.toggleAdmin(userId).subscribe(() => {
       alert('User admin status toggled');
-      this.getAllUsers(); // 重新加载用户列表
+      this.getAllUsers();
     }, error => {
       console.error('Error toggling admin status:', error);
       alert('Toggle admin status failed');
@@ -76,7 +76,6 @@ export class ManageComponent implements OnInit {
   }
 
   addMovie(): void {
-    // 初始化电影的各字段
     this.newMovie.tags = this.newMovie.tags || [];
     this.newMovie.images = this.newMovie.images || [];
     this.newMovie.details = this.newMovie.details || [];
@@ -85,9 +84,9 @@ export class ManageComponent implements OnInit {
 
     this.adminService.addMovie(this.newMovie).subscribe(() => {
       alert('Movie added successfully');
-      this.loadMovies(); // 重新加载电影列表
-      this.newMovie = {}; // 重置表单
-      this.showAddMovieForm = false; // 隐藏表单
+      this.loadMovies();
+      this.newMovie = {};
+      this.showAddMovieForm = false;
     }, error => {
       console.error('Error adding movie:', error);
       alert('Add movie failed');
@@ -102,19 +101,18 @@ export class ManageComponent implements OnInit {
   editMovie(movieId: string): void {
     const updatedMovie = { ...this.selectedMovie };
 
-    // 确保各字段是数组
     updatedMovie.tags = Array.isArray(updatedMovie.tags) ? updatedMovie.tags : [];
     updatedMovie.images = Array.isArray(updatedMovie.images) ? updatedMovie.images : [];
     updatedMovie.details = Array.isArray(updatedMovie.details) ? updatedMovie.details : [];
     updatedMovie.videos = Array.isArray(updatedMovie.videos) ? updatedMovie.videos : [];
     updatedMovie.feeders = Array.isArray(updatedMovie.feeders) ? updatedMovie.feeders : [];
 
-    delete updatedMovie._id; // 确保删除 _id 字段
+    delete updatedMovie._id;
     this.adminService.updateMovie(movieId, updatedMovie).subscribe(() => {
       alert('Movie updated successfully');
-      this.loadMovies(); // 重新加载电影列表
-      this.selectedMovie = {}; // 重置表单
-      this.showEditMovieForm = false; // 隐藏表单
+      this.loadMovies();
+      this.selectedMovie = {};
+      this.showEditMovieForm = false;
     }, error => {
       console.error('Error updating movie:', error);
       alert('Update movie failed');
@@ -124,7 +122,7 @@ export class ManageComponent implements OnInit {
   deleteMovie(movieId: string): void {
     this.adminService.deleteMovie(movieId).subscribe(() => {
       alert('Movie deleted');
-      this.loadMovies(); // 重新加载电影列表
+      this.loadMovies();
     }, error => {
       console.error('Error deleting movie:', error);
       alert('Delete movie failed');
@@ -144,14 +142,14 @@ export class ManageComponent implements OnInit {
 
   handleImageError(event: Event) {
     const target = event.target as HTMLImageElement;
-    target.src = '../../../assets/default-image.jpg';  // 设置默认图片路径
+    target.src = '../../../assets/logo.jpg';
   }
 
   getPosterUrl(movie: any): string | undefined {
     if (movie.images && Array.isArray(movie.images)) {
       return movie.images.find((image: any) => image.type === 'Poster')?.url;
     }
-    return undefined; // 或者返回一个默认图片的 URL
+    return undefined;
   }
 
   isArray(value: any): boolean {

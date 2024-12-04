@@ -126,6 +126,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface for video details.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -317,6 +324,11 @@ import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { MoviesService } from &#x27;../../services/movies.service&#x27;;
 import { FavoritesService } from &#x27;../../services/favorites.service&#x27;;
 
+/**
+ * Interface for video details.
+ * @since v1.0.0
+ * @autor Zirun Wang
+ */
 interface Video {
   kind: string;
   language: string;
@@ -324,25 +336,53 @@ interface Video {
   url: string;
 }
 
+/**
+ * Component for displaying movie details.
+ * Handles fetching movie details and managing favorites.
+ * @since v1.0.0
+ * @autor Your Name
+ */
 @Component({
   selector: &#x27;app-details&#x27;,
   templateUrl: &#x27;./details.component.html&#x27;,
   styleUrls: [&#x27;./details.component.css&#x27;]
 })
 export class DetailsComponent implements OnInit {
+  /**
+   * The details of the movie.
+   */
   movie: any;
+
+  /**
+   * Indicates whether the movie is a favorite.
+   */
   isFavorite: boolean &#x3D; false;
 
+  /**
+   * @constructor
+   * @param { ActivatedRoute } route - The activated route service used for accessing route parameters.
+   * @param { MoviesService } moviesService - The service used for fetching movie details.
+   * @param { FavoritesService } favoritesService - The service used for managing favorite movies.
+   */
   constructor(
     private route: ActivatedRoute,
     private moviesService: MoviesService,
     private favoritesService: FavoritesService,
   ) {}
 
+  /**
+   * Lifecycle hook that is called after data-bound properties are initialized.
+   * Fetches movie details on component initialization.
+   * @since v1.0.0
+   */
   ngOnInit(): void {
     this.getMovieDetails();
   }
 
+  /**
+   * Fetches the details of the movie based on the route parameter.
+   * @since v1.0.0
+   */
   getMovieDetails(): void {
     const id &#x3D; this.route.snapshot.paramMap.get(&#x27;id&#x27;);
     if (id) {
@@ -355,6 +395,10 @@ export class DetailsComponent implements OnInit {
     }
   }
 
+  /**
+   * Checks if the movie is in the user&#x27;s favorites.
+   * @since v1.0.0
+   */
   checkIfFavorite(): void {
     this.favoritesService.getUserFavorites().subscribe((favorites: any[]) &#x3D;&gt; {
       this.isFavorite &#x3D; favorites.some(favorite &#x3D;&gt; favorite.movie_id &#x3D;&#x3D;&#x3D; this.movie._id);
@@ -363,6 +407,10 @@ export class DetailsComponent implements OnInit {
     });
   }
 
+  /**
+   * Adds the movie to the user&#x27;s favorites.
+   * @since v1.0.0
+   */
   addToFavorites(): void {
     if (this.movie) {
       this.favoritesService.addFavorite(this.movie._id).subscribe(() &#x3D;&gt; {
@@ -373,6 +421,10 @@ export class DetailsComponent implements OnInit {
     }
   }
 
+  /**
+   * Removes the movie from the user&#x27;s favorites.
+   * @since v1.0.0
+   */
   removeFromFavorites(): void {
     if (this.movie) {
       this.favoritesService.getUserFavorites().subscribe((favorites: any[]) &#x3D;&gt; {
@@ -389,8 +441,7 @@ export class DetailsComponent implements OnInit {
       });
     }
   }
-}
-</code></pre>
+}</code></pre>
     </div>
 </div>
 

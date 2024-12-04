@@ -100,6 +100,17 @@
     <div class="query-form">
       <h3>Aggregate Options</h3>
       <button (click)="aggregateMovies()">Aggregate</button>
+      <button (click)="toggleAggregatedResults()">Toggle Aggregated Results</button>
+    </div>
+
+    <div *ngIf="showAggregatedResults">
+      <p>Total Movies: {{ totalMovies }}</p>
+      <p>Total Average Duration: {{ totalAverageDuration }} minutes</p>
+      <div *ngFor="let stat of languageStats">
+        <p><strong>Language:</strong> {{ stat._id }}</p>
+        <p><strong>Total Movies:</strong> {{ stat.total_movies }}</p>
+        <p><strong>Average Duration:</strong> {{ stat.average_duration }} minutes</p>
+      </div>
     </div>
   </section>
 

@@ -124,6 +124,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for displaying and managing user&#39;s favorite movies.
+Handles loading favorite movies, pagination, and user interactions.</p>
+
+    </p>
 
 
     <p class="comment">
@@ -293,7 +301,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:62</a></div>
                             </td>
                         </tr>
 
@@ -307,6 +315,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -321,6 +330,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The service used for fetching movies.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>favoritesService</td>
@@ -333,6 +348,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The service used for managing favorite movies.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>authService</td>
@@ -345,6 +366,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The authentication service used for fetching user info.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -357,6 +384,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The router service used for navigation.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -396,14 +429,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="102"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:102</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="187"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:187</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Adds a movie to the user&#39;s favorites.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -414,6 +449,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -428,6 +464,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the movie to add to favorites.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -463,14 +505,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="139"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:139</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="245"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:245</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves the URL of the movie&#39;s poster.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -481,6 +525,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -495,6 +540,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The movie object.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -504,7 +555,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>The URL of the poster image.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -530,14 +584,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="44"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:44</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:105</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Fetches the user&#39;s favorite movies from the server.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -567,14 +623,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="35"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:35</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:92</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Fetches the user&#39;s information from the server.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -604,14 +662,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="134"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:134</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="234"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:234</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Handles the error event for movie images.
+Sets a default image if the original image fails to load.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -622,6 +683,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -636,6 +698,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The error event.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -671,14 +739,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="93"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:93</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:173</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Jumps to a specific page based on user input.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -708,14 +778,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="62"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:62</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:126</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Loads the user&#39;s favorite movies.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -745,14 +817,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="123"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:123</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:217</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Logs out the user and navigates to the login page.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -782,14 +856,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="79"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:79</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:151</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Navigates to the next page in pagination.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -819,14 +895,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:30</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:83</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook that is called after data-bound properties are initialized.
+Fetches user information and user&#39;s favorite movies on component initialization.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -856,14 +935,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="86"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:86</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="162"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:162</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Navigates to the previous page in pagination.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -893,14 +974,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="112"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:112</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="202"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:202</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Removes a movie from the user&#39;s favorites.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -911,6 +994,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -925,6 +1009,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the favorite to remove.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -960,14 +1050,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="74"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:74</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:142</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Updates the pagination information.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1007,10 +1099,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:62</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The list of movies to display on the current page.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1038,10 +1136,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:42</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The current page number for pagination.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1069,10 +1173,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The list of user&#39;s favorite movies.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1100,10 +1210,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:52</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The page number input by the user for jumping to a specific page.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1131,10 +1247,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:37</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indicates if the user is an admin.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1162,10 +1284,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:22</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The list of all movies.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1193,10 +1321,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:47</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The number of movies per page for pagination.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1224,10 +1358,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:57</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The total number of pages for pagination.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1255,10 +1395,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:32</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The user&#39;s information.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1274,22 +1420,70 @@ import { FavoritesService } from &#x27;../../services/favorites.service&#x27;;
 import { AuthService } from &#x27;../../services/auth.service&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 
+/**
+ * Component for displaying and managing user&#x27;s favorite movies.
+ * Handles loading favorite movies, pagination, and user interactions.
+ * @since v1.0.0
+ * @autor Zirun Wang
+ */
 @Component({
   selector: &#x27;app-favorites&#x27;,
   templateUrl: &#x27;./favorites.component.html&#x27;,
   styleUrls: [&#x27;./favorites.component.css&#x27;]
 })
 export class FavoritesComponent implements OnInit {
+  /**
+   * The list of all movies.
+   */
   movies: any[] &#x3D; [];
-  favorites: any[] &#x3D; [];
-  userInfo: any &#x3D; {};
-  is_admin: boolean &#x3D; false;
-  currentPage: number &#x3D; 1;
-  moviesPerPage: number &#x3D; 12;
-  gotoPageNumber: number &#x3D; 1; // 用户输入的页码
-  totalPages: number &#x3D; 1; // 初始化总页数变量
-  currentMovies: any[] &#x3D; []; // 用于存储当前显示的电影列表
 
+  /**
+   * The list of user&#x27;s favorite movies.
+   */
+  favorites: any[] &#x3D; [];
+
+  /**
+   * The user&#x27;s information.
+   */
+  userInfo: any &#x3D; {};
+
+  /**
+   * Indicates if the user is an admin.
+   */
+  is_admin: boolean &#x3D; false;
+
+  /**
+   * The current page number for pagination.
+   */
+  currentPage: number &#x3D; 1;
+
+  /**
+   * The number of movies per page for pagination.
+   */
+  moviesPerPage: number &#x3D; 12;
+
+  /**
+   * The page number input by the user for jumping to a specific page.
+   */
+  gotoPageNumber: number &#x3D; 1;
+
+  /**
+   * The total number of pages for pagination.
+   */
+  totalPages: number &#x3D; 1;
+
+  /**
+   * The list of movies to display on the current page.
+   */
+  currentMovies: any[] &#x3D; [];
+
+  /**
+   * @constructor
+   * @param { MoviesService } moviesService - The service used for fetching movies.
+   * @param { FavoritesService } favoritesService - The service used for managing favorite movies.
+   * @param { AuthService } authService - The authentication service used for fetching user info.
+   * @param { Router } router - The router service used for navigation.
+   */
   constructor(
     private moviesService: MoviesService,
     private favoritesService: FavoritesService,
@@ -1297,11 +1491,20 @@ export class FavoritesComponent implements OnInit {
     private router: Router
   ) {}
 
+  /**
+   * Lifecycle hook that is called after data-bound properties are initialized.
+   * Fetches user information and user&#x27;s favorite movies on component initialization.
+   * @since v1.0.0
+   */
   ngOnInit(): void {
     this.getUserInfo();
     this.getUserFavorites();
   }
 
+  /**
+   * Fetches the user&#x27;s information from the server.
+   * @since v1.0.0
+   */
   getUserInfo(): void {
     this.authService.getUserInfo().subscribe(data &#x3D;&gt; {
       this.userInfo &#x3D; data;
@@ -1311,6 +1514,10 @@ export class FavoritesComponent implements OnInit {
     });
   }
 
+  /**
+   * Fetches the user&#x27;s favorite movies from the server.
+   * @since v1.0.0
+   */
   getUserFavorites(): void {
     this.favoritesService.getUserFavorites().subscribe(favorites &#x3D;&gt; {
       this.favorites &#x3D; favorites;
@@ -1320,7 +1527,6 @@ export class FavoritesComponent implements OnInit {
       this.updatePagination();
     }, error &#x3D;&gt; {
       if (error.status &#x3D;&#x3D;&#x3D; 404) {
-        // 处理404错误，表示没有收藏电影
         this.favorites &#x3D; [];
         this.updatePagination();
       } else {
@@ -1329,6 +1535,10 @@ export class FavoritesComponent implements OnInit {
     });
   }
 
+  /**
+   * Loads the user&#x27;s favorite movies.
+   * @since v1.0.0
+   */
   loadFavoriteMovies(): void {
     this.movies &#x3D; [];
     this.favorites.forEach(favorite &#x3D;&gt; {
@@ -1341,11 +1551,19 @@ export class FavoritesComponent implements OnInit {
     });
   }
 
+  /**
+   * Updates the pagination information.
+   * @since v1.0.0
+   */
   updatePagination(): void {
     this.totalPages &#x3D; Math.ceil(this.movies.length / this.moviesPerPage);
     this.currentMovies &#x3D; this.movies.slice((this.currentPage - 1) * this.moviesPerPage, this.currentPage * this.moviesPerPage);
   }
 
+  /**
+   * Navigates to the next page in pagination.
+   * @since v1.0.0
+   */
   nextPage(): void {
     if (this.currentPage &lt; this.totalPages) {
       this.currentPage++;
@@ -1353,6 +1571,10 @@ export class FavoritesComponent implements OnInit {
     }
   }
 
+  /**
+   * Navigates to the previous page in pagination.
+   * @since v1.0.0
+   */
   previousPage(): void {
     if (this.currentPage &gt; 1) {
       this.currentPage--;
@@ -1360,6 +1582,10 @@ export class FavoritesComponent implements OnInit {
     }
   }
 
+  /**
+   * Jumps to a specific page based on user input.
+   * @since v1.0.0
+   */
   jumpToPage(): void {
     if (this.gotoPageNumber &gt;&#x3D; 1 &amp;&amp; this.gotoPageNumber &lt;&#x3D; this.totalPages) {
       this.currentPage &#x3D; this.gotoPageNumber;
@@ -1369,6 +1595,11 @@ export class FavoritesComponent implements OnInit {
     }
   }
 
+  /**
+   * Adds a movie to the user&#x27;s favorites.
+   * @param { string } movie_id - The ID of the movie to add to favorites.
+   * @since v1.0.0
+   */
   addToFavorites(movie_id: string): void {
     this.favoritesService.addFavorite(movie_id).subscribe((favorite) &#x3D;&gt; {
       alert(&#x27;Movie added to favorites&#x27;);
@@ -1379,6 +1610,11 @@ export class FavoritesComponent implements OnInit {
     });
   }
 
+  /**
+   * Removes a movie from the user&#x27;s favorites.
+   * @param { string } favorite_id - The ID of the favorite to remove.
+   * @since v1.0.0
+   */
   removeFromFavorites(favorite_id: string): void {
     this.favoritesService.deleteFavorite(favorite_id).subscribe(() &#x3D;&gt; {
       alert(&#x27;Movie removed from favorites&#x27;);
@@ -1390,6 +1626,10 @@ export class FavoritesComponent implements OnInit {
     });
   }
 
+  /**
+   * Logs out the user and navigates to the login page.
+   * @since v1.0.0
+   */
   logout(): void {
     this.authService.logout().subscribe(() &#x3D;&gt; {
       sessionStorage.removeItem(&#x27;token&#x27;);
@@ -1401,16 +1641,27 @@ export class FavoritesComponent implements OnInit {
     });
   }
 
+  /**
+   * Handles the error event for movie images.
+   * Sets a default image if the original image fails to load.
+   * @param { Event } event - The error event.
+   * @since v1.0.0
+   */
   handleImageError(event: Event) {
     const target &#x3D; event.target as HTMLImageElement;
-    target.src &#x3D; &#x27;../../../assets/default-image.jpg&#x27;;  // 设置默认图片路径
+    target.src &#x3D; &#x27;../../../assets/logo.jpg&#x27;;  // 设置默认图片路径
   }
 
+  /**
+   * Retrieves the URL of the movie&#x27;s poster.
+   * @param { any } movie - The movie object.
+   * @returns { string | undefined } - The URL of the poster image.
+   * @since v1.0.0
+   */
   getPosterUrl(movie: any): string | undefined {
     return movie.images.find((image: any) &#x3D;&gt; image.type &#x3D;&#x3D;&#x3D; &#x27;Poster&#x27;)?.url;
   }
-}
-</code></pre>
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
