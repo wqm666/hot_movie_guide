@@ -886,7 +886,7 @@ export class UserInfoComponent implements OnInit {
       &lt;/a&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;right&quot;&gt;
-      &lt;a [routerLink]&#x3D;&quot;[&#x27;/query&#x27;]&quot; class&#x3D;&quot;search-icon&quot;&gt;&lt;i class&#x3D;&quot;fas fa-search&quot;&gt;&lt;/i&gt;&lt;/a&gt; &lt;!-- 确保这是一个 &lt;a&gt; 标签 --&gt;
+      &lt;a [routerLink]&#x3D;&quot;[&#x27;/query&#x27;]&quot; class&#x3D;&quot;search-icon&quot;&gt;&lt;i class&#x3D;&quot;fas fa-search&quot;&gt;&lt;/i&gt;&lt;/a&gt;
       &lt;div class&#x3D;&quot;dropdown&quot;&gt;
         &lt;span class&#x3D;&quot;username-circle&quot;&gt;{{ userInfo?.username?.charAt(0) || &#x27;&#x27; }}&lt;/span&gt;
         &lt;div class&#x3D;&quot;dropdown-content&quot;&gt;
@@ -926,8 +926,7 @@ export class UserInfoComponent implements OnInit {
         &lt;span class&#x3D;&quot;greeting&quot;&gt;Hello, {{ userInfo?.username }}!&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/footer&gt;
-  </code></pre>
+  &lt;/footer&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
@@ -947,7 +946,7 @@ body {
 }
 
 .navbar, .footer {
-  background-color: #333; /* 颜色块背景色 */
+  background-color: #333;
   color: #fff;
   padding: 10px 20px;
   display: flex;
@@ -973,17 +972,17 @@ body {
 
 .search-icon {
   font-size: 20px;
-  cursor: pointer; /* 确保指针形状改变，提示用户可以点击 */
+  cursor: pointer;
   margin-right: 10px;
-  color: #fff; /* 确保放大镜图标颜色可见 */
-  text-decoration: none; /* 确保没有下划线 */
+  color: #fff;
+  text-decoration: none;
 }
 
 .username-circle {
   display: inline-block;
   width: 30px;
   height: 30px;
-  background-color: #4CAF50; /* 用户名标识背景颜色 */
+  background-color: #4CAF50;
   color: #fff;
   border-radius: 50%;
   text-align: center;
@@ -1028,7 +1027,7 @@ body {
 
 main {
   padding: 20px;
-  min-height: calc(100vh - 100px); /* 确保主内容区占满剩余空间 */
+  min-height: calc(100vh - 100px);
 }
 
 .user-info-container {
@@ -1055,8 +1054,7 @@ main {
   padding: 10px 20px;
   margin-top: 20px;
   margin-right: 10px;
-}
-</code></pre>
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="tree">
@@ -1084,7 +1082,7 @@ main {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><header class="navbar">  <div class="content">    <div class="left">      <a [routerLink]="[\'/home\']" class="logo">        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="30">      </a>    </div>    <div class="right">      <a [routerLink]="[\'/query\']" class="search-icon"><i class="fas fa-search"></i></a> <!-- 确保这是一个 <a> 标签 -->      <div class="dropdown">        <span class="username-circle">{{ userInfo?.username?.charAt(0) || \'\' }}</span>        <div class="dropdown-content">          <a (click)="getUserInfo()" [routerLink]="[\'/user-info\']">{{ userInfo?.username }}</a>          <a (click)="logout()">Logout</a>          <a *ngIf="is_admin" [routerLink]="[\'/admin/manage\']">Manage</a>        </div>      </div>    </div>  </div></header>    <main class="user-info-container">    <h1>User Information</h1>    <p><strong>Username:</strong></p>    <input type="text" [(ngModel)]="userInfo.username" class="form-control">    <p><strong>Password:</strong></p>    <input type="password" [(ngModel)]="userInfo.password" class="form-control">    <p><strong>Email:</strong></p>    <input type="email" [(ngModel)]="userInfo.email" class="form-control">    <p><strong>Is_Admin:</strong> {{ is_admin ? \'Yes\' : \'No\' }}</p>    <button (click)="updateUserInfo()" class="btn btn-primary">Update</button>    <button (click)="deleteUser()" class="btn btn-danger">Delete Account</button>        <div class="navigation">      <a [routerLink]="[\'/home\']" class="btn btn-primary">Home</a>      <a [routerLink]="[\'/favorites\']" class="btn btn-primary">Favorites</a>    </div>  </main>    <footer class="footer">    <div class="content">      <div class="left">        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="auto">      </div>      <div class="right">        <span class="greeting">Hello, {{ userInfo?.username }}!</span>      </div>    </div>  </footer>  </div>'
+        var COMPONENT_TEMPLATE = '<div><header class="navbar">  <div class="content">    <div class="left">      <a [routerLink]="[\'/home\']" class="logo">        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="30">      </a>    </div>    <div class="right">      <a [routerLink]="[\'/query\']" class="search-icon"><i class="fas fa-search"></i></a>      <div class="dropdown">        <span class="username-circle">{{ userInfo?.username?.charAt(0) || \'\' }}</span>        <div class="dropdown-content">          <a (click)="getUserInfo()" [routerLink]="[\'/user-info\']">{{ userInfo?.username }}</a>          <a (click)="logout()">Logout</a>          <a *ngIf="is_admin" [routerLink]="[\'/admin/manage\']">Manage</a>        </div>      </div>    </div>  </div></header>    <main class="user-info-container">    <h1>User Information</h1>    <p><strong>Username:</strong></p>    <input type="text" [(ngModel)]="userInfo.username" class="form-control">    <p><strong>Password:</strong></p>    <input type="password" [(ngModel)]="userInfo.password" class="form-control">    <p><strong>Email:</strong></p>    <input type="email" [(ngModel)]="userInfo.email" class="form-control">    <p><strong>Is_Admin:</strong> {{ is_admin ? \'Yes\' : \'No\' }}</p>    <button (click)="updateUserInfo()" class="btn btn-primary">Update</button>    <button (click)="deleteUser()" class="btn btn-danger">Delete Account</button>        <div class="navigation">      <a [routerLink]="[\'/home\']" class="btn btn-primary">Home</a>      <a [routerLink]="[\'/favorites\']" class="btn btn-primary">Favorites</a>    </div>  </main>    <footer class="footer">    <div class="content">      <div class="left">        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="auto">      </div>      <div class="right">        <span class="greeting">Hello, {{ userInfo?.username }}!</span>      </div>    </div>  </footer></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FavoritesComponent', 'selector': 'app-favorites'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ManageComponent', 'selector': 'app-manage'},{'name': 'QueryComponent', 'selector': 'app-query'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'UserInfoComponent', 'selector': 'app-user-info'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UserInfoComponent'};

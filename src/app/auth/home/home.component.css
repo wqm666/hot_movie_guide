@@ -115,8 +115,10 @@ main {
 
 .movie-item img {
     width: 100%;
+    aspect-ratio: 700 / 1100;
+    object-fit: cover;
     border-radius: 10px;
-}
+  }
 
 .movie-details {
     margin-top: 10px;

@@ -36,12 +36,10 @@
     </div>
   </section>
 
-  <!-- 分页按钮 -->
   <div class="pagination">
     <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
     <span>Page {{ currentPage }} of {{ totalPages }}</span>
     <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
-    <!-- 新增输入框和按钮 -->
     <input type="number" [(ngModel)]="gotoPageNumber" placeholder="Page #" min="1" [max]="totalPages">
     <button (click)="jumpToPage()">Go</button>
   </div>

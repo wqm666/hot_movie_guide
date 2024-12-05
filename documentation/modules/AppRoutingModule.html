@@ -149,7 +149,7 @@ export const routes: Routes &#x3D; [
   { path: &#x27;favorites&#x27;, component: FavoritesComponent, canActivate: [AuthGuard] },
   { path: &#x27;user-info&#x27;, component: UserInfoComponent, canActivate: [AuthGuard] },
   { path: &#x27;query&#x27;, component: QueryComponent, canActivate: [AuthGuard] },
-  { path: &#x27;admin/manage&#x27;, component: ManageComponent, canActivate: [AuthGuard] }, // 确保管理页面路由
+  { path: &#x27;admin/manage&#x27;, component: ManageComponent, canActivate: [AuthGuard] },
   { path: &#x27;&#x27;, redirectTo: &#x27;/login&#x27;, pathMatch: &#x27;full&#x27; },
   { path: &#x27;**&#x27;, redirectTo: &#x27;/login&#x27; }
 ];
@@ -158,8 +158,7 @@ export const routes: Routes &#x3D; [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
-</code></pre>
+export class AppRoutingModule { }</code></pre>
     </div>
 </div>
 

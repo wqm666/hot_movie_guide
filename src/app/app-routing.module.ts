@@ -18,7 +18,7 @@ export const routes: Routes = [
   { path: 'favorites', component: FavoritesComponent, canActivate: [AuthGuard] },
   { path: 'user-info', component: UserInfoComponent, canActivate: [AuthGuard] },
   { path: 'query', component: QueryComponent, canActivate: [AuthGuard] },
-  { path: 'admin/manage', component: ManageComponent, canActivate: [AuthGuard] }, // 确保管理页面路由
+  { path: 'admin/manage', component: ManageComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' }
 ];

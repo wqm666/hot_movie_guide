@@ -1,4 +1,3 @@
-/* Existing styles */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +11,7 @@ body {
 }
 
 .navbar, .footer {
-  background-color: #333; /* 颜色块背景色 */
+  background-color: #333;
   color: #fff;
   padding: 10px 20px;
   display: flex;
@@ -38,17 +37,17 @@ body {
 
 .search-icon {
   font-size: 20px;
-  cursor: pointer; /* 确保指针形状改变，提示用户可以点击 */
+  cursor: pointer;
   margin-right: 10px;
-  color: #fff; /* 确保放大镜图标颜色可见 */
-  text-decoration: none; /* 确保没有下划线 */
+  color: #fff;
+  text-decoration: none;
 }
 
 .username-circle {
   display: inline-block;
   width: 30px;
   height: 30px;
-  background-color: #4CAF50; /* 用户名标识背景颜色 */
+  background-color: #4CAF50;
   color: #fff;
   border-radius: 50%;
   text-align: center;
@@ -93,7 +92,7 @@ body {
 
 main {
   padding: 20px;
-  min-height: calc(100vh - 100px); /* 确保主内容区占满剩余空间 */
+  min-height: calc(100vh - 100px);
 }
 
 .admin-section {
@@ -101,6 +100,13 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 100%;
+}
+
+.admin-functions {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
 }
 
 .admin-functions h2,
@@ -128,8 +134,11 @@ main {
 
 .movie-item img {
   width: 100%;
+  aspect-ratio: 700 / 1100;
+  object-fit: cover;
   border-radius: 10px;
-}
+} 
+
 
 .movie-details {
   margin-top: 10px;
@@ -161,44 +170,53 @@ main {
   cursor: not-allowed;
 }
 
-/* 电影表单样式 */
-.admin-functions form {
+.form-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  margin: 20px auto; /* 居中 */
-  display: flex;
-  flex-direction: column;
 }
 
-.admin-functions form label {
+.form-container label {
+  display: block;
   margin-bottom: 5px;
 }
 
-.admin-functions form input[type="text"],
-.admin-functions form input[type="date"],
-.admin-functions form input[type="number"] {
+.form-container input[type="text"],
+.form-container input[type="date"],
+.form-container input[type="number"],
+.form-container textarea {
   width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  resize: vertical;
 }
 
-.admin-functions form button {
+.form-container button {
   padding: 10px 20px;
   margin-right: 10px;
-  margin-bottom: 10px; /* 添加底部边距以便多个按钮显示时有间距 */
+  margin-bottom: 10px;
   border: none;
   border-radius: 5px;
   background-color: #4CAF50;
   color: white;
   cursor: pointer;
-  align-self: center; /* 居中按钮 */
+  align-self: center;
 }
 
-.admin-functions form button:hover {
+.form-container button:hover {
   background-color: #45a049;
+}
+
+.form-container textarea {
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre;
+  line-height: 1.5;
+  height: 150px;
+  overflow-y: auto;
 }

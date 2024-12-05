@@ -117,43 +117,43 @@
 <title>cluster_AdminModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="85,-70 85,-195 411,-195 411,-70 85,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_AdminModule_declarations</title>
-<polygon fill="none" stroke="black" points="261,-78 261,-130 403,-130 403,-78 261,-78"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_AdminModule_imports</title>
-<polygon fill="none" stroke="black" points="93,-78 93,-130 253,-130 253,-78 93,-78"/>
+<polygon fill="none" stroke="black" points="243,-78 243,-130 403,-130 403,-78 243,-78"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_AdminModule_declarations</title>
+<polygon fill="none" stroke="black" points="93,-78 93,-130 235,-130 235,-78 93,-78"/>
 </g>
 <!-- ManageComponent -->
 <g id="node1" class="node">
 <title>ManageComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="395.42,-122 268.58,-122 268.58,-86 395.42,-86 395.42,-122"/>
-<text text-anchor="middle" x="332" y="-99.8" font-family="Times,serif" font-size="14.00">ManageComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="227.42,-122 100.58,-122 100.58,-86 227.42,-86 227.42,-122"/>
+<text text-anchor="middle" x="164" y="-99.8" font-family="Times,serif" font-size="14.00">ManageComponent</text>
 </g>
 <!-- AdminModule -->
 <g id="node2" class="node">
 <title>AdminModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="301.44,-187 298.44,-191 277.44,-191 274.44,-187 202.56,-187 202.56,-151 301.44,-151 301.44,-187"/>
-<text text-anchor="middle" x="252" y="-164.8" font-family="Times,serif" font-size="14.00">AdminModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="292.44,-187 289.44,-191 268.44,-191 265.44,-187 193.56,-187 193.56,-151 292.44,-151 292.44,-187"/>
+<text text-anchor="middle" x="243" y="-164.8" font-family="Times,serif" font-size="14.00">AdminModule</text>
 </g>
 <!-- ManageComponent&#45;&gt;AdminModule -->
 <g id="edge1" class="edge">
 <title>ManageComponent&#45;&gt;AdminModule</title>
-<path fill="none" stroke="black" d="M285,-122.11C285,-122.11 285,-140.99 285,-140.99"/>
-<polygon fill="black" stroke="black" points="281.5,-140.99 285,-150.99 288.5,-140.99 281.5,-140.99"/>
+<path fill="none" stroke="black" d="M210.5,-122.11C210.5,-122.11 210.5,-140.99 210.5,-140.99"/>
+<polygon fill="black" stroke="black" points="207,-140.99 210.5,-150.99 214,-140.99 207,-140.99"/>
 </g>
 <!-- AdminRoutingModule -->
 <g id="node3" class="node">
 <title>AdminRoutingModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="244.56,-122 241.56,-126 220.56,-126 217.56,-122 101.44,-122 101.44,-86 244.56,-86 244.56,-122"/>
-<text text-anchor="middle" x="173" y="-99.8" font-family="Times,serif" font-size="14.00">AdminRoutingModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="394.56,-122 391.56,-126 370.56,-126 367.56,-122 251.44,-122 251.44,-86 394.56,-86 394.56,-122"/>
+<text text-anchor="middle" x="323" y="-99.8" font-family="Times,serif" font-size="14.00">AdminRoutingModule</text>
 </g>
 <!-- AdminRoutingModule&#45;&gt;AdminModule -->
 <g id="edge2" class="edge">
 <title>AdminRoutingModule&#45;&gt;AdminModule</title>
-<path fill="none" stroke="black" d="M223.78,-122.11C223.78,-122.11 223.78,-140.99 223.78,-140.99"/>
-<polygon fill="black" stroke="black" points="220.28,-140.99 223.78,-150.99 227.28,-140.99 220.28,-140.99"/>
+<path fill="none" stroke="black" d="M271.72,-122.11C271.72,-122.11 271.72,-140.99 271.72,-140.99"/>
+<polygon fill="black" stroke="black" points="268.22,-140.99 271.72,-150.99 275.22,-140.99 268.22,-140.99"/>
 </g>
 </g>
 </svg>
@@ -232,7 +232,7 @@ import { CommonModule } from &#x27;@angular/common&#x27;;
 import { ManageComponent } from &#x27;./manage/manage.component&#x27;;
 import { AdminRoutingModule } from &#x27;./admin-routing.module&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
-import { FormsModule } from &#x27;@angular/forms&#x27;;  // 确保导入 FormsModule 以便使用 ngModel
+import { FormsModule } from &#x27;@angular/forms&#x27;;
 
 @NgModule({
   declarations: [
@@ -242,7 +242,7 @@ import { FormsModule } from &#x27;@angular/forms&#x27;;  // 确保导入 FormsMo
     CommonModule,
     AdminRoutingModule,
     RouterModule,
-    FormsModule  // 导入 FormsModule
+    FormsModule
   ]
 })
 export class AdminModule { }

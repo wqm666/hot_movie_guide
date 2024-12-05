@@ -37,10 +37,10 @@
 
 .search-icon {
   font-size: 20px;
-  cursor: pointer; /* 确保指针形状改变，提示用户可以点击 */
+  cursor: pointer;
   margin-right: 10px;
-  color: #fff; /* 确保放大镜图标颜色可见 */
-  text-decoration: none; /* 确保没有下划线 */
+  color: #fff;
+  text-decoration: none;
 }
   
   .username-circle {
@@ -153,8 +153,10 @@
 }
 
 .movie-item img {
-    width: 100%;
-    border-radius: 10px;
+  width: 100%;
+  aspect-ratio: 700 / 1100;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .movie-details {

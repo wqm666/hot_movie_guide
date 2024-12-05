@@ -252,9 +252,6 @@ Handles loading favorite movies, pagination, and user interactions.</p>
                                 <a href="#getUserInfo" >getUserInfo</a>
                             </li>
                             <li>
-                                <a href="#handleImageError" >handleImageError</a>
-                            </li>
-                            <li>
                                 <a href="#jumpToPage" >jumpToPage</a>
                             </li>
                             <li>
@@ -505,8 +502,8 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="245"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:245</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="234"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:234</a></div>
                         </td>
                     </tr>
 
@@ -556,7 +553,7 @@ Handles loading favorite movies, pagination, and user interactions.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>The URL of the poster image.</li>
+<li>The URL of the poster image, or a default URL if not found.</li>
 </ul>
 
                             </div>
@@ -638,83 +635,6 @@ Handles loading favorite movies, pagination, and user interactions.</p>
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="handleImageError"></a>
-                    <span class="name">
-                        <span ><b>handleImageError</b></span>
-                        <a href="#handleImageError"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>handleImageError(event: Event)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="234"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:234</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Handles the error event for movie images.
-Sets a default image if the original image fails to load.</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                                <td>Description</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>event</td>
-                                            <td>
-                                                        <code>Event</code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                            <td>
-                                                    <ul>
-<li>The error event.</li>
-</ul>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1489,7 +1409,7 @@ export class FavoritesComponent implements OnInit {
     private favoritesService: FavoritesService,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   /**
    * Lifecycle hook that is called after data-bound properties are initialized.
@@ -1642,24 +1562,14 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Handles the error event for movie images.
-   * Sets a default image if the original image fails to load.
-   * @param { Event } event - The error event.
-   * @since v1.0.0
-   */
-  handleImageError(event: Event) {
-    const target &#x3D; event.target as HTMLImageElement;
-    target.src &#x3D; &#x27;../../../assets/logo.jpg&#x27;;  // 设置默认图片路径
-  }
-
-  /**
    * Retrieves the URL of the movie&#x27;s poster.
    * @param { any } movie - The movie object.
-   * @returns { string | undefined } - The URL of the poster image.
+   * @returns { string | undefined } - The URL of the poster image, or a default URL if not found.
    * @since v1.0.0
    */
   getPosterUrl(movie: any): string | undefined {
-    return movie.images.find((image: any) &#x3D;&gt; image.type &#x3D;&#x3D;&#x3D; &#x27;Poster&#x27;)?.url;
+    const posterUrl &#x3D; movie.images.find((image: any) &#x3D;&gt; image.type &#x3D;&#x3D;&#x3D; &#x27;Poster&#x27;)?.url;
+    return posterUrl || &#x27;../../../assets/logo.jpg&#x27;;
   }
 }</code></pre>
     </div>
@@ -1706,12 +1616,10 @@ export class FavoritesComponent implements OnInit {
     &lt;p&gt;You have no favorite movies yet.&lt;/p&gt;
   &lt;/ng-template&gt;
 
-  &lt;!-- 分页按钮 --&gt;
   &lt;div class&#x3D;&quot;pagination&quot;&gt;
     &lt;button (click)&#x3D;&quot;previousPage()&quot; [disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; 1&quot;&gt;Previous&lt;/button&gt;
     &lt;span&gt;Page {{ currentPage }} of {{ totalPages }}&lt;/span&gt;
     &lt;button (click)&#x3D;&quot;nextPage()&quot; [disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; totalPages&quot;&gt;Next&lt;/button&gt;
-    &lt;!-- 新增输入框和按钮 --&gt;
     &lt;input type&#x3D;&quot;number&quot; [(ngModel)]&#x3D;&quot;gotoPageNumber&quot; placeholder&#x3D;&quot;Page #&quot; min&#x3D;&quot;1&quot; [max]&#x3D;&quot;totalPages&quot;&gt;
     &lt;button (click)&#x3D;&quot;jumpToPage()&quot;&gt;Go&lt;/button&gt;
   &lt;/div&gt;
@@ -1726,8 +1634,7 @@ export class FavoritesComponent implements OnInit {
       &lt;span class&#x3D;&quot;greeting&quot;&gt;Hello, {{ userInfo?.username }}!&lt;/span&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
+&lt;/footer&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
@@ -1747,7 +1654,7 @@ export class FavoritesComponent implements OnInit {
   }
   
   .navbar, .footer {
-    background-color: #333; /* 颜色块背景色 */
+    background-color: #333;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -1781,7 +1688,7 @@ export class FavoritesComponent implements OnInit {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-color: #4CAF50; /* 用户名标识背景颜色 */
+    background-color: #4CAF50;
     color: #fff;
     border-radius: 50%;
     text-align: center;
@@ -1826,7 +1733,7 @@ export class FavoritesComponent implements OnInit {
   
   main {
     padding: 20px;
-    min-height: calc(100vh - 100px); /* 确保主内容区占满剩余空间 */
+    min-height: calc(100vh - 100px);
   }
   
   .movie-list {
@@ -1848,8 +1755,10 @@ export class FavoritesComponent implements OnInit {
   
   .movie-item img {
     width: 100%;
+    aspect-ratio: 700 / 1100;
+    object-fit: cover;
     border-radius: 10px;
-  }
+  } 
   
   .movie-details {
     margin-top: 10px;
@@ -1882,12 +1791,11 @@ export class FavoritesComponent implements OnInit {
   }
   .search-icon {
     font-size: 20px;
-    cursor: pointer; /* 确保指针形状改变，提示用户可以点击 */
+    cursor: pointer;
     margin-right: 10px;
-    color: #fff; /* 确保放大镜图标颜色可见 */
-    text-decoration: none; /* 确保没有下划线 */
-  }
-  </code></pre>
+    color: #fff;
+    text-decoration: none;
+  }</code></pre>
     </div>
 
     <div class="tab-pane fade " id="tree">
@@ -1915,7 +1823,7 @@ export class FavoritesComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><header class="navbar">  <div class="content">    <div class="left">      <a [routerLink]="[\'/home\']" class="logo">        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="30">      </a>    </div>    <div class="right">      <a [routerLink]="[\'/query\']" class="search-icon"><i class="fas fa-search"></i></a>      <div class="dropdown">        <span class="username-circle">{{ userInfo?.username?.charAt(0) || \'\' }}</span>        <div class="dropdown-content">          <a (click)="getUserInfo()" [routerLink]="[\'/user-info\']">{{ userInfo?.username }}</a>          <a (click)="logout()">Logout</a>          <a *ngIf="is_admin" [routerLink]="[\'/admin/manage\']">Manage</a>        </div>      </div>    </div>  </div></header><main>  <section class="movie-list" *ngIf="currentMovies.length > 0; else noFavorites">    <div class="movie-item" *ngFor="let movie of currentMovies">      <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" alt="{{ movie.title }}">      <div class="movie-details">        <h2>{{ movie.title }}</h2>        <p><strong>Language:</strong> {{ movie.language }}</p>        <p><strong>Release Date:</strong> {{ movie.release_date }}</p>        <p><strong>Duration:</strong> {{ movie.duration }}</p>        <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(\', \') : \'None\' }}</p>        <button *ngIf="!movie.isFavorite" (click)="addToFavorites(movie._id)">Star</button>        <button *ngIf="movie.isFavorite" (click)="removeFromFavorites(movie.favorite_id)">Stared</button>        <a [routerLink]="[\'/details\', movie._id]">Details</a>      </div>    </div>  </section>  <ng-template #noFavorites>    <p>You have no favorite movies yet.</p>  </ng-template>  <!-- 分页按钮 -->  <div class="pagination">    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>    <span>Page {{ currentPage }} of {{ totalPages }}</span>    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>    <!-- 新增输入框和按钮 -->    <input type="number" [(ngModel)]="gotoPageNumber" placeholder="Page #" min="1" [max]="totalPages">    <button (click)="jumpToPage()">Go</button>  </div></main><footer class="footer">  <div class="content">    <div class="left">      <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="auto">    </div>    <div class="right">      <span class="greeting">Hello, {{ userInfo?.username }}!</span>    </div>  </div></footer></div>'
+        var COMPONENT_TEMPLATE = '<div><header class="navbar">  <div class="content">    <div class="left">      <a [routerLink]="[\'/home\']" class="logo">        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="30">      </a>    </div>    <div class="right">      <a [routerLink]="[\'/query\']" class="search-icon"><i class="fas fa-search"></i></a>      <div class="dropdown">        <span class="username-circle">{{ userInfo?.username?.charAt(0) || \'\' }}</span>        <div class="dropdown-content">          <a (click)="getUserInfo()" [routerLink]="[\'/user-info\']">{{ userInfo?.username }}</a>          <a (click)="logout()">Logout</a>          <a *ngIf="is_admin" [routerLink]="[\'/admin/manage\']">Manage</a>        </div>      </div>    </div>  </div></header><main>  <section class="movie-list" *ngIf="currentMovies.length > 0; else noFavorites">    <div class="movie-item" *ngFor="let movie of currentMovies">      <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" alt="{{ movie.title }}">      <div class="movie-details">        <h2>{{ movie.title }}</h2>        <p><strong>Language:</strong> {{ movie.language }}</p>        <p><strong>Release Date:</strong> {{ movie.release_date }}</p>        <p><strong>Duration:</strong> {{ movie.duration }}</p>        <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(\', \') : \'None\' }}</p>        <button *ngIf="!movie.isFavorite" (click)="addToFavorites(movie._id)">Star</button>        <button *ngIf="movie.isFavorite" (click)="removeFromFavorites(movie.favorite_id)">Stared</button>        <a [routerLink]="[\'/details\', movie._id]">Details</a>      </div>    </div>  </section>  <ng-template #noFavorites>    <p>You have no favorite movies yet.</p>  </ng-template>  <div class="pagination">    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>    <span>Page {{ currentPage }} of {{ totalPages }}</span>    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>    <input type="number" [(ngModel)]="gotoPageNumber" placeholder="Page #" min="1" [max]="totalPages">    <button (click)="jumpToPage()">Go</button>  </div></main><footer class="footer">  <div class="content">    <div class="left">      <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="auto">    </div>    <div class="right">      <span class="greeting">Hello, {{ userInfo?.username }}!</span>    </div>  </div></footer></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FavoritesComponent', 'selector': 'app-favorites'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ManageComponent', 'selector': 'app-manage'},{'name': 'QueryComponent', 'selector': 'app-query'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'UserInfoComponent', 'selector': 'app-user-info'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FavoritesComponent'};

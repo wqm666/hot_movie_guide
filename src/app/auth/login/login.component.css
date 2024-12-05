@@ -11,7 +11,7 @@
     align-items: center;
     background: url('../../../assets/bg.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-color: #f0f0f0; /* 强制应用样式 */
+    background-color: #f0f0f0;
 }
 
 .container {
@@ -23,11 +23,11 @@
 }
 
 .login-wrapper, .register-wrapper {
-    background-color: rgba(255, 255, 255, 0.8); /* 使用半透明背景颜色 */
+    background-color: rgba(255, 255, 255, 0.8);
     width: 358px;
     padding: 0 50px;
     border-radius: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header {
@@ -53,14 +53,14 @@
     padding: 10px;
     width: 100%;
     margin-top: 40px;
-    background-color: #4CAF50; /* 选择合适的颜色 */
+    background-color: #4CAF50;
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #45a049; /* 悬停颜色 */
+    background-color: #45a049;
 }
 
 .msg {

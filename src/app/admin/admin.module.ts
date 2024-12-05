@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ManageComponent } from './manage/manage.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';  // 确保导入 FormsModule 以便使用 ngModel
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';  // 确保导入 FormsModule 以�
     CommonModule,
     AdminRoutingModule,
     RouterModule,
-    FormsModule  // 导入 FormsModule
+    FormsModule
   ]
 })
 export class AdminModule { }

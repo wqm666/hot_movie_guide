@@ -6,7 +6,7 @@
       </a>
     </div>
     <div class="right">
-      <a [routerLink]="['/query']" class="search-icon"><i class="fas fa-search"></i></a> <!-- 确保这是一个 <a> 标签 -->
+      <a [routerLink]="['/query']" class="search-icon"><i class="fas fa-search"></i></a>
       <div class="dropdown">
         <span class="username-circle">{{ userInfo?.username?.charAt(0) || '' }}</span>
         <div class="dropdown-content">
@@ -47,4 +47,3 @@
       </div>
     </div>
   </footer>
-  

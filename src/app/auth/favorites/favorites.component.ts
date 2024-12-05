@@ -73,7 +73,7 @@ export class FavoritesComponent implements OnInit {
     private favoritesService: FavoritesService,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   /**
    * Lifecycle hook that is called after data-bound properties are initialized.
@@ -226,23 +226,13 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Handles the error event for movie images.
-   * Sets a default image if the original image fails to load.
-   * @param { Event } event - The error event.
-   * @since v1.0.0
-   */
-  handleImageError(event: Event) {
-    const target = event.target as HTMLImageElement;
-    target.src = '../../../assets/logo.jpg';  // 设置默认图片路径
-  }
-
-  /**
    * Retrieves the URL of the movie's poster.
    * @param { any } movie - The movie object.
-   * @returns { string | undefined } - The URL of the poster image.
+   * @returns { string | undefined } - The URL of the poster image, or a default URL if not found.
    * @since v1.0.0
    */
   getPosterUrl(movie: any): string | undefined {
-    return movie.images.find((image: any) => image.type === 'Poster')?.url;
+    const posterUrl = movie.images.find((image: any) => image.type === 'Poster')?.url;
+    return posterUrl || '../../../assets/logo.jpg';
   }
 }

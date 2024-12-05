@@ -10,7 +10,7 @@
       <div class="dropdown">
         <span class="username-circle">{{ userInfo?.username?.charAt(0) || '' }}</span>
         <div class="dropdown-content">
-          <a (click)="getUserInfo()" [routerLink]="['/user-info']">{{ userInfo?.username }}</a>
+          <a [routerLink]="['/user-info']">{{ userInfo?.username }}</a>
           <a (click)="logout()">Logout</a>
           <a *ngIf="is_admin" [routerLink]="['/admin/manage']">Manage</a>
         </div>
@@ -24,85 +24,83 @@
     <h1>Admin Management</h1>
 
     <div class="admin-functions">
-      <!-- 电影管理部分 -->
       <h2>Manage Movies</h2>
       <button (click)="showAddMovieFormToggle()">Add Movie</button>
-      <div *ngIf="showAddMovieForm">
-        <h3>Add New Movie</h3>
-        <form (submit)="addMovie()">
-          <label for="title">Title:</label>
-          <input type="text" id="title" [(ngModel)]="newMovie.title" name="title" required>
-          
-          <label for="language">Language:</label>
-          <input type="text" id="language" [(ngModel)]="newMovie.language" name="language" required>
-          
-          <label for="image">Image URL:</label>
-          <input type="text" id="image" [(ngModel)]="newMovie.image" name="image">
-
-          <label for="release_date">Release Date:</label>
-          <input type="date" id="release_date" [(ngModel)]="newMovie.release_date" name="release_date" required>
-          
-          <label for="duration">Duration:</label>
-          <input type="number" id="duration" [(ngModel)]="newMovie.duration" name="duration" required>
-
-          <label for="tags">Tags:</label>
-          <input type="text" id="tags" [(ngModel)]="newMovie.tags" name="tags">
-
-          <label for="details">Details (JSON Format):</label>
-          <textarea id="details" [(ngModel)]="newMovie.details" name="details"></textarea>
-
-          <label for="videos">Videos (JSON Format):</label>
-          <textarea id="videos" [(ngModel)]="newMovie.videos" name="videos"></textarea>
-
-          <label for="feeders">Feeders (JSON Format):</label>
-          <textarea id="feeders" [(ngModel)]="newMovie.feeders" name="feeders"></textarea>
-          
-          <button type="submit">Save</button>
-          <button type="button" (click)="showAddMovieFormToggle()">Cancel</button>
-        </form>
-      </div>
-
-      <!-- 编辑电影表单 -->
-      <div *ngIf="showEditMovieForm">
-        <h3>Edit Movie</h3>
-        <form (submit)="editMovie(selectedMovie._id)">
-          <label for="edit-title">Title:</label>
-          <input type="text" id="edit-title" [(ngModel)]="selectedMovie.title" name="edit-title" required>
-          
-          <label for="edit-language">Language:</label>
-          <input type="text" id="edit-language" [(ngModel)]="selectedMovie.language" name="edit-language" required>
-          
-          <label for="edit-image">Image URL:</label>
-          <input type="text" id="edit-image" [(ngModel)]="selectedMovie.image" name="edit-image">
-
-          <label for="edit-release_date">Release Date:</label>
-          <input type="date" id="edit-release_date" [(ngModel)]="selectedMovie.release_date" name="edit-release_date" required>
-          
-          <label for="edit-duration">Duration:</label>
-          <input type="number" id="edit-duration" [(ngModel)]="selectedMovie.duration" name="edit-duration" required>
-
-          <label for="edit-tags">Tags:</label>
-          <input type="text" id="edit-tags" [(ngModel)]="selectedMovie.tags" name="edit-tags">
-
-          <label for="edit-details">Details (JSON Format):</label>
-          <textarea id="edit-details" [(ngModel)]="selectedMovie.details" name="edit-details"></textarea>
-
-          <label for="edit-videos">Videos (JSON Format):</label>
-          <textarea id="edit-videos" [(ngModel)]="selectedMovie.videos" name="edit-videos"></textarea>
-
-          <label for="edit-feeders">Feeders (JSON Format):</label>
-          <textarea id="edit-feeders" [(ngModel)]="selectedMovie.feeders" name="edit-feeders"></textarea>
-          
-          <button type="submit">Save</button>
-          <button type="button" (click)="showEditMovieFormToggle(selectedMovie)">Cancel</button>
-        </form>
-      </div>
     </div>
 
-    <!-- 显示所有电影信息 -->
+    <div *ngIf="showAddMovieForm" class="form-container">
+      <h3>Add New Movie</h3>
+      <form (ngSubmit)="addMovie()">
+        <label for="title">Title:</label>
+        <input type="text" id="title" [(ngModel)]="newMovie.title" name="title" required>
+
+        <label for="language">Language:</label>
+        <input type="text" id="language" [(ngModel)]="newMovie.language" name="language" required>
+
+        <label for="release_date">Release Date:</label>
+        <input type="date" id="release_date" [(ngModel)]="newMovie.release_date" name="release_date" required>
+
+        <label for="duration">Duration:</label>
+        <input type="number" id="duration" [(ngModel)]="newMovie.duration" name="duration" required>
+
+        <label for="tags">Tags (JSON Format):</label>
+        <textarea id="tags" [(ngModel)]="newMovie.tags" name="tags">["animation", "Norwegian"]</textarea>
+
+        <label for="details">Details (JSON Format):</label>
+        <textarea id="details" [(ngModel)]="newMovie.details" name="details"></textarea>
+
+        <label for="videos">Videos (JSON Format):</label>
+        <textarea id="videos" [(ngModel)]="newMovie.videos" name="videos"></textarea>
+
+        <label for="images">Images (JSON Format):</label>
+        <textarea id="images" [(ngModel)]="newMovie.images" name="images"></textarea>
+
+        <label for="feeders">Feeders (JSON Format):</label>
+        <textarea id="feeders" [(ngModel)]="newMovie.feeders" name="feeders"></textarea>
+
+        <button type="submit">Save</button>
+        <button type="button" (click)="showAddMovieFormToggle()">Cancel</button>
+      </form>
+    </div>
+
+    <div *ngIf="showEditMovieForm" class="form-container">
+      <h3>Edit Movie</h3>
+      <form (ngSubmit)="editMovie(selectedMovie._id)">
+        <label for="edit-title">Title:</label>
+        <input type="text" id="edit-title" [(ngModel)]="selectedMovie.title" name="edit-title" required>
+        
+        <label for="edit-language">Language:</label>
+        <input type="text" id="edit-language" [(ngModel)]="selectedMovie.language" name="edit-language" required>
+        
+        <label for="edit-release_date">Release Date:</label>
+        <input type="date" id="edit-release_date" [(ngModel)]="selectedMovie.release_date" name="edit-release_date" required>
+        
+        <label for="edit-duration">Duration:</label>
+        <input type="number" id="edit-duration" [(ngModel)]="selectedMovie.duration" name="edit-duration" required>
+
+        <label for="edit-tags">Tags (JSON Format):</label>
+        <textarea id="edit-tags" [(ngModel)]="selectedMovie.tags" name="edit-tags"></textarea>
+
+        <label for="edit-details">Details (JSON Format):</label>
+        <textarea id="edit-details" [(ngModel)]="selectedMovie.details" name="edit-details"></textarea>
+
+        <label for="edit-videos">Videos (JSON Format):</label>
+        <textarea id="edit-videos" [(ngModel)]="selectedMovie.videos" name="edit-videos"></textarea>
+
+        <label for="edit-images">Images (JSON Format):</label>
+        <textarea id="edit-images" [(ngModel)]="selectedMovie.images" name="edit-images"></textarea>
+
+        <label for="edit-feeders">Feeders (JSON Format):</label>
+        <textarea id="edit-feeders" [(ngModel)]="selectedMovie.feeders" name="edit-feeders"></textarea>
+
+        <button type="submit">Save</button>
+        <button type="button" (click)="showEditMovieFormToggle(selectedMovie)">Cancel</button>
+      </form>
+    </div>
+    
     <div *ngIf="movies.length > 0" class="movie-list">
       <div class="movie-item" *ngFor="let movie of currentMovies; let i = index">
-        <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" alt="{{ movie.title }}" (error)="handleImageError($event)">
+        <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" alt="{{ movie.title }}">
         <div class="movie-details">
           <h2>{{ movie.title }}</h2>
           <p><strong>Language:</strong> {{ movie.language }}</p>
@@ -118,7 +116,6 @@
       </div>
     </div>
 
-    <!-- 分页按钮和输入跳转 -->
     <div class="pagination" *ngIf="totalPages > 1">
       <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
       <span>Page {{ currentPage }} of {{ totalPages }}</span>
@@ -127,13 +124,11 @@
       <button (click)="jumpToPage()">Go</button>
     </div>
 
-    <!-- 用户管理部分 -->
     <div class="admin-functions">
       <h2>Manage Users</h2>
       <button (click)="getAllUsers()">Get All Users</button>
     </div>
 
-    <!-- 显示所有用户信息 -->
     <div *ngIf="users.length > 0" class="user-list">
       <h3>All Users</h3>
       <div class="user-item" *ngFor="let user of users">

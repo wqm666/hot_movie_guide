@@ -117,7 +117,7 @@
   <div *ngIf="currentMovies.length > 0; else noMovies">
     <div class="movie-list">
       <div class="movie-item" *ngFor="let movie of currentMovies; let i = index">
-        <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" (error)="handleImageError($event)" alt="{{ movie.title }}">
+        <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" alt="{{ movie.title }}">
         <div class="movie-details">
           <h2>{{ movie.title }}</h2>
           <p><strong>Language:</strong> {{ movie.language }}</p>
@@ -139,7 +139,6 @@
     <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
     <span>Page {{ currentPage }} of {{ totalPages }}</span>
     <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
-    <!-- 新增输入框和按钮 -->
     <input type="number" [(ngModel)]="gotoPageNumber" placeholder="Page #" min="1" [max]="totalPages">
     <button (click)="jumpToPage()">Go</button>
   </div>

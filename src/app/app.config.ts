@@ -8,7 +8,7 @@ import { routes } from './app-routing.module';
  * Application configuration for the Angular app.
  * Provides zone change detection, router, and HTTP client.
  * @since v1.0.0
- * @autor Your Name
+ * @autor Zirun Wang
  */
 export const appConfig: ApplicationConfig = {
   /**

@@ -11,7 +11,7 @@
   }
   
   .navbar, .footer {
-    background-color: #333; /* 颜色块背景色 */
+    background-color: #333;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -45,7 +45,7 @@
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-color: #4CAF50; /* 用户名标识背景颜色 */
+    background-color: #4CAF50;
     color: #fff;
     border-radius: 50%;
     text-align: center;
@@ -90,7 +90,7 @@
   
   main {
     padding: 20px;
-    min-height: calc(100vh - 100px); /* 确保主内容区占满剩余空间 */
+    min-height: calc(100vh - 100px);
   }
   
   .movie-list {
@@ -112,8 +112,10 @@
   
   .movie-item img {
     width: 100%;
+    aspect-ratio: 700 / 1100;
+    object-fit: cover;
     border-radius: 10px;
-  }
+  } 
   
   .movie-details {
     margin-top: 10px;
@@ -146,9 +148,8 @@
   }
   .search-icon {
     font-size: 20px;
-    cursor: pointer; /* 确保指针形状改变，提示用户可以点击 */
+    cursor: pointer;
     margin-right: 10px;
-    color: #fff; /* 确保放大镜图标颜色可见 */
-    text-decoration: none; /* 确保没有下划线 */
+    color: #fff;
+    text-decoration: none;
   }
-  

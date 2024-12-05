@@ -288,9 +288,6 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
                                 <a href="#getUserInfo" >getUserInfo</a>
                             </li>
                             <li>
-                                <a href="#handleImageError" >handleImageError</a>
-                            </li>
-                            <li>
                                 <a href="#jumpToPage" >jumpToPage</a>
                             </li>
                             <li>
@@ -474,8 +471,8 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="335"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:335</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="324"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:324</a></div>
                         </td>
                     </tr>
 
@@ -628,8 +625,8 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="326"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:326</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="314"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:314</a></div>
                         </td>
                     </tr>
 
@@ -679,7 +676,7 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>The URL of the poster image.</li>
+<li>The URL of the poster image, or a default URL if not found.</li>
 </ul>
 
                             </div>
@@ -761,83 +758,6 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="handleImageError"></a>
-                    <span class="name">
-                        <span ><b>handleImageError</b></span>
-                        <a href="#handleImageError"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>handleImageError(event: Event)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="314"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:314</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Handles the error event for movie images.
-Sets a default image if the original image fails to load.</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                                <td>Description</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>event</td>
-                                            <td>
-                                                        <code>Event</code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                            <td>
-                                                    <ul>
-<li>The error event.</li>
-</ul>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
                 </td>
             </tr>
         </tbody>
@@ -940,8 +860,8 @@ Sets a default image if the original image fails to load.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="364"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:364</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="353"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:353</a></div>
                         </td>
                     </tr>
 
@@ -1097,8 +1017,8 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="350"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:350</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="339"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:339</a></div>
                         </td>
                     </tr>
 
@@ -2332,25 +2252,14 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Handles the error event for movie images.
-   * Sets a default image if the original image fails to load.
-   * @param { Event } event - The error event.
-   * @since v1.0.0
-   */
-  handleImageError(event: Event): void {
-    const target &#x3D; event.target as HTMLImageElement;
-    target.src &#x3D; &#x27;../../../assets/logo.jpg&#x27;;
-  }
-
-  /**
    * Retrieves the URL of the movie&#x27;s poster.
    * @param { any } movie - The movie object.
-   * @returns { string | undefined } - The URL of the poster image.
+   * @returns { string | undefined } - The URL of the poster image, or a default URL if not found.
    * @since v1.0.0
    */
-
   getPosterUrl(movie: any): string | undefined {
-    return movie.images?.find((image: any) &#x3D;&gt; image.type &#x3D;&#x3D;&#x3D; &#x27;Poster&#x27;)?.url;
+    const posterUrl &#x3D; movie.images.find((image: any) &#x3D;&gt; image.type &#x3D;&#x3D;&#x3D; &#x27;Poster&#x27;)?.url;
+    return posterUrl || &#x27;../../../assets/logo.jpg&#x27;;
   }
 
   /**
@@ -2520,7 +2429,7 @@ export class QueryComponent implements OnInit {
   &lt;div *ngIf&#x3D;&quot;currentMovies.length &gt; 0; else noMovies&quot;&gt;
     &lt;div class&#x3D;&quot;movie-list&quot;&gt;
       &lt;div class&#x3D;&quot;movie-item&quot; *ngFor&#x3D;&quot;let movie of currentMovies; let i &#x3D; index&quot;&gt;
-        &lt;img *ngIf&#x3D;&quot;getPosterUrl(movie)&quot; [src]&#x3D;&quot;getPosterUrl(movie)&quot; (error)&#x3D;&quot;handleImageError($event)&quot; alt&#x3D;&quot;{{ movie.title }}&quot;&gt;
+        &lt;img *ngIf&#x3D;&quot;getPosterUrl(movie)&quot; [src]&#x3D;&quot;getPosterUrl(movie)&quot; alt&#x3D;&quot;{{ movie.title }}&quot;&gt;
         &lt;div class&#x3D;&quot;movie-details&quot;&gt;
           &lt;h2&gt;{{ movie.title }}&lt;/h2&gt;
           &lt;p&gt;&lt;strong&gt;Language:&lt;/strong&gt; {{ movie.language }}&lt;/p&gt;
@@ -2542,7 +2451,6 @@ export class QueryComponent implements OnInit {
     &lt;button (click)&#x3D;&quot;previousPage()&quot; [disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; 1&quot;&gt;Previous&lt;/button&gt;
     &lt;span&gt;Page {{ currentPage }} of {{ totalPages }}&lt;/span&gt;
     &lt;button (click)&#x3D;&quot;nextPage()&quot; [disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; totalPages&quot;&gt;Next&lt;/button&gt;
-    &lt;!-- 新增输入框和按钮 --&gt;
     &lt;input type&#x3D;&quot;number&quot; [(ngModel)]&#x3D;&quot;gotoPageNumber&quot; placeholder&#x3D;&quot;Page #&quot; min&#x3D;&quot;1&quot; [max]&#x3D;&quot;totalPages&quot;&gt;
     &lt;button (click)&#x3D;&quot;jumpToPage()&quot;&gt;Go&lt;/button&gt;
   &lt;/div&gt;
@@ -2603,10 +2511,10 @@ export class QueryComponent implements OnInit {
 
 .search-icon {
   font-size: 20px;
-  cursor: pointer; /* 确保指针形状改变，提示用户可以点击 */
+  cursor: pointer;
   margin-right: 10px;
-  color: #fff; /* 确保放大镜图标颜色可见 */
-  text-decoration: none; /* 确保没有下划线 */
+  color: #fff;
+  text-decoration: none;
 }
   
   .username-circle {
@@ -2719,8 +2627,10 @@ export class QueryComponent implements OnInit {
 }
 
 .movie-item img {
-    width: 100%;
-    border-radius: 10px;
+  width: 100%;
+  aspect-ratio: 700 / 1100;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .movie-details {
@@ -2779,7 +2689,7 @@ export class QueryComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><header class="navbar">  <div class="content">    <div class="left">      <a [routerLink]="[\'/home\']" class="logo">        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="30">      </a>    </div>    <div class="right">      <a [routerLink]="[\'/query\']" class="search-icon"><i class="fas fa-search"></i></a>      <div class="dropdown">        <span class="username-circle">{{ userInfo?.username?.charAt(0) || \'\' }}</span>        <div class="dropdown-content">          <a (click)="getUserInfo()" [routerLink]="[\'/user-info\']">{{ userInfo?.username }}</a>          <a (click)="logout()">Logout</a>          <a *ngIf="is_admin" [routerLink]="[\'/admin/manage\']">Manage</a>        </div>      </div>    </div>  </div></header><main>  <section class="query-section">    <h1>Movie Search</h1>    <div class="query-form">      <h3>Filter Options</h3>      <label for="language">Language:</label>      <select id="language" [(ngModel)]="filterLanguage">        <option value="-">-</option>        <option value="ar">Arabic</option>        <option value="as">Assamese</option>        <option value="bn">Bengali</option>        <option value="bo">Tibetan</option>        <option value="cs">Czech</option>        <option value="da">Danish</option>        <option value="de">German</option>        <option value="el">Greek</option>        <option value="en">English</option>        <option value="es">Spanish</option>        <option value="fa">Persian</option>        <option value="fi">Finnish</option>        <option value="fr">French</option>        <option value="ge">Georgian</option>        <option value="hb">Unknown (hb)</option>        <option value="he">Hebrew</option>        <option value="hi">Hindi</option>        <option value="id">Indonesian</option>        <option value="in">Unknown (in)</option>        <option value="it">Italian</option>        <option value="ja">Japanese</option>        <option value="jp">Japanese</option>        <option value="kh">Khmer</option>        <option value="km">Khmer</option>        <option value="kn">Kannada</option>        <option value="ko">Korean</option>        <option value="kr">Korean</option>        <option value="lt">Lithuanian</option>        <option value="lo">Lao</option>        <option value="lv">Latvian</option>        <option value="mr">Marathi</option>        <option value="ms">Malay</option>        <option value="my">Burmese</option>        <option value="nl">Dutch</option>        <option value="no">Norwegian</option>        <option value="pl">Polish</option>        <option value="pt">Portuguese</option>        <option value="ro">Romanian</option>        <option value="ru">Russian</option>        <option value="sv">Swedish</option>        <option value="sw">Swahili</option>        <option value="ta">Tamil</option>        <option value="te">Telugu</option>        <option value="th">Thai</option>        <option value="tl">Tagalog</option>        <option value="vi">Vietnamese</option>        <option value="vt">Unknown (vt)</option>        <option value="xh">Xhosa</option>        <option value="zh">Chinese</option>              </select>      <button (click)="filterMovies()">Filter</button>    </div>    <div class="query-form">      <h3>Sort Options</h3>      <label for="sortField">Sort by:</label>      <select id="sortField" [(ngModel)]="sortField">        <option value="title">Title</option>        <option value="release_date">Release Date</option>        <option value="details.director">Director</option>        <option value="language">Language</option>      </select>      <label for="sortOrder">Order:</label>      <select id="sortOrder" [(ngModel)]="sortOrder">        <option value=1>Ascending</option>        <option value=-1>Descending</option>      </select>      <button (click)="sortMovies()">Sort</button>    </div>    <div class="query-form">      <h3>Aggregate Options</h3>      <button (click)="aggregateMovies()">Aggregate</button>      <button (click)="toggleAggregatedResults()">Toggle Aggregated Results</button>    </div>    <div *ngIf="showAggregatedResults">      <p>Total Movies: {{ totalMovies }}</p>      <p>Total Average Duration: {{ totalAverageDuration }} minutes</p>      <div *ngFor="let stat of languageStats">        <p><strong>Language:</strong> {{ stat._id }}</p>        <p><strong>Total Movies:</strong> {{ stat.total_movies }}</p>        <p><strong>Average Duration:</strong> {{ stat.average_duration }} minutes</p>      </div>    </div>  </section>  <div *ngIf="currentMovies.length > 0; else noMovies">    <div class="movie-list">      <div class="movie-item" *ngFor="let movie of currentMovies; let i = index">        <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" (error)="handleImageError($event)" alt="{{ movie.title }}">        <div class="movie-details">          <h2>{{ movie.title }}</h2>          <p><strong>Language:</strong> {{ movie.language }}</p>          <p><strong>Release Date:</strong> {{ movie.release_date }}</p>          <p><strong>Duration:</strong> {{ movie.duration }}</p>          <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(\', \') : \'None\' }}</p>          <button *ngIf="!movie.isFavorite" (click)="addToFavorites(movie._id)">Star</button>          <button *ngIf="movie.isFavorite" (click)="removeFromFavorites(movie.favorite_id)">Stared</button>          <a [routerLink]="[\'/details\', movie._id]">Details</a>        </div>      </div>    </div>  </div>  <ng-template #noMovies>    <p>No movies found. Try a different query.</p>  </ng-template>  <div class="pagination">    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>    <span>Page {{ currentPage }} of {{ totalPages }}</span>    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>    <!-- 新增输入框和按钮 -->    <input type="number" [(ngModel)]="gotoPageNumber" placeholder="Page #" min="1" [max]="totalPages">    <button (click)="jumpToPage()">Go</button>  </div></main><footer class="footer">  <div class="content">    <div class="left">      <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="auto">    </div>    <div class="right">      <span class="greeting">Hello, {{ userInfo?.username }}!</span>    </div>  </div></footer></div>'
+        var COMPONENT_TEMPLATE = '<div><header class="navbar">  <div class="content">    <div class="left">      <a [routerLink]="[\'/home\']" class="logo">        <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="30">      </a>    </div>    <div class="right">      <a [routerLink]="[\'/query\']" class="search-icon"><i class="fas fa-search"></i></a>      <div class="dropdown">        <span class="username-circle">{{ userInfo?.username?.charAt(0) || \'\' }}</span>        <div class="dropdown-content">          <a (click)="getUserInfo()" [routerLink]="[\'/user-info\']">{{ userInfo?.username }}</a>          <a (click)="logout()">Logout</a>          <a *ngIf="is_admin" [routerLink]="[\'/admin/manage\']">Manage</a>        </div>      </div>    </div>  </div></header><main>  <section class="query-section">    <h1>Movie Search</h1>    <div class="query-form">      <h3>Filter Options</h3>      <label for="language">Language:</label>      <select id="language" [(ngModel)]="filterLanguage">        <option value="-">-</option>        <option value="ar">Arabic</option>        <option value="as">Assamese</option>        <option value="bn">Bengali</option>        <option value="bo">Tibetan</option>        <option value="cs">Czech</option>        <option value="da">Danish</option>        <option value="de">German</option>        <option value="el">Greek</option>        <option value="en">English</option>        <option value="es">Spanish</option>        <option value="fa">Persian</option>        <option value="fi">Finnish</option>        <option value="fr">French</option>        <option value="ge">Georgian</option>        <option value="hb">Unknown (hb)</option>        <option value="he">Hebrew</option>        <option value="hi">Hindi</option>        <option value="id">Indonesian</option>        <option value="in">Unknown (in)</option>        <option value="it">Italian</option>        <option value="ja">Japanese</option>        <option value="jp">Japanese</option>        <option value="kh">Khmer</option>        <option value="km">Khmer</option>        <option value="kn">Kannada</option>        <option value="ko">Korean</option>        <option value="kr">Korean</option>        <option value="lt">Lithuanian</option>        <option value="lo">Lao</option>        <option value="lv">Latvian</option>        <option value="mr">Marathi</option>        <option value="ms">Malay</option>        <option value="my">Burmese</option>        <option value="nl">Dutch</option>        <option value="no">Norwegian</option>        <option value="pl">Polish</option>        <option value="pt">Portuguese</option>        <option value="ro">Romanian</option>        <option value="ru">Russian</option>        <option value="sv">Swedish</option>        <option value="sw">Swahili</option>        <option value="ta">Tamil</option>        <option value="te">Telugu</option>        <option value="th">Thai</option>        <option value="tl">Tagalog</option>        <option value="vi">Vietnamese</option>        <option value="vt">Unknown (vt)</option>        <option value="xh">Xhosa</option>        <option value="zh">Chinese</option>              </select>      <button (click)="filterMovies()">Filter</button>    </div>    <div class="query-form">      <h3>Sort Options</h3>      <label for="sortField">Sort by:</label>      <select id="sortField" [(ngModel)]="sortField">        <option value="title">Title</option>        <option value="release_date">Release Date</option>        <option value="details.director">Director</option>        <option value="language">Language</option>      </select>      <label for="sortOrder">Order:</label>      <select id="sortOrder" [(ngModel)]="sortOrder">        <option value=1>Ascending</option>        <option value=-1>Descending</option>      </select>      <button (click)="sortMovies()">Sort</button>    </div>    <div class="query-form">      <h3>Aggregate Options</h3>      <button (click)="aggregateMovies()">Aggregate</button>      <button (click)="toggleAggregatedResults()">Toggle Aggregated Results</button>    </div>    <div *ngIf="showAggregatedResults">      <p>Total Movies: {{ totalMovies }}</p>      <p>Total Average Duration: {{ totalAverageDuration }} minutes</p>      <div *ngFor="let stat of languageStats">        <p><strong>Language:</strong> {{ stat._id }}</p>        <p><strong>Total Movies:</strong> {{ stat.total_movies }}</p>        <p><strong>Average Duration:</strong> {{ stat.average_duration }} minutes</p>      </div>    </div>  </section>  <div *ngIf="currentMovies.length > 0; else noMovies">    <div class="movie-list">      <div class="movie-item" *ngFor="let movie of currentMovies; let i = index">        <img *ngIf="getPosterUrl(movie)" [src]="getPosterUrl(movie)" alt="{{ movie.title }}">        <div class="movie-details">          <h2>{{ movie.title }}</h2>          <p><strong>Language:</strong> {{ movie.language }}</p>          <p><strong>Release Date:</strong> {{ movie.release_date }}</p>          <p><strong>Duration:</strong> {{ movie.duration }}</p>          <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(\', \') : \'None\' }}</p>          <button *ngIf="!movie.isFavorite" (click)="addToFavorites(movie._id)">Star</button>          <button *ngIf="movie.isFavorite" (click)="removeFromFavorites(movie.favorite_id)">Stared</button>          <a [routerLink]="[\'/details\', movie._id]">Details</a>        </div>      </div>    </div>  </div>  <ng-template #noMovies>    <p>No movies found. Try a different query.</p>  </ng-template>  <div class="pagination">    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>    <span>Page {{ currentPage }} of {{ totalPages }}</span>    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>    <input type="number" [(ngModel)]="gotoPageNumber" placeholder="Page #" min="1" [max]="totalPages">    <button (click)="jumpToPage()">Go</button>  </div></main><footer class="footer">  <div class="content">    <div class="left">      <img src="../../../assets/logo.jpg" alt="THMG Logo" width="100" height="auto">    </div>    <div class="right">      <span class="greeting">Hello, {{ userInfo?.username }}!</span>    </div>  </div></footer></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FavoritesComponent', 'selector': 'app-favorites'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ManageComponent', 'selector': 'app-manage'},{'name': 'QueryComponent', 'selector': 'app-query'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'UserInfoComponent', 'selector': 'app-user-info'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'QueryComponent'};

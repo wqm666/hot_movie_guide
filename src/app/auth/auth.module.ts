@@ -20,7 +20,7 @@ import { AuthGuard } from './guard/auth.guard';
     RegisterComponent,
     HomeComponent,
     DetailsComponent,
-    FavoritesComponent, // 确保声明 FavoritesComponent
+    FavoritesComponent,
     UserInfoComponent,
     QueryComponent
   ],
