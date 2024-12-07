@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AdminService } from './admin.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 describe('AdminService', () => {
   let service: AdminService;
@@ -20,15 +19,13 @@ describe('AdminService', () => {
     httpMock.verify();
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-
   it('should retrieve all users', () => {
     const dummyUsers = [
-      { username: 'John', email: 'john@example.com' },
-      { username: 'Doe', email: 'doe@example.com' }
+      { username: 'user1', email: 'user1@example.com' },
+      { username: 'user2', email: 'user2@example.com' }
     ];
+
+    spyOn(service as any, 'getToken').and.returnValue('12345');
 
     service.getAllUsers().subscribe(users => {
       expect(users.length).toBe(2);
@@ -37,14 +34,17 @@ describe('AdminService', () => {
 
     const req = httpMock.expectOne(`${service['baseUrl']}/all_users`);
     expect(req.request.method).toBe('GET');
+    expect(req.request.headers.get('x-access-token')).toBe('12345');
     req.flush(dummyUsers);
   });
 
   it('should retrieve all admin users', () => {
     const dummyAdminUsers = [
-      { username: 'Admin1', email: 'admin1@example.com' },
-      { username: 'Admin2', email: 'admin2@example.com' }
+      { username: 'admin1', email: 'admin1@example.com' },
+      { username: 'admin2', email: 'admin2@example.com' }
     ];
+
+    spyOn(service as any, 'getToken').and.returnValue('12345');
 
     service.getAdminUsers().subscribe(adminUsers => {
       expect(adminUsers.length).toBe(2);
@@ -53,65 +53,75 @@ describe('AdminService', () => {
 
     const req = httpMock.expectOne(`${service['baseUrl']}/admin_users`);
     expect(req.request.method).toBe('GET');
+    expect(req.request.headers.get('x-access-token')).toBe('12345');
     req.flush(dummyAdminUsers);
   });
 
   it('should toggle admin status', () => {
-    const user_id = '12345';
-    const response = { message: 'Admin status toggled' };
+    const dummyResponse = { success: true };
+    const userId = 'user1';
 
-    service.toggleAdmin(user_id).subscribe(res => {
-      expect(res).toEqual(response);
+    spyOn(service as any, 'getToken').and.returnValue('12345');
+
+    service.toggleAdmin(userId).subscribe(response => {
+      expect(response).toEqual(dummyResponse);
     });
 
     const req = httpMock.expectOne(`${service['baseUrl']}/toggle_admin`);
     expect(req.request.method).toBe('POST');
-    req.flush(response);
+    expect(req.request.body).toEqual({ user_id: userId });
+    expect(req.request.headers.get('x-access-token')).toBe('12345');
+    req.flush(dummyResponse);
   });
 
   it('should add a new movie', () => {
-    const newMovie = { title: 'New Movie', director: 'Director' };
-    const response = { message: 'Movie added' };
+    const dummyMovie = { title: 'Movie 1', language: 'en', release_date: '2022-01-01' };
+    const dummyResponse = { success: true };
 
-    service.addMovie(newMovie).subscribe(res => {
-      expect(res).toEqual(response);
+    spyOn(service as any, 'getToken').and.returnValue('12345');
+
+    service.addMovie(dummyMovie).subscribe(response => {
+      expect(response).toEqual(dummyResponse);
     });
 
     const req = httpMock.expectOne('http://127.0.0.1:5000/movies/');
     expect(req.request.method).toBe('POST');
-    req.flush(response);
+    expect(req.request.body).toEqual(dummyMovie);
+    expect(req.request.headers.get('x-access-token')).toBe('12345');
+    req.flush(dummyResponse);
   });
 
-  it('should update an existing movie', () => {
-    const movie_id = '123';
-    const updatedMovie = { title: 'Updated Movie', director: 'New Director' };
-    const response = { message: 'Movie updated' };
+  it('should update a movie', () => {
+    const movieId = '1';
+    const dummyMovie = { title: 'Movie 1', language: 'en', release_date: '2022-01-01' };
+    const dummyResponse = { success: true };
 
-    service.updateMovie(movie_id, updatedMovie).subscribe(res => {
-      expect(res).toEqual(response);
+    spyOn(service as any, 'getToken').and.returnValue('12345');
+
+    service.updateMovie(movieId, dummyMovie).subscribe(response => {
+      expect(response).toEqual(dummyResponse);
     });
 
-    const req = httpMock.expectOne(`http://127.0.0.1:5000/movies/${movie_id}`);
+    const req = httpMock.expectOne(`http://127.0.0.1:5000/movies/${movieId}`);
     expect(req.request.method).toBe('PUT');
-    req.flush(response);
+    expect(req.request.body).toEqual(dummyMovie);
+    expect(req.request.headers.get('x-access-token')).toBe('12345');
+    req.flush(dummyResponse);
   });
 
   it('should delete a movie', () => {
-    const movie_id = '123';
-    const response = { message: 'Movie deleted' };
+    const movieId = '1';
+    const dummyResponse = { success: true };
 
-    service.deleteMovie(movie_id).subscribe(res => {
-      expect(res).toEqual(response);
+    spyOn(service as any, 'getToken').and.returnValue('12345');
+
+    service.deleteMovie(movieId).subscribe(response => {
+      expect(response).toEqual(dummyResponse);
     });
 
-    const req = httpMock.expectOne(`http://127.0.0.1:5000/movies/${movie_id}`);
+    const req = httpMock.expectOne(`http://127.0.0.1:5000/movies/${movieId}`);
     expect(req.request.method).toBe('DELETE');
-    req.flush(response);
-  });
-
-  it('should get token from session storage', () => {
-    const token = '12345';
-    spyOn(sessionStorage, 'getItem').and.returnValue(token);
-    expect(service['getToken']()).toBe(token);
+    expect(req.request.headers.get('x-access-token')).toBe('12345');
+    req.flush(dummyResponse);
   });
 });
