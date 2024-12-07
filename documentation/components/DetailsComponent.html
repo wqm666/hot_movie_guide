@@ -201,10 +201,34 @@ Handles fetching movie details and managing favorites.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#currentCity" >currentCity</a>
+                            </li>
+                            <li>
+                                <a href="#forecastCity1" >forecastCity1</a>
+                            </li>
+                            <li>
+                                <a href="#forecastCity2" >forecastCity2</a>
+                            </li>
+                            <li>
                                 <a href="#isFavorite" >isFavorite</a>
                             </li>
                             <li>
                                 <a href="#movie" >movie</a>
+                            </li>
+                            <li>
+                                <a href="#searchCity" >searchCity</a>
+                            </li>
+                            <li>
+                                <a href="#searchedForecast" >searchedForecast</a>
+                            </li>
+                            <li>
+                                <a href="#searchedWeather" >searchedWeather</a>
+                            </li>
+                            <li>
+                                <a href="#weatherCity1" >weatherCity1</a>
+                            </li>
+                            <li>
+                                <a href="#weatherCity2" >weatherCity2</a>
                             </li>
                         </ul>
                     </td>
@@ -228,10 +252,22 @@ Handles fetching movie details and managing favorites.</p>
                                 <a href="#getMovieDetails" >getMovieDetails</a>
                             </li>
                             <li>
+                                <a href="#getWeatherForCity1" >getWeatherForCity1</a>
+                            </li>
+                            <li>
+                                <a href="#getWeatherForCity2" >getWeatherForCity2</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
                                 <a href="#removeFromFavorites" >removeFromFavorites</a>
+                            </li>
+                            <li>
+                                <a href="#searchWeather" >searchWeather</a>
+                            </li>
+                            <li>
+                                <a href="#switchCity" >switchCity</a>
                             </li>
                         </ul>
                     </td>
@@ -251,12 +287,12 @@ Handles fetching movie details and managing favorites.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(route: ActivatedRoute, moviesService: <a href="../injectables/MoviesService.html" target="_self">MoviesService</a>, favoritesService: <a href="../injectables/FavoritesService.html" target="_self">FavoritesService</a>)</code>
+<code>constructor(route: ActivatedRoute, moviesService: <a href="../injectables/MoviesService.html" target="_self">MoviesService</a>, favoritesService: <a href="../injectables/FavoritesService.html" target="_self">FavoritesService</a>, weatherService: <a href="../injectables/WeatherService.html" target="_self">WeatherService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/auth/details/details.component.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/auth/details/details.component.ts:78</a></div>
                             </td>
                         </tr>
 
@@ -328,6 +364,24 @@ Handles fetching movie details and managing favorites.</p>
 
                                                         </td>
                                                 </tr>
+                                                <tr>
+                                                        <td>weatherService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/WeatherService.html" target="_self" >WeatherService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>The service used for fetching weather details.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -366,8 +420,8 @@ Handles fetching movie details and managing favorites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="93"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:93</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="137"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:137</a></div>
                         </td>
                     </tr>
 
@@ -405,8 +459,8 @@ Handles fetching movie details and managing favorites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="81"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:81</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="125"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:125</a></div>
                         </td>
                     </tr>
 
@@ -444,8 +498,8 @@ Handles fetching movie details and managing favorites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="65"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:65</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:107</a></div>
                         </td>
                     </tr>
 
@@ -453,6 +507,84 @@ Handles fetching movie details and managing favorites.</p>
             <tr>
                 <td class="col-md-4">
                         <div class="io-description"><p>Fetches the details of the movie based on the route parameter.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWeatherForCity1"></a>
+                    <span class="name">
+                        <span ><b>getWeatherForCity1</b></span>
+                        <a href="#getWeatherForCity1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getWeatherForCity1()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="172"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:172</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Fetches the current weather data for the first city.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWeatherForCity2"></a>
+                    <span class="name">
+                        <span ><b>getWeatherForCity2</b></span>
+                        <a href="#getWeatherForCity2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getWeatherForCity2()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:186</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Fetches the current weather data for the second city.</p>
 </div>
 
                         <div class="io-description">
@@ -483,8 +615,8 @@ Handles fetching movie details and managing favorites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="57"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:57</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:99</a></div>
                         </td>
                     </tr>
 
@@ -523,8 +655,8 @@ Fetches movie details on component initialization.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="107"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:107</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:151</a></div>
                         </td>
                     </tr>
 
@@ -542,12 +674,228 @@ Fetches movie details on component initialization.</p>
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchWeather"></a>
+                    <span class="name">
+                        <span ><b>searchWeather</b></span>
+                        <a href="#searchWeather"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>searchWeather()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="209"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:209</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Searches for weather data of the entered city.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="switchCity"></a>
+                    <span class="name">
+                        <span ><b>switchCity</b></span>
+                        <a href="#switchCity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>switchCity(city: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="201"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:201</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Switches the weather display to the selected city.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>city</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The city to switch to.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
     <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentCity"></a>
+                    <span class="name">
+                        <span ><b>currentCity</b></span>
+                        <a href="#currentCity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;City1&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/auth/details/details.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The currently selected city for displaying weather.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forecastCity1"></a>
+                    <span class="name">
+                        <span ><b>forecastCity1</b></span>
+                        <a href="#forecastCity1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/auth/details/details.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The forecast data for the first city.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forecastCity2"></a>
+                    <span class="name">
+                        <span ><b>forecastCity2</b></span>
+                        <a href="#forecastCity2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/auth/details/details.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The forecast data for the second city.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -617,6 +965,171 @@ Fetches movie details on component initialization.</p>
 
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchCity"></a>
+                    <span class="name">
+                        <span ><b>searchCity</b></span>
+                        <a href="#searchCity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/auth/details/details.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The city name entered by the user for searching weather.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchedForecast"></a>
+                    <span class="name">
+                        <span ><b>searchedForecast</b></span>
+                        <a href="#searchedForecast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/auth/details/details.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The forecast data for the searched city.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchedWeather"></a>
+                    <span class="name">
+                        <span ><b>searchedWeather</b></span>
+                        <a href="#searchedWeather"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/auth/details/details.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The weather data for the searched city.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="weatherCity1"></a>
+                    <span class="name">
+                        <span ><b>weatherCity1</b></span>
+                        <a href="#weatherCity1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/auth/details/details.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The weather data for the first city.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="weatherCity2"></a>
+                    <span class="name">
+                        <span ><b>weatherCity2</b></span>
+                        <a href="#weatherCity2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/auth/details/details.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The weather data for the second city.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -627,11 +1140,11 @@ Fetches movie details on component initialization.</p>
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { MoviesService } from &#x27;../../services/movies.service&#x27;;
 import { FavoritesService } from &#x27;../../services/favorites.service&#x27;;
+import { WeatherService } from &#x27;../../services/weather.service&#x27;;
 
 /**
  * Interface for video details.
  * @since v1.0.0
- * @autor Zirun Wang
  */
 interface Video {
   kind: string;
@@ -644,7 +1157,7 @@ interface Video {
  * Component for displaying movie details.
  * Handles fetching movie details and managing favorites.
  * @since v1.0.0
- * @autor Your Name
+ * @autor Zirun Wang
  */
 @Component({
   selector: &#x27;app-details&#x27;,
@@ -663,15 +1176,57 @@ export class DetailsComponent implements OnInit {
   isFavorite: boolean &#x3D; false;
 
   /**
+   * The weather data for the first city.
+   */
+  weatherCity1: any;
+
+  /**
+   * The weather data for the second city.
+   */
+  weatherCity2: any;
+
+  /**
+   * The forecast data for the first city.
+   */
+  forecastCity1: any;
+
+  /**
+   * The forecast data for the second city.
+   */
+  forecastCity2: any;
+
+  /**
+   * The currently selected city for displaying weather.
+   */
+  currentCity: string &#x3D; &#x27;City1&#x27;;
+
+  /**
+   * The city name entered by the user for searching weather.
+   */
+  searchCity: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * The weather data for the searched city.
+   */
+  searchedWeather: any;
+
+  /**
+   * The forecast data for the searched city.
+   */
+  searchedForecast: any;
+
+  /**
    * @constructor
    * @param { ActivatedRoute } route - The activated route service used for accessing route parameters.
    * @param { MoviesService } moviesService - The service used for fetching movie details.
    * @param { FavoritesService } favoritesService - The service used for managing favorite movies.
+   * @param { WeatherService } weatherService - The service used for fetching weather details.
    */
   constructor(
     private route: ActivatedRoute,
     private moviesService: MoviesService,
     private favoritesService: FavoritesService,
+    private weatherService: WeatherService,
   ) {}
 
   /**
@@ -693,6 +1248,8 @@ export class DetailsComponent implements OnInit {
       this.moviesService.getMovieById(id).subscribe((movie: any) &#x3D;&gt; {
         this.movie &#x3D; movie;
         this.checkIfFavorite();
+        this.getWeatherForCity1();
+        this.getWeatherForCity2();
       }, error &#x3D;&gt; {
         console.error(&#x27;Error fetching movie details:&#x27;, error);
       });
@@ -745,6 +1302,63 @@ export class DetailsComponent implements OnInit {
       });
     }
   }
+
+  /**
+   * Fetches the current weather data for the first city.
+   * @since v1.0.0
+   */
+  getWeatherForCity1(): void {
+    const city &#x3D; &#x27;New York&#x27;;
+    this.weatherService.getCurrentWeather(city).subscribe(data &#x3D;&gt; {
+      this.weatherCity1 &#x3D; data;
+    });
+    this.weatherService.getWeatherForecast(city).subscribe(data &#x3D;&gt; {
+      this.forecastCity1 &#x3D; data.list.filter((item: any) &#x3D;&gt; item.dt_txt.includes(&#x27;12:00:00&#x27;));
+    });
+  }
+
+  /**
+   * Fetches the current weather data for the second city.
+   * @since v1.0.0
+   */
+  getWeatherForCity2(): void {
+    const city &#x3D; &#x27;Los Angeles&#x27;;
+    this.weatherService.getCurrentWeather(city).subscribe(data &#x3D;&gt; {
+      this.weatherCity2 &#x3D; data;
+    });
+    this.weatherService.getWeatherForecast(city).subscribe(data &#x3D;&gt; {
+      this.forecastCity2 &#x3D; data.list.filter((item: any) &#x3D;&gt; item.dt_txt.includes(&#x27;12:00:00&#x27;));
+    });
+  }
+
+  /**
+   * Switches the weather display to the selected city.
+   * @since v1.0.0
+   * @param { string } city - The city to switch to.
+   */
+  switchCity(city: string): void {
+    this.currentCity &#x3D; city;
+  }
+
+  /**
+   * Searches for weather data of the entered city.
+   * @since v1.0.0
+   */
+  searchWeather(): void {
+    this.weatherService.getCurrentWeather(this.searchCity).subscribe(data &#x3D;&gt; {
+      this.searchedWeather &#x3D; data;
+    }, error &#x3D;&gt; {
+      console.error(&#x27;Error fetching searched weather data:&#x27;, error);
+      alert(&#x27;Fetching searched weather data failed&#x27;);
+    });
+
+    this.weatherService.getWeatherForecast(this.searchCity).subscribe(data &#x3D;&gt; {
+      this.searchedForecast &#x3D; data.list.filter((item: any) &#x3D;&gt; item.dt_txt.includes(&#x27;12:00:00&#x27;));
+    }, error &#x3D;&gt; {
+      console.error(&#x27;Error fetching searched weather forecast:&#x27;, error);
+      alert(&#x27;Fetching searched weather data failed&#x27;);
+    });
+  }
 }</code></pre>
     </div>
 
@@ -760,12 +1374,14 @@ export class DetailsComponent implements OnInit {
     &lt;button *ngIf&#x3D;&quot;!isFavorite&quot; (click)&#x3D;&quot;addToFavorites()&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Star&lt;/button&gt;
     &lt;button *ngIf&#x3D;&quot;isFavorite&quot; (click)&#x3D;&quot;removeFromFavorites()&quot; class&#x3D;&quot;btn btn-secondary&quot;&gt;Stared&lt;/button&gt;
   &lt;/div&gt;
+  
   &lt;h2&gt;Details&lt;/h2&gt;
   &lt;div *ngFor&#x3D;&quot;let detail of movie.details&quot;&gt;
     &lt;p&gt;&lt;strong&gt;Director:&lt;/strong&gt; {{ detail.director || &#x27;None&#x27; }}&lt;/p&gt;
     &lt;p&gt;&lt;strong&gt;Cast:&lt;/strong&gt; {{ detail.cast || &#x27;None&#x27; }}&lt;/p&gt;
     &lt;p&gt;&lt;strong&gt;Storyline:&lt;/strong&gt; {{ detail.storyline || &#x27;None&#x27; }}&lt;/p&gt;
   &lt;/div&gt;
+  
   &lt;h2&gt;Videos&lt;/h2&gt;
   &lt;div *ngFor&#x3D;&quot;let video of movie.videos&quot;&gt;
     &lt;p&gt;&lt;strong&gt;Kind:&lt;/strong&gt; {{ video.kind || &#x27;None&#x27; }}&lt;/p&gt;
@@ -773,11 +1389,81 @@ export class DetailsComponent implements OnInit {
     &lt;p&gt;&lt;strong&gt;Source:&lt;/strong&gt; {{ video.source || &#x27;None&#x27; }}&lt;/p&gt;
     &lt;a [href]&#x3D;&quot;video.url&quot; target&#x3D;&quot;_blank&quot;&gt;{{ video.url }}&lt;/a&gt;
   &lt;/div&gt;
+  
   &lt;h2&gt;Feeders&lt;/h2&gt;
   &lt;div *ngFor&#x3D;&quot;let feeder of movie.feeders&quot;&gt;
     &lt;p&gt;&lt;a [href]&#x3D;&quot;feeder.url&quot; target&#x3D;&quot;_blank&quot;&gt;{{ feeder.name }}&lt;/a&gt;&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+  
+  &lt;h2&gt;Weather&lt;/h2&gt;
+  &lt;div&gt;
+    &lt;button (click)&#x3D;&quot;switchCity(&#x27;City1&#x27;)&quot;&gt;City 1&lt;/button&gt;
+    &lt;button (click)&#x3D;&quot;switchCity(&#x27;City2&#x27;)&quot;&gt;City 2&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div *ngIf&#x3D;&quot;currentCity &#x3D;&#x3D;&#x3D; &#x27;City1&#x27; &amp;&amp; weatherCity1&quot;&gt;
+    &lt;h3&gt;Current Weather in City 1 (New York)&lt;/h3&gt;
+    &lt;p&gt;&lt;strong&gt;Temperature:&lt;/strong&gt; {{ weatherCity1.main.temp }} °C&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Weather:&lt;/strong&gt; {{ weatherCity1.weather[0].description }}&lt;/p&gt;
+    &lt;img [src]&#x3D;&quot;&#x27;http://openweathermap.org/img/wn/&#x27; + weatherCity1.weather[0].icon + &#x27;@2x.png&#x27;&quot; alt&#x3D;&quot;Weather icon&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Humidity:&lt;/strong&gt; {{ weatherCity1.main.humidity }} %&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Wind Speed:&lt;/strong&gt; {{ weatherCity1.wind.speed }} m/s&lt;/p&gt;
+  &lt;/div&gt;
+  
+
+  &lt;div *ngIf&#x3D;&quot;currentCity &#x3D;&#x3D;&#x3D; &#x27;City2&#x27; &amp;&amp; weatherCity2&quot;&gt;
+    &lt;h3&gt;Current Weather in City 2 (Los Angeles)&lt;/h3&gt;
+    &lt;p&gt;&lt;strong&gt;Temperature:&lt;/strong&gt; {{ weatherCity2.main.temp }} °C&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Weather:&lt;/strong&gt; {{ weatherCity2.weather[0].description }}&lt;/p&gt;
+    &lt;img [src]&#x3D;&quot;&#x27;http://openweathermap.org/img/wn/&#x27; + weatherCity2.weather[0].icon + &#x27;@2x.png&#x27;&quot; alt&#x3D;&quot;Weather icon&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Humidity:&lt;/strong&gt; {{ weatherCity2.main.humidity }} %&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Wind Speed:&lt;/strong&gt; {{ weatherCity2.wind.speed }} m/s&lt;/p&gt;
+  &lt;/div&gt;
+  
+  &lt;div *ngIf&#x3D;&quot;currentCity &#x3D;&#x3D;&#x3D; &#x27;City1&#x27; &amp;&amp; forecastCity1&quot;&gt;
+    &lt;h3&gt;5-Day Weather Forecast for City 1 (New York)&lt;/h3&gt;
+    &lt;div *ngFor&#x3D;&quot;let day of forecastCity1&quot;&gt;
+      &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; {{ day.dt_txt }}&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Temperature:&lt;/strong&gt; {{ day.main.temp }} °C&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Weather:&lt;/strong&gt; {{ day.weather[0].description }}&lt;/p&gt;
+      &lt;img [src]&#x3D;&quot;&#x27;http://openweathermap.org/img/wn/&#x27; + day.weather[0].icon + &#x27;@2x.png&#x27;&quot; alt&#x3D;&quot;Weather icon&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div *ngIf&#x3D;&quot;currentCity &#x3D;&#x3D;&#x3D; &#x27;City2&#x27; &amp;&amp; forecastCity2&quot;&gt;
+    &lt;h3&gt;5-Day Weather Forecast for City 2 (Los Angeles)&lt;/h3&gt;
+    &lt;div *ngFor&#x3D;&quot;let day of forecastCity2&quot;&gt;
+      &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; {{ day.dt_txt }}&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Temperature:&lt;/strong&gt; {{ day.main.temp }} °C&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Weather:&lt;/strong&gt; {{ day.weather[0].description }}&lt;/p&gt;
+      &lt;img [src]&#x3D;&quot;&#x27;http://openweathermap.org/img/wn/&#x27; + day.weather[0].icon + &#x27;@2x.png&#x27;&quot; alt&#x3D;&quot;Weather icon&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;h2&gt;Search Weather by City&lt;/h2&gt;
+  &lt;input [(ngModel)]&#x3D;&quot;searchCity&quot; placeholder&#x3D;&quot;Enter city name&quot;&gt;
+  &lt;button (click)&#x3D;&quot;searchWeather()&quot;&gt;Search&lt;/button&gt;
+  
+  &lt;div *ngIf&#x3D;&quot;searchedWeather&quot;&gt;
+    &lt;h3&gt;Current Weather in {{ searchCity }}&lt;/h3&gt;
+    &lt;p&gt;&lt;strong&gt;Temperature:&lt;/strong&gt; {{ searchedWeather.main.temp }} °C&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Weather:&lt;/strong&gt; {{ searchedWeather.weather[0].description }}&lt;/p&gt;
+    &lt;img [src]&#x3D;&quot;&#x27;http://openweathermap.org/img/wn/&#x27; + searchedWeather.weather[0].icon + &#x27;@2x.png&#x27;&quot; alt&#x3D;&quot;Weather icon&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Humidity:&lt;/strong&gt; {{ searchedWeather.main.humidity }} %&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Wind Speed:&lt;/strong&gt; {{ searchedWeather.wind.speed }} m/s&lt;/p&gt;
+  &lt;/div&gt;
+  
+  &lt;div *ngIf&#x3D;&quot;searchedForecast&quot;&gt;
+    &lt;h3&gt;5-Day Weather Forecast for {{ searchCity }}&lt;/h3&gt;
+    &lt;div *ngFor&#x3D;&quot;let day of searchedForecast&quot;&gt;
+      &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; {{ day.dt_txt }}&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Temperature:&lt;/strong&gt; {{ day.main.temp }} °C&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Weather:&lt;/strong&gt; {{ day.weather[0].description }}&lt;/p&gt;
+      &lt;img [src]&#x3D;&quot;&#x27;http://openweathermap.org/img/wn/&#x27; + day.weather[0].icon + &#x27;@2x.png&#x27;&quot; alt&#x3D;&quot;Weather icon&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
@@ -852,7 +1538,7 @@ export class DetailsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="details-container" *ngIf="movie">  <h1>{{ movie.title }}</h1>  <img [src]="movie.images[0]?.url" alt="{{ movie.title }}">  <p><strong>Language:</strong> {{ movie.language || \'None\' }}</p>  <p><strong>Release Date:</strong> {{ movie.release_date || \'None\' }}</p>  <p><strong>Duration:</strong> {{ movie.duration || \'None\' }}</p>  <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(\', \') : \'None\' }}</p>  <div>    <button *ngIf="!isFavorite" (click)="addToFavorites()" class="btn btn-primary">Star</button>    <button *ngIf="isFavorite" (click)="removeFromFavorites()" class="btn btn-secondary">Stared</button>  </div>  <h2>Details</h2>  <div *ngFor="let detail of movie.details">    <p><strong>Director:</strong> {{ detail.director || \'None\' }}</p>    <p><strong>Cast:</strong> {{ detail.cast || \'None\' }}</p>    <p><strong>Storyline:</strong> {{ detail.storyline || \'None\' }}</p>  </div>  <h2>Videos</h2>  <div *ngFor="let video of movie.videos">    <p><strong>Kind:</strong> {{ video.kind || \'None\' }}</p>    <p><strong>Language:</strong> {{ video.language || \'None\' }}</p>    <p><strong>Source:</strong> {{ video.source || \'None\' }}</p>    <a [href]="video.url" target="_blank">{{ video.url }}</a>  </div>  <h2>Feeders</h2>  <div *ngFor="let feeder of movie.feeders">    <p><a [href]="feeder.url" target="_blank">{{ feeder.name }}</a></p>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="details-container" *ngIf="movie">  <h1>{{ movie.title }}</h1>  <img [src]="movie.images[0]?.url" alt="{{ movie.title }}">  <p><strong>Language:</strong> {{ movie.language || \'None\' }}</p>  <p><strong>Release Date:</strong> {{ movie.release_date || \'None\' }}</p>  <p><strong>Duration:</strong> {{ movie.duration || \'None\' }}</p>  <p><strong>Tags:</strong> {{ movie.tags?.length ? movie.tags.join(\', \') : \'None\' }}</p>  <div>    <button *ngIf="!isFavorite" (click)="addToFavorites()" class="btn btn-primary">Star</button>    <button *ngIf="isFavorite" (click)="removeFromFavorites()" class="btn btn-secondary">Stared</button>  </div>    <h2>Details</h2>  <div *ngFor="let detail of movie.details">    <p><strong>Director:</strong> {{ detail.director || \'None\' }}</p>    <p><strong>Cast:</strong> {{ detail.cast || \'None\' }}</p>    <p><strong>Storyline:</strong> {{ detail.storyline || \'None\' }}</p>  </div>    <h2>Videos</h2>  <div *ngFor="let video of movie.videos">    <p><strong>Kind:</strong> {{ video.kind || \'None\' }}</p>    <p><strong>Language:</strong> {{ video.language || \'None\' }}</p>    <p><strong>Source:</strong> {{ video.source || \'None\' }}</p>    <a [href]="video.url" target="_blank">{{ video.url }}</a>  </div>    <h2>Feeders</h2>  <div *ngFor="let feeder of movie.feeders">    <p><a [href]="feeder.url" target="_blank">{{ feeder.name }}</a></p>  </div>    <h2>Weather</h2>  <div>    <button (click)="switchCity(\'City1\')">City 1</button>    <button (click)="switchCity(\'City2\')">City 2</button>  </div>    <div *ngIf="currentCity === \'City1\' && weatherCity1">    <h3>Current Weather in City 1 (New York)</h3>    <p><strong>Temperature:</strong> {{ weatherCity1.main.temp }} °C</p>    <p><strong>Weather:</strong> {{ weatherCity1.weather[0].description }}</p>    <img [src]="\'http://openweathermap.org/img/wn/\' + weatherCity1.weather[0].icon + \'@2x.png\'" alt="Weather icon">    <p><strong>Humidity:</strong> {{ weatherCity1.main.humidity }} %</p>    <p><strong>Wind Speed:</strong> {{ weatherCity1.wind.speed }} m/s</p>  </div>    <div *ngIf="currentCity === \'City2\' && weatherCity2">    <h3>Current Weather in City 2 (Los Angeles)</h3>    <p><strong>Temperature:</strong> {{ weatherCity2.main.temp }} °C</p>    <p><strong>Weather:</strong> {{ weatherCity2.weather[0].description }}</p>    <img [src]="\'http://openweathermap.org/img/wn/\' + weatherCity2.weather[0].icon + \'@2x.png\'" alt="Weather icon">    <p><strong>Humidity:</strong> {{ weatherCity2.main.humidity }} %</p>    <p><strong>Wind Speed:</strong> {{ weatherCity2.wind.speed }} m/s</p>  </div>    <div *ngIf="currentCity === \'City1\' && forecastCity1">    <h3>5-Day Weather Forecast for City 1 (New York)</h3>    <div *ngFor="let day of forecastCity1">      <p><strong>Date:</strong> {{ day.dt_txt }}</p>      <p><strong>Temperature:</strong> {{ day.main.temp }} °C</p>      <p><strong>Weather:</strong> {{ day.weather[0].description }}</p>      <img [src]="\'http://openweathermap.org/img/wn/\' + day.weather[0].icon + \'@2x.png\'" alt="Weather icon">    </div>  </div>    <div *ngIf="currentCity === \'City2\' && forecastCity2">    <h3>5-Day Weather Forecast for City 2 (Los Angeles)</h3>    <div *ngFor="let day of forecastCity2">      <p><strong>Date:</strong> {{ day.dt_txt }}</p>      <p><strong>Temperature:</strong> {{ day.main.temp }} °C</p>      <p><strong>Weather:</strong> {{ day.weather[0].description }}</p>      <img [src]="\'http://openweathermap.org/img/wn/\' + day.weather[0].icon + \'@2x.png\'" alt="Weather icon">    </div>  </div>    <h2>Search Weather by City</h2>  <input [(ngModel)]="searchCity" placeholder="Enter city name">  <button (click)="searchWeather()">Search</button>    <div *ngIf="searchedWeather">    <h3>Current Weather in {{ searchCity }}</h3>    <p><strong>Temperature:</strong> {{ searchedWeather.main.temp }} °C</p>    <p><strong>Weather:</strong> {{ searchedWeather.weather[0].description }}</p>    <img [src]="\'http://openweathermap.org/img/wn/\' + searchedWeather.weather[0].icon + \'@2x.png\'" alt="Weather icon">    <p><strong>Humidity:</strong> {{ searchedWeather.main.humidity }} %</p>    <p><strong>Wind Speed:</strong> {{ searchedWeather.wind.speed }} m/s</p>  </div>    <div *ngIf="searchedForecast">    <h3>5-Day Weather Forecast for {{ searchCity }}</h3>    <div *ngFor="let day of searchedForecast">      <p><strong>Date:</strong> {{ day.dt_txt }}</p>      <p><strong>Temperature:</strong> {{ day.main.temp }} °C</p>      <p><strong>Weather:</strong> {{ day.weather[0].description }}</p>      <img [src]="\'http://openweathermap.org/img/wn/\' + day.weather[0].icon + \'@2x.png\'" alt="Weather icon">    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FavoritesComponent', 'selector': 'app-favorites'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ManageComponent', 'selector': 'app-manage'},{'name': 'QueryComponent', 'selector': 'app-query'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'UserInfoComponent', 'selector': 'app-user-info'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DetailsComponent'};

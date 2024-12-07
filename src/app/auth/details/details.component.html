@@ -9,12 +9,14 @@
     <button *ngIf="!isFavorite" (click)="addToFavorites()" class="btn btn-primary">Star</button>
     <button *ngIf="isFavorite" (click)="removeFromFavorites()" class="btn btn-secondary">Stared</button>
   </div>
+  
   <h2>Details</h2>
   <div *ngFor="let detail of movie.details">
     <p><strong>Director:</strong> {{ detail.director || 'None' }}</p>
     <p><strong>Cast:</strong> {{ detail.cast || 'None' }}</p>
     <p><strong>Storyline:</strong> {{ detail.storyline || 'None' }}</p>
   </div>
+  
   <h2>Videos</h2>
   <div *ngFor="let video of movie.videos">
     <p><strong>Kind:</strong> {{ video.kind || 'None' }}</p>
@@ -22,8 +24,77 @@
     <p><strong>Source:</strong> {{ video.source || 'None' }}</p>
     <a [href]="video.url" target="_blank">{{ video.url }}</a>
   </div>
+  
   <h2>Feeders</h2>
   <div *ngFor="let feeder of movie.feeders">
     <p><a [href]="feeder.url" target="_blank">{{ feeder.name }}</a></p>
+  </div>
+  
+  <h2>Weather</h2>
+  <div>
+    <button (click)="switchCity('City1')">City 1</button>
+    <button (click)="switchCity('City2')">City 2</button>
+  </div>
+  
+  <div *ngIf="currentCity === 'City1' && weatherCity1">
+    <h3>Current Weather in City 1 (New York)</h3>
+    <p><strong>Temperature:</strong> {{ weatherCity1.main.temp }} °C</p>
+    <p><strong>Weather:</strong> {{ weatherCity1.weather[0].description }}</p>
+    <img [src]="'http://openweathermap.org/img/wn/' + weatherCity1.weather[0].icon + '@2x.png'" alt="Weather icon">
+    <p><strong>Humidity:</strong> {{ weatherCity1.main.humidity }} %</p>
+    <p><strong>Wind Speed:</strong> {{ weatherCity1.wind.speed }} m/s</p>
+  </div>
+  
+
+  <div *ngIf="currentCity === 'City2' && weatherCity2">
+    <h3>Current Weather in City 2 (Los Angeles)</h3>
+    <p><strong>Temperature:</strong> {{ weatherCity2.main.temp }} °C</p>
+    <p><strong>Weather:</strong> {{ weatherCity2.weather[0].description }}</p>
+    <img [src]="'http://openweathermap.org/img/wn/' + weatherCity2.weather[0].icon + '@2x.png'" alt="Weather icon">
+    <p><strong>Humidity:</strong> {{ weatherCity2.main.humidity }} %</p>
+    <p><strong>Wind Speed:</strong> {{ weatherCity2.wind.speed }} m/s</p>
+  </div>
+  
+  <div *ngIf="currentCity === 'City1' && forecastCity1">
+    <h3>5-Day Weather Forecast for City 1 (New York)</h3>
+    <div *ngFor="let day of forecastCity1">
+      <p><strong>Date:</strong> {{ day.dt_txt }}</p>
+      <p><strong>Temperature:</strong> {{ day.main.temp }} °C</p>
+      <p><strong>Weather:</strong> {{ day.weather[0].description }}</p>
+      <img [src]="'http://openweathermap.org/img/wn/' + day.weather[0].icon + '@2x.png'" alt="Weather icon">
+    </div>
+  </div>
+  
+  <div *ngIf="currentCity === 'City2' && forecastCity2">
+    <h3>5-Day Weather Forecast for City 2 (Los Angeles)</h3>
+    <div *ngFor="let day of forecastCity2">
+      <p><strong>Date:</strong> {{ day.dt_txt }}</p>
+      <p><strong>Temperature:</strong> {{ day.main.temp }} °C</p>
+      <p><strong>Weather:</strong> {{ day.weather[0].description }}</p>
+      <img [src]="'http://openweathermap.org/img/wn/' + day.weather[0].icon + '@2x.png'" alt="Weather icon">
+    </div>
+  </div>
+  
+  <h2>Search Weather by City</h2>
+  <input [(ngModel)]="searchCity" placeholder="Enter city name">
+  <button (click)="searchWeather()">Search</button>
+  
+  <div *ngIf="searchedWeather">
+    <h3>Current Weather in {{ searchCity }}</h3>
+    <p><strong>Temperature:</strong> {{ searchedWeather.main.temp }} °C</p>
+    <p><strong>Weather:</strong> {{ searchedWeather.weather[0].description }}</p>
+    <img [src]="'http://openweathermap.org/img/wn/' + searchedWeather.weather[0].icon + '@2x.png'" alt="Weather icon">
+    <p><strong>Humidity:</strong> {{ searchedWeather.main.humidity }} %</p>
+    <p><strong>Wind Speed:</strong> {{ searchedWeather.wind.speed }} m/s</p>
+  </div>
+  
+  <div *ngIf="searchedForecast">
+    <h3>5-Day Weather Forecast for {{ searchCity }}</h3>
+    <div *ngFor="let day of searchedForecast">
+      <p><strong>Date:</strong> {{ day.dt_txt }}</p>
+      <p><strong>Temperature:</strong> {{ day.main.temp }} °C</p>
+      <p><strong>Weather:</strong> {{ day.weather[0].description }}</p>
+      <img [src]="'http://openweathermap.org/img/wn/' + day.weather[0].icon + '@2x.png'" alt="Weather icon">
+    </div>
   </div>
 </div>

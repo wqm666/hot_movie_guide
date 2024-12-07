@@ -323,11 +323,11 @@
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { MoviesService } from &#x27;../../services/movies.service&#x27;;
 import { FavoritesService } from &#x27;../../services/favorites.service&#x27;;
+import { WeatherService } from &#x27;../../services/weather.service&#x27;;
 
 /**
  * Interface for video details.
  * @since v1.0.0
- * @autor Zirun Wang
  */
 interface Video {
   kind: string;
@@ -340,7 +340,7 @@ interface Video {
  * Component for displaying movie details.
  * Handles fetching movie details and managing favorites.
  * @since v1.0.0
- * @autor Your Name
+ * @autor Zirun Wang
  */
 @Component({
   selector: &#x27;app-details&#x27;,
@@ -359,15 +359,57 @@ export class DetailsComponent implements OnInit {
   isFavorite: boolean &#x3D; false;
 
   /**
+   * The weather data for the first city.
+   */
+  weatherCity1: any;
+
+  /**
+   * The weather data for the second city.
+   */
+  weatherCity2: any;
+
+  /**
+   * The forecast data for the first city.
+   */
+  forecastCity1: any;
+
+  /**
+   * The forecast data for the second city.
+   */
+  forecastCity2: any;
+
+  /**
+   * The currently selected city for displaying weather.
+   */
+  currentCity: string &#x3D; &#x27;City1&#x27;;
+
+  /**
+   * The city name entered by the user for searching weather.
+   */
+  searchCity: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * The weather data for the searched city.
+   */
+  searchedWeather: any;
+
+  /**
+   * The forecast data for the searched city.
+   */
+  searchedForecast: any;
+
+  /**
    * @constructor
    * @param { ActivatedRoute } route - The activated route service used for accessing route parameters.
    * @param { MoviesService } moviesService - The service used for fetching movie details.
    * @param { FavoritesService } favoritesService - The service used for managing favorite movies.
+   * @param { WeatherService } weatherService - The service used for fetching weather details.
    */
   constructor(
     private route: ActivatedRoute,
     private moviesService: MoviesService,
     private favoritesService: FavoritesService,
+    private weatherService: WeatherService,
   ) {}
 
   /**
@@ -389,6 +431,8 @@ export class DetailsComponent implements OnInit {
       this.moviesService.getMovieById(id).subscribe((movie: any) &#x3D;&gt; {
         this.movie &#x3D; movie;
         this.checkIfFavorite();
+        this.getWeatherForCity1();
+        this.getWeatherForCity2();
       }, error &#x3D;&gt; {
         console.error(&#x27;Error fetching movie details:&#x27;, error);
       });
@@ -440,6 +484,63 @@ export class DetailsComponent implements OnInit {
         console.error(&#x27;Error fetching favorites:&#x27;, error);
       });
     }
+  }
+
+  /**
+   * Fetches the current weather data for the first city.
+   * @since v1.0.0
+   */
+  getWeatherForCity1(): void {
+    const city &#x3D; &#x27;New York&#x27;;
+    this.weatherService.getCurrentWeather(city).subscribe(data &#x3D;&gt; {
+      this.weatherCity1 &#x3D; data;
+    });
+    this.weatherService.getWeatherForecast(city).subscribe(data &#x3D;&gt; {
+      this.forecastCity1 &#x3D; data.list.filter((item: any) &#x3D;&gt; item.dt_txt.includes(&#x27;12:00:00&#x27;));
+    });
+  }
+
+  /**
+   * Fetches the current weather data for the second city.
+   * @since v1.0.0
+   */
+  getWeatherForCity2(): void {
+    const city &#x3D; &#x27;Los Angeles&#x27;;
+    this.weatherService.getCurrentWeather(city).subscribe(data &#x3D;&gt; {
+      this.weatherCity2 &#x3D; data;
+    });
+    this.weatherService.getWeatherForecast(city).subscribe(data &#x3D;&gt; {
+      this.forecastCity2 &#x3D; data.list.filter((item: any) &#x3D;&gt; item.dt_txt.includes(&#x27;12:00:00&#x27;));
+    });
+  }
+
+  /**
+   * Switches the weather display to the selected city.
+   * @since v1.0.0
+   * @param { string } city - The city to switch to.
+   */
+  switchCity(city: string): void {
+    this.currentCity &#x3D; city;
+  }
+
+  /**
+   * Searches for weather data of the entered city.
+   * @since v1.0.0
+   */
+  searchWeather(): void {
+    this.weatherService.getCurrentWeather(this.searchCity).subscribe(data &#x3D;&gt; {
+      this.searchedWeather &#x3D; data;
+    }, error &#x3D;&gt; {
+      console.error(&#x27;Error fetching searched weather data:&#x27;, error);
+      alert(&#x27;Fetching searched weather data failed&#x27;);
+    });
+
+    this.weatherService.getWeatherForecast(this.searchCity).subscribe(data &#x3D;&gt; {
+      this.searchedForecast &#x3D; data.list.filter((item: any) &#x3D;&gt; item.dt_txt.includes(&#x27;12:00:00&#x27;));
+    }, error &#x3D;&gt; {
+      console.error(&#x27;Error fetching searched weather forecast:&#x27;, error);
+      alert(&#x27;Fetching searched weather data failed&#x27;);
+    });
   }
 }</code></pre>
     </div>
