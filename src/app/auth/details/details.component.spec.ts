@@ -3,8 +3,8 @@ import { DetailsComponent } from './details.component';
 import { MoviesService } from '../../services/movies.service';
 import { FavoritesService } from '../../services/favorites.service';
 import { WeatherService } from '../../services/weather.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 
 describe('DetailsComponent', () => {
@@ -50,13 +50,14 @@ describe('DetailsComponent', () => {
   });
 
   it('should fetch movie details on init', () => {
-    const movie = { title: 'Test Movie', _id: '1' };
+    const movie = { _id: '1', title: 'Test Movie' };
     spyOn(moviesService, 'getMovieById').and.returnValue(of(movie));
     spyOn(component, 'getWeatherForCity1').and.callThrough();
     spyOn(component, 'getWeatherForCity2').and.callThrough();
 
     component.ngOnInit();
 
+    expect(moviesService.getMovieById).toHaveBeenCalledWith('1');
     expect(component.movie).toEqual(movie);
     expect(component.getWeatherForCity1).toHaveBeenCalled();
     expect(component.getWeatherForCity2).toHaveBeenCalled();
@@ -66,6 +67,8 @@ describe('DetailsComponent', () => {
     const favorites = [{ movie_id: '1', _id: 'fav1' }];
     spyOn(favoritesService, 'getUserFavorites').and.returnValue(of(favorites));
 
+    const movie = { _id: '1' };
+    component.movie = movie;
     component.checkIfFavorite();
 
     expect(component.isFavorite).toBe(true);

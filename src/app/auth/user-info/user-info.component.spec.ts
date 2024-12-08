@@ -62,6 +62,7 @@ describe('UserInfoComponent', () => {
     spyOn(window, 'alert');
 
     component.userInfo = { username: 'updatedUser' };
+    component.editing = true;
     component.updateUserInfo();
 
     expect(authService.updateUserInfo).toHaveBeenCalledWith({ username: 'updatedUser' });
@@ -74,6 +75,7 @@ describe('UserInfoComponent', () => {
     spyOn(window, 'alert');
 
     component.userInfo = { username: 'updatedUser' };
+    component.editing = true;
     component.updateUserInfo();
 
     expect(authService.updateUserInfo).toHaveBeenCalledWith({ username: 'updatedUser' });
