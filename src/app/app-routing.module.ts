@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -9,6 +9,7 @@ import { UserInfoComponent } from './auth/user-info/user-info.component';
 import { QueryComponent } from './auth/query/query.component';
 import { ManageComponent } from './admin/manage/manage.component';
 import { AuthGuard } from './auth/guard/auth.guard';
+import { TestResultsComponent } from './test-results/test-results.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'user-info', component: UserInfoComponent, canActivate: [AuthGuard] },
   { path: 'query', component: QueryComponent, canActivate: [AuthGuard] },
   { path: 'admin/manage', component: ManageComponent, canActivate: [AuthGuard] },
+  { path: 'test-results', component: TestResultsComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' }
 ];

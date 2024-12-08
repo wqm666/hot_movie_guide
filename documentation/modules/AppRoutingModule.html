@@ -129,7 +129,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { LoginComponent } from &#x27;./auth/login/login.component&#x27;;
 import { RegisterComponent } from &#x27;./auth/register/register.component&#x27;;
@@ -140,6 +140,7 @@ import { UserInfoComponent } from &#x27;./auth/user-info/user-info.component&#x2
 import { QueryComponent } from &#x27;./auth/query/query.component&#x27;;
 import { ManageComponent } from &#x27;./admin/manage/manage.component&#x27;;
 import { AuthGuard } from &#x27;./auth/guard/auth.guard&#x27;;
+import { TestResultsComponent } from &#x27;./test-results/test-results.component&#x27;;
 
 export const routes: Routes &#x3D; [
   { path: &#x27;login&#x27;, component: LoginComponent },
@@ -150,6 +151,7 @@ export const routes: Routes &#x3D; [
   { path: &#x27;user-info&#x27;, component: UserInfoComponent, canActivate: [AuthGuard] },
   { path: &#x27;query&#x27;, component: QueryComponent, canActivate: [AuthGuard] },
   { path: &#x27;admin/manage&#x27;, component: ManageComponent, canActivate: [AuthGuard] },
+  { path: &#x27;test-results&#x27;, component: TestResultsComponent },
   { path: &#x27;&#x27;, redirectTo: &#x27;/login&#x27;, pathMatch: &#x27;full&#x27; },
   { path: &#x27;**&#x27;, redirectTo: &#x27;/login&#x27; }
 ];
