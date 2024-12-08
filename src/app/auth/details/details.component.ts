@@ -6,20 +6,36 @@ import { WeatherService } from '../../services/weather.service';
 
 /**
  * Interface for video details.
+ * Describes the properties of a video object.
  * @since v1.0.0
  */
 interface Video {
+  /**
+   * The type of the video (e.g., trailer, teaser, etc.).
+   */
   kind: string;
+
+  /**
+   * The language of the video.
+   */
   language: string;
+
+  /**
+   * The source or platform where the video is hosted.
+   */
   source: string;
+
+  /**
+   * The URL of the video.
+   */
   url: string;
 }
 
 /**
  * Component for displaying movie details.
- * Handles fetching movie details and managing favorites.
+ * Handles fetching movie details, managing favorites, and integrating weather data for added context.
  * @since v1.0.0
- * @autor Zirun Wang
+ * @author Zirun Wang
  */
 @Component({
   selector: 'app-details',
@@ -29,51 +45,61 @@ interface Video {
 export class DetailsComponent implements OnInit {
   /**
    * The details of the movie.
+   * Contains information about the movie like title, release date, etc.
    */
   movie: any;
 
   /**
    * Indicates whether the movie is a favorite.
+   * This value is set to `true` if the movie is added to the user's favorites, otherwise `false`.
    */
   isFavorite: boolean = false;
 
   /**
-   * The weather data for the first city.
+   * The weather data for the first city (New York).
+   * Contains current weather information (e.g., temperature, humidity, weather conditions).
    */
   weatherCity1: any;
 
   /**
-   * The weather data for the second city.
+   * The weather data for the second city (Los Angeles).
+   * Contains current weather information (e.g., temperature, humidity, weather conditions).
    */
   weatherCity2: any;
 
   /**
-   * The forecast data for the first city.
+   * The forecast data for the first city (New York).
+   * Contains forecast data filtered for noon (12:00:00) from the weather API.
    */
   forecastCity1: any;
 
   /**
-   * The forecast data for the second city.
+   * The forecast data for the second city (Los Angeles).
+   * Contains forecast data filtered for noon (12:00:00) from the weather API.
    */
   forecastCity2: any;
 
   /**
    * The currently selected city for displaying weather.
+   * This value switches between "City1" (New York) and "City2" (Los Angeles) or any user-selected city.
    */
   currentCity: string = 'City1';
 
   /**
    * The city name entered by the user for searching weather.
+   * This property is used to store the city that the user searches for when looking up the weather.
    */
   searchCity: string = '';
 
   /**
    * The weather data for the searched city.
+   * This property is populated when the user searches for a city and its weather data is fetched.
    */
   searchedWeather: any;
 
   /**
    * The forecast data for the searched city.
+   * Contains forecast data filtered for noon (12:00:00) from the weather API.
    */
   searchedForecast: any;
 
@@ -102,6 +128,7 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Fetches the details of the movie based on the route parameter.
+   * The movie details are fetched from the `MoviesService` using the movie ID from the route.
    * @since v1.0.0
    */
   getMovieDetails(): void {
@@ -120,6 +147,8 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Checks if the movie is in the user's favorites.
+   * This method checks the current user's favorites using the `FavoritesService`.
+   * If the movie exists in the list of favorites, `isFavorite` is set to `true`, otherwise it remains `false`.
    * @since v1.0.0
    */
   checkIfFavorite(): void {
@@ -132,6 +161,8 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Adds the movie to the user's favorites.
+   * This method calls the `FavoritesService` to add the movie's ID to the list of favorites.
+   * After successfully adding, it updates the `isFavorite` property to `true`.
    * @since v1.0.0
    */
   addToFavorites(): void {
@@ -146,6 +177,8 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Removes the movie from the user's favorites.
+   * This method calls the `FavoritesService` to remove the movie from the user's favorites list.
+   * After successfully removing, it updates the `isFavorite` property to `false`.
    * @since v1.0.0
    */
   removeFromFavorites(): void {
@@ -166,7 +199,8 @@ export class DetailsComponent implements OnInit {
   }
 
   /**
-   * Fetches the current weather data for the first city.
+   * Fetches the current weather data for the first city (New York).
+   * This method uses the `WeatherService` to fetch current weather data and forecast for the city.
    * @since v1.0.0
    */
   getWeatherForCity1(): void {
@@ -180,7 +214,8 @@ export class DetailsComponent implements OnInit {
   }
 
   /**
-   * Fetches the current weather data for the second city.
+   * Fetches the current weather data for the second city (Los Angeles).
+   * This method uses the `WeatherService` to fetch current weather data and forecast for the city.
    * @since v1.0.0
    */
   getWeatherForCity2(): void {
@@ -195,6 +230,7 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Switches the weather display to the selected city.
+   * This method updates the `currentCity` to the selected city, which triggers the UI to display the weather for that city.
    * @since v1.0.0
    * @param { string } city - The city to switch to.
    */
@@ -204,6 +240,7 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Searches for weather data of the entered city.
+   * This method uses the `WeatherService` to fetch weather data and forecast for the city entered by the user.
    * @since v1.0.0
    */
   searchWeather(): void {

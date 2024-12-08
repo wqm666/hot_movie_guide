@@ -125,7 +125,9 @@
             <p class="comment">
                 <p>Service to manage user authentication.
 Provides methods to handle user registration, login, logout,
-and user information retrieval and update.</p>
+and user information retrieval and update.
+This service interacts with the authentication backend to manage
+users&#39; sessions, registration, login credentials, and other user-related data.</p>
 
             </p>
 
@@ -207,12 +209,14 @@ and user information retrieval and update.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/auth.service.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/services/auth.service.ts:24</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>This is injected to facilitate communication with the backend server for authentication actions.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -238,7 +242,8 @@ and user information retrieval and update.</p>
                                                     
                                                         <td>
                                                                 <ul>
-<li>The HTTP client service used for making HTTP requests.</li>
+<li>The HTTP client service used for making HTTP requests to the backend.
+This is injected to facilitate communication with the backend server for authentication actions.</li>
 </ul>
 
                                                         </td>
@@ -277,15 +282,16 @@ and user information retrieval and update.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="83"
-                                    class="link-to-prism">src/app/services/auth.service.ts:83</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/services/auth.service.ts:96</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Deletes the current logged-in user&#39;s account.</p>
+                        <div class="io-description"><p>Deletes the current logged-in user&#39;s account.
+This method sends a DELETE request to the backend to remove the user account from the system.</p>
 </div>
 
                         <div class="io-description">
@@ -294,7 +300,7 @@ and user information retrieval and update.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>An observable that emits the response from the server.</li>
+<li>An observable that emits the server&#39;s response after deleting the user.</li>
 </ul>
 
                             </div>
@@ -324,15 +330,16 @@ and user information retrieval and update.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="102"
-                                    class="link-to-prism">src/app/services/auth.service.ts:102</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/app/services/auth.service.ts:118</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Retrieves the authentication token from session storage.</p>
+                        <div class="io-description"><p>Retrieves the authentication token from session storage.
+This method fetches the token used for user authentication from session storage.</p>
 </div>
 
                         <div class="io-description">
@@ -341,7 +348,7 @@ and user information retrieval and update.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>The authentication token.</li>
+<li>The authentication token stored in session storage or an empty string if not found.</li>
 </ul>
 
                             </div>
@@ -369,15 +376,16 @@ and user information retrieval and update.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">src/app/services/auth.service.ts:53</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/services/auth.service.ts:62</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Retrieves the logged-in user&#39;s information.</p>
+                        <div class="io-description"><p>Retrieves the logged-in user&#39;s information.
+This method sends a GET request to fetch the details of the logged-in user.</p>
 </div>
 
                         <div class="io-description">
@@ -386,7 +394,7 @@ and user information retrieval and update.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>An observable that emits the user&#39;s information.</li>
+<li>An observable that emits the user&#39;s information, such as profile data.</li>
 </ul>
 
                             </div>
@@ -414,15 +422,16 @@ and user information retrieval and update.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="93"
-                                    class="link-to-prism">src/app/services/auth.service.ts:93</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/services/auth.service.ts:107</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Checks if the user is currently logged in.</p>
+                        <div class="io-description"><p>Checks if the user is currently logged in.
+This method checks if a valid session exists by verifying if a token is stored in session storage.</p>
 </div>
 
                         <div class="io-description">
@@ -431,7 +440,7 @@ and user information retrieval and update.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>True if the user is logged in, false otherwise.</li>
+<li>True if the user is logged in (i.e., a valid token exists in session storage), false otherwise.</li>
 </ul>
 
                             </div>
@@ -459,15 +468,17 @@ and user information retrieval and update.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="44"
-                                    class="link-to-prism">src/app/services/auth.service.ts:44</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/services/auth.service.ts:52</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Logs in a user.</p>
+                        <div class="io-description"><p>Logs in a user.
+This method sends the user&#39;s login credentials (username/password) to the backend to authenticate the user.
+A session is created on the backend if the credentials are valid, and the user&#39;s information is stored.</p>
 </div>
 
                             <div class="io-description">
@@ -496,7 +507,7 @@ and user information retrieval and update.</p>
 
                                             <td>
                                                     <ul>
-<li>The user&#39;s login credentials.</li>
+<li>The user&#39;s login credentials, typically containing a username and password.</li>
 </ul>
 
                                             </td>
@@ -510,7 +521,7 @@ and user information retrieval and update.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>An observable that emits the response from the server.</li>
+<li>An observable that emits the authentication response, typically including a token.</li>
 </ul>
 
                             </div>
@@ -538,15 +549,16 @@ and user information retrieval and update.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="73"
-                                    class="link-to-prism">src/app/services/auth.service.ts:73</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/services/auth.service.ts:85</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Logs out the current user.</p>
+                        <div class="io-description"><p>Logs out the current user.
+This method sends a POST request to the backend to log out the user and invalidate their session.</p>
 </div>
 
                         <div class="io-description">
@@ -555,7 +567,7 @@ and user information retrieval and update.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>An observable that emits the response from the server.</li>
+<li>An observable that emits the response from the server after logging out.</li>
 </ul>
 
                             </div>
@@ -583,15 +595,16 @@ and user information retrieval and update.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="34"
-                                    class="link-to-prism">src/app/services/auth.service.ts:34</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/services/auth.service.ts:40</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Registers a new user.</p>
+                        <div class="io-description"><p>Registers a new user.
+This method sends a POST request to the backend with the user data to create a new user account.</p>
 </div>
 
                             <div class="io-description">
@@ -620,7 +633,7 @@ and user information retrieval and update.</p>
 
                                             <td>
                                                     <ul>
-<li>The user data to register.</li>
+<li>The user data to register, typically including fields like username, password, etc.</li>
 </ul>
 
                                             </td>
@@ -634,7 +647,7 @@ and user information retrieval and update.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>An observable that emits the response from the server.</li>
+<li>An observable that emits the response from the server after registration.</li>
 </ul>
 
                             </div>
@@ -662,15 +675,17 @@ and user information retrieval and update.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="63"
-                                    class="link-to-prism">src/app/services/auth.service.ts:63</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/services/auth.service.ts:74</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Updates the logged-in user&#39;s information.</p>
+                        <div class="io-description"><p>Updates the logged-in user&#39;s information.
+This method sends the updated user data to the backend to update the user&#39;s profile.
+It includes the current authentication token in the request header.</p>
 </div>
 
                             <div class="io-description">
@@ -699,7 +714,7 @@ and user information retrieval and update.</p>
 
                                             <td>
                                                     <ul>
-<li>The updated user data.</li>
+<li>The updated user data to modify, such as changes to the username or other profile fields.</li>
 </ul>
 
                                             </td>
@@ -713,7 +728,7 @@ and user information retrieval and update.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>An observable that emits the response from the server.</li>
+<li>An observable that emits the server&#39;s response after the update.</li>
 </ul>
 
                             </div>
@@ -752,13 +767,14 @@ and user information retrieval and update.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/auth.service.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/services/auth.service.ts:24</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Base URL for the authentication endpoint.</p>
+                    <div class="io-description"><p>Base URL for the authentication endpoint.
+This URL is used as the base for all authentication-related API requests.</p>
 </div>
                 </td>
             </tr>
@@ -779,8 +795,10 @@ import { Observable } from &#x27;rxjs&#x27;;
  * Service to manage user authentication.
  * Provides methods to handle user registration, login, logout,
  * and user information retrieval and update.
+ * This service interacts with the authentication backend to manage 
+ * users&#x27; sessions, registration, login credentials, and other user-related data.
  * @since v1.0.0
- * @autor Zirun Wang
+ * @author Zirun Wang
  */
 @Injectable({
   providedIn: &#x27;root&#x27;
@@ -788,21 +806,25 @@ import { Observable } from &#x27;rxjs&#x27;;
 export class AuthService {
   /**
    * Base URL for the authentication endpoint.
+   * This URL is used as the base for all authentication-related API requests.
    * @private
+   * @type {string}
    */
   private baseUrl &#x3D; &#x27;http://127.0.0.1:5000/auth&#x27;;
 
   /**
    * @constructor
-   * @param { HttpClient } http - The HTTP client service used for making HTTP requests.
+   * @param { HttpClient } http - The HTTP client service used for making HTTP requests to the backend.
+   * This is injected to facilitate communication with the backend server for authentication actions.
    */
   constructor(private http: HttpClient) {}
 
   /**
    * Registers a new user.
-   * @param { any } user - The user data to register.
-   * @returns { Observable&lt;any&gt; } - An observable that emits the response from the server.
+   * This method sends a POST request to the backend with the user data to create a new user account.
    * @since v1.0.0
+   * @param { any } user - The user data to register, typically including fields like username, password, etc.
+   * @returns { Observable&lt;any&gt; } - An observable that emits the response from the server after registration.
    */
   register(user: any): Observable&lt;any&gt; {
     return this.http.post&lt;any&gt;(&#x60;${this.baseUrl}/register&#x60;, user);
@@ -810,9 +832,11 @@ export class AuthService {
 
   /**
    * Logs in a user.
-   * @param { any } credentials - The user&#x27;s login credentials.
-   * @returns { Observable&lt;any&gt; } - An observable that emits the response from the server.
+   * This method sends the user&#x27;s login credentials (username/password) to the backend to authenticate the user.
+   * A session is created on the backend if the credentials are valid, and the user&#x27;s information is stored.
    * @since v1.0.0
+   * @param { any } credentials - The user&#x27;s login credentials, typically containing a username and password.
+   * @returns { Observable&lt;any&gt; } - An observable that emits the authentication response, typically including a token.
    */
   login(credentials: any): Observable&lt;any&gt; {
     return this.http.post&lt;any&gt;(&#x60;${this.baseUrl}/login&#x60;, credentials, { withCredentials: true });
@@ -820,8 +844,9 @@ export class AuthService {
 
   /**
    * Retrieves the logged-in user&#x27;s information.
-   * @returns { Observable&lt;any&gt; } - An observable that emits the user&#x27;s information.
+   * This method sends a GET request to fetch the details of the logged-in user.
    * @since v1.0.0
+   * @returns { Observable&lt;any&gt; } - An observable that emits the user&#x27;s information, such as profile data.
    */
   getUserInfo(): Observable&lt;any&gt; {
     return this.http.get&lt;any&gt;(&#x60;${this.baseUrl}/user&#x60;, { withCredentials: true });
@@ -829,9 +854,11 @@ export class AuthService {
 
   /**
    * Updates the logged-in user&#x27;s information.
-   * @param { any } user - The updated user data.
-   * @returns { Observable&lt;any&gt; } - An observable that emits the response from the server.
+   * This method sends the updated user data to the backend to update the user&#x27;s profile.
+   * It includes the current authentication token in the request header.
    * @since v1.0.0
+   * @param { any } user - The updated user data to modify, such as changes to the username or other profile fields.
+   * @returns { Observable&lt;any&gt; } - An observable that emits the server&#x27;s response after the update.
    */
   updateUserInfo(user: any): Observable&lt;any&gt; {
     const headers &#x3D; new HttpHeaders().set(&#x27;x-access-token&#x27;, this.getToken());
@@ -840,8 +867,9 @@ export class AuthService {
 
   /**
    * Logs out the current user.
-   * @returns { Observable&lt;any&gt; } - An observable that emits the response from the server.
+   * This method sends a POST request to the backend to log out the user and invalidate their session.
    * @since v1.0.0
+   * @returns { Observable&lt;any&gt; } - An observable that emits the response from the server after logging out.
    */
   logout(): Observable&lt;any&gt; {
     const headers &#x3D; new HttpHeaders().set(&#x27;x-access-token&#x27;, this.getToken());
@@ -850,8 +878,9 @@ export class AuthService {
 
   /**
    * Deletes the current logged-in user&#x27;s account.
-   * @returns { Observable&lt;any&gt; } - An observable that emits the response from the server.
+   * This method sends a DELETE request to the backend to remove the user account from the system.
    * @since v1.0.0
+   * @returns { Observable&lt;any&gt; } - An observable that emits the server&#x27;s response after deleting the user.
    */
   deleteUser(): Observable&lt;any&gt; {
     const headers &#x3D; new HttpHeaders().set(&#x27;x-access-token&#x27;, this.getToken());
@@ -860,8 +889,9 @@ export class AuthService {
 
   /**
    * Checks if the user is currently logged in.
-   * @returns { boolean } - True if the user is logged in, false otherwise.
+   * This method checks if a valid session exists by verifying if a token is stored in session storage.
    * @since v1.0.0
+   * @returns { boolean } - True if the user is logged in (i.e., a valid token exists in session storage), false otherwise.
    */
   isLoggedIn(): boolean {
     return !!sessionStorage.getItem(&#x27;token&#x27;);
@@ -869,8 +899,10 @@ export class AuthService {
 
   /**
    * Retrieves the authentication token from session storage.
+   * This method fetches the token used for user authentication from session storage.
    * @private
-   * @returns { string } - The authentication token.
+   * @since v1.0.0
+   * @returns { string } - The authentication token stored in session storage or an empty string if not found.
    */
   private getToken(): string {
     return sessionStorage.getItem(&#x27;token&#x27;) || &#x27;&#x27;;

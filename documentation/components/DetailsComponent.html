@@ -129,7 +129,7 @@
     </p>
     <p class="comment">
         <p>Component for displaying movie details.
-Handles fetching movie details and managing favorites.</p>
+Handles fetching movie details, managing favorites, and integrating weather data for added context.</p>
 
     </p>
 
@@ -292,7 +292,7 @@ Handles fetching movie details and managing favorites.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/auth/details/details.component.ts:78</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/auth/details/details.component.ts:104</a></div>
                             </td>
                         </tr>
 
@@ -420,15 +420,17 @@ Handles fetching movie details and managing favorites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="137"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:137</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:168</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Adds the movie to the user&#39;s favorites.</p>
+                        <div class="io-description"><p>Adds the movie to the user&#39;s favorites.
+This method calls the <code>FavoritesService</code> to add the movie&#39;s ID to the list of favorites.
+After successfully adding, it updates the <code>isFavorite</code> property to <code>true</code>.</p>
 </div>
 
                         <div class="io-description">
@@ -459,15 +461,17 @@ Handles fetching movie details and managing favorites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="125"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:125</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="154"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:154</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Checks if the movie is in the user&#39;s favorites.</p>
+                        <div class="io-description"><p>Checks if the movie is in the user&#39;s favorites.
+This method checks the current user&#39;s favorites using the <code>FavoritesService</code>.
+If the movie exists in the list of favorites, <code>isFavorite</code> is set to <code>true</code>, otherwise it remains <code>false</code>.</p>
 </div>
 
                         <div class="io-description">
@@ -498,15 +502,16 @@ Handles fetching movie details and managing favorites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="107"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:107</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:134</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Fetches the details of the movie based on the route parameter.</p>
+                        <div class="io-description"><p>Fetches the details of the movie based on the route parameter.
+The movie details are fetched from the <code>MoviesService</code> using the movie ID from the route.</p>
 </div>
 
                         <div class="io-description">
@@ -537,15 +542,16 @@ Handles fetching movie details and managing favorites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="172"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:172</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="206"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:206</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Fetches the current weather data for the first city.</p>
+                        <div class="io-description"><p>Fetches the current weather data for the first city (New York).
+This method uses the <code>WeatherService</code> to fetch current weather data and forecast for the city.</p>
 </div>
 
                         <div class="io-description">
@@ -576,15 +582,16 @@ Handles fetching movie details and managing favorites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="186"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:186</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="221"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:221</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Fetches the current weather data for the second city.</p>
+                        <div class="io-description"><p>Fetches the current weather data for the second city (Los Angeles).
+This method uses the <code>WeatherService</code> to fetch current weather data and forecast for the city.</p>
 </div>
 
                         <div class="io-description">
@@ -615,8 +622,8 @@ Handles fetching movie details and managing favorites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="99"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:99</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="125"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:125</a></div>
                         </td>
                     </tr>
 
@@ -655,15 +662,17 @@ Fetches movie details on component initialization.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="151"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:151</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="184"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:184</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Removes the movie from the user&#39;s favorites.</p>
+                        <div class="io-description"><p>Removes the movie from the user&#39;s favorites.
+This method calls the <code>FavoritesService</code> to remove the movie from the user&#39;s favorites list.
+After successfully removing, it updates the <code>isFavorite</code> property to <code>false</code>.</p>
 </div>
 
                         <div class="io-description">
@@ -694,15 +703,16 @@ Fetches movie details on component initialization.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="209"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:209</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="246"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:246</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Searches for weather data of the entered city.</p>
+                        <div class="io-description"><p>Searches for weather data of the entered city.
+This method uses the <code>WeatherService</code> to fetch weather data and forecast for the city entered by the user.</p>
 </div>
 
                         <div class="io-description">
@@ -733,15 +743,16 @@ Fetches movie details on component initialization.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="201"
-                                    class="link-to-prism">src/app/auth/details/details.component.ts:201</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="237"
+                                    class="link-to-prism">src/app/auth/details/details.component.ts:237</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Switches the weather display to the selected city.</p>
+                        <div class="io-description"><p>Switches the weather display to the selected city.
+This method updates the <code>currentCity</code> to the selected city, which triggers the UI to display the weather for that city.</p>
 </div>
 
                             <div class="io-description">
@@ -819,13 +830,14 @@ Fetches movie details on component initialization.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/auth/details/details.component.ts:63</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/auth/details/details.component.ts:86</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The currently selected city for displaying weather.</p>
+                    <div class="io-description"><p>The currently selected city for displaying weather.
+This value switches between &quot;City1&quot; (New York) and &quot;City2&quot; (Los Angeles) or any user-selected city.</p>
 </div>
                 </td>
             </tr>
@@ -851,13 +863,14 @@ Fetches movie details on component initialization.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/auth/details/details.component.ts:53</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/auth/details/details.component.ts:74</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The forecast data for the first city.</p>
+                    <div class="io-description"><p>The forecast data for the first city (New York).
+Contains forecast data filtered for noon (12:00:00) from the weather API.</p>
 </div>
                 </td>
             </tr>
@@ -883,13 +896,14 @@ Fetches movie details on component initialization.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/auth/details/details.component.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/auth/details/details.component.ts:80</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The forecast data for the second city.</p>
+                    <div class="io-description"><p>The forecast data for the second city (Los Angeles).
+Contains forecast data filtered for noon (12:00:00) from the weather API.</p>
 </div>
                 </td>
             </tr>
@@ -920,13 +934,14 @@ Fetches movie details on component initialization.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/auth/details/details.component.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/auth/details/details.component.ts:56</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Indicates whether the movie is a favorite.</p>
+                    <div class="io-description"><p>Indicates whether the movie is a favorite.
+This value is set to <code>true</code> if the movie is added to the user&#39;s favorites, otherwise <code>false</code>.</p>
 </div>
                 </td>
             </tr>
@@ -952,13 +967,14 @@ Fetches movie details on component initialization.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/auth/details/details.component.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/auth/details/details.component.ts:50</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The details of the movie.</p>
+                    <div class="io-description"><p>The details of the movie.
+Contains information about the movie like title, release date, etc.</p>
 </div>
                 </td>
             </tr>
@@ -989,13 +1005,14 @@ Fetches movie details on component initialization.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/auth/details/details.component.ts:68</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/auth/details/details.component.ts:92</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The city name entered by the user for searching weather.</p>
+                    <div class="io-description"><p>The city name entered by the user for searching weather.
+This property is used to store the city that the user searches for when looking up the weather.</p>
 </div>
                 </td>
             </tr>
@@ -1021,13 +1038,14 @@ Fetches movie details on component initialization.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/auth/details/details.component.ts:78</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/auth/details/details.component.ts:104</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The forecast data for the searched city.</p>
+                    <div class="io-description"><p>The forecast data for the searched city.
+Contains forecast data filtered for noon (12:00:00) from the weather API.</p>
 </div>
                 </td>
             </tr>
@@ -1053,13 +1071,14 @@ Fetches movie details on component initialization.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/auth/details/details.component.ts:73</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/auth/details/details.component.ts:98</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The weather data for the searched city.</p>
+                    <div class="io-description"><p>The weather data for the searched city.
+This property is populated when the user searches for a city and its weather data is fetched.</p>
 </div>
                 </td>
             </tr>
@@ -1085,13 +1104,14 @@ Fetches movie details on component initialization.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/auth/details/details.component.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/auth/details/details.component.ts:62</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The weather data for the first city.</p>
+                    <div class="io-description"><p>The weather data for the first city (New York).
+Contains current weather information (e.g., temperature, humidity, weather conditions).</p>
 </div>
                 </td>
             </tr>
@@ -1117,13 +1137,14 @@ Fetches movie details on component initialization.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/auth/details/details.component.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/auth/details/details.component.ts:68</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The weather data for the second city.</p>
+                    <div class="io-description"><p>The weather data for the second city (Los Angeles).
+Contains current weather information (e.g., temperature, humidity, weather conditions).</p>
 </div>
                 </td>
             </tr>
@@ -1144,20 +1165,36 @@ import { WeatherService } from &#x27;../../services/weather.service&#x27;;
 
 /**
  * Interface for video details.
+ * Describes the properties of a video object.
  * @since v1.0.0
  */
 interface Video {
+  /**
+   * The type of the video (e.g., trailer, teaser, etc.).
+   */
   kind: string;
+
+  /**
+   * The language of the video.
+   */
   language: string;
+
+  /**
+   * The source or platform where the video is hosted.
+   */
   source: string;
+
+  /**
+   * The URL of the video.
+   */
   url: string;
 }
 
 /**
  * Component for displaying movie details.
- * Handles fetching movie details and managing favorites.
+ * Handles fetching movie details, managing favorites, and integrating weather data for added context.
  * @since v1.0.0
- * @autor Zirun Wang
+ * @author Zirun Wang
  */
 @Component({
   selector: &#x27;app-details&#x27;,
@@ -1167,51 +1204,61 @@ interface Video {
 export class DetailsComponent implements OnInit {
   /**
    * The details of the movie.
+   * Contains information about the movie like title, release date, etc.
    */
   movie: any;
 
   /**
    * Indicates whether the movie is a favorite.
+   * This value is set to &#x60;true&#x60; if the movie is added to the user&#x27;s favorites, otherwise &#x60;false&#x60;.
    */
   isFavorite: boolean &#x3D; false;
 
   /**
-   * The weather data for the first city.
+   * The weather data for the first city (New York).
+   * Contains current weather information (e.g., temperature, humidity, weather conditions).
    */
   weatherCity1: any;
 
   /**
-   * The weather data for the second city.
+   * The weather data for the second city (Los Angeles).
+   * Contains current weather information (e.g., temperature, humidity, weather conditions).
    */
   weatherCity2: any;
 
   /**
-   * The forecast data for the first city.
+   * The forecast data for the first city (New York).
+   * Contains forecast data filtered for noon (12:00:00) from the weather API.
    */
   forecastCity1: any;
 
   /**
-   * The forecast data for the second city.
+   * The forecast data for the second city (Los Angeles).
+   * Contains forecast data filtered for noon (12:00:00) from the weather API.
    */
   forecastCity2: any;
 
   /**
    * The currently selected city for displaying weather.
+   * This value switches between &quot;City1&quot; (New York) and &quot;City2&quot; (Los Angeles) or any user-selected city.
    */
   currentCity: string &#x3D; &#x27;City1&#x27;;
 
   /**
    * The city name entered by the user for searching weather.
+   * This property is used to store the city that the user searches for when looking up the weather.
    */
   searchCity: string &#x3D; &#x27;&#x27;;
 
   /**
    * The weather data for the searched city.
+   * This property is populated when the user searches for a city and its weather data is fetched.
    */
   searchedWeather: any;
 
   /**
    * The forecast data for the searched city.
+   * Contains forecast data filtered for noon (12:00:00) from the weather API.
    */
   searchedForecast: any;
 
@@ -1240,6 +1287,7 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Fetches the details of the movie based on the route parameter.
+   * The movie details are fetched from the &#x60;MoviesService&#x60; using the movie ID from the route.
    * @since v1.0.0
    */
   getMovieDetails(): void {
@@ -1258,6 +1306,8 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Checks if the movie is in the user&#x27;s favorites.
+   * This method checks the current user&#x27;s favorites using the &#x60;FavoritesService&#x60;.
+   * If the movie exists in the list of favorites, &#x60;isFavorite&#x60; is set to &#x60;true&#x60;, otherwise it remains &#x60;false&#x60;.
    * @since v1.0.0
    */
   checkIfFavorite(): void {
@@ -1270,6 +1320,8 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Adds the movie to the user&#x27;s favorites.
+   * This method calls the &#x60;FavoritesService&#x60; to add the movie&#x27;s ID to the list of favorites.
+   * After successfully adding, it updates the &#x60;isFavorite&#x60; property to &#x60;true&#x60;.
    * @since v1.0.0
    */
   addToFavorites(): void {
@@ -1284,6 +1336,8 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Removes the movie from the user&#x27;s favorites.
+   * This method calls the &#x60;FavoritesService&#x60; to remove the movie from the user&#x27;s favorites list.
+   * After successfully removing, it updates the &#x60;isFavorite&#x60; property to &#x60;false&#x60;.
    * @since v1.0.0
    */
   removeFromFavorites(): void {
@@ -1304,7 +1358,8 @@ export class DetailsComponent implements OnInit {
   }
 
   /**
-   * Fetches the current weather data for the first city.
+   * Fetches the current weather data for the first city (New York).
+   * This method uses the &#x60;WeatherService&#x60; to fetch current weather data and forecast for the city.
    * @since v1.0.0
    */
   getWeatherForCity1(): void {
@@ -1318,7 +1373,8 @@ export class DetailsComponent implements OnInit {
   }
 
   /**
-   * Fetches the current weather data for the second city.
+   * Fetches the current weather data for the second city (Los Angeles).
+   * This method uses the &#x60;WeatherService&#x60; to fetch current weather data and forecast for the city.
    * @since v1.0.0
    */
   getWeatherForCity2(): void {
@@ -1333,6 +1389,7 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Switches the weather display to the selected city.
+   * This method updates the &#x60;currentCity&#x60; to the selected city, which triggers the UI to display the weather for that city.
    * @since v1.0.0
    * @param { string } city - The city to switch to.
    */
@@ -1342,6 +1399,7 @@ export class DetailsComponent implements OnInit {
 
   /**
    * Searches for weather data of the entered city.
+   * This method uses the &#x60;WeatherService&#x60; to fetch weather data and forecast for the city entered by the user.
    * @since v1.0.0
    */
   searchWeather(): void {

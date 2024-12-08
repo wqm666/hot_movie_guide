@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
  * Component for handling user login.
  * Provides a form for users to enter their credentials and handles login logic.
  * @since v1.0.0
- * @autor Zirun Wang
+ * @author Zirun Wang
  */
 @Component({
   selector: 'app-login',
@@ -17,17 +17,45 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   /**
    * The form group for the login form.
-   * @type { FormGroup }
+   * Contains fields for username and password.
+   * Initialized with empty values.
+   * @type {FormGroup}
    */
   loginForm: FormGroup;
 
   /**
-   * @constructor
-   * @param { FormBuilder } fb - The form builder service to create forms.
-   * @param { AuthService } authService - The authentication service used for logging in.
-   * @param { Router } router - The router service used for navigation.
+   * The form builder service to create forms.
+   * @type {FormBuilder}
+   * @private
    */
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  private fb: FormBuilder;
+
+  /**
+   * The authentication service used for logging in users.
+   * @type {AuthService}
+   * @private
+   */
+  private authService: AuthService;
+
+  /**
+   * The router service used for navigation after successful login.
+   * @type {Router}
+   * @private
+   */
+  private router: Router;
+
+  /**
+   * Initializes the login component with required services.
+   * @constructor
+   * @param {FormBuilder} fb - The form builder service to create forms.
+   * @param {AuthService} authService - The authentication service used for logging in.
+   * @param {Router} router - The router service used for navigation.
+   */
+  constructor(fb: FormBuilder, authService: AuthService, router: Router) {
+    this.fb = fb;
+    this.authService = authService;
+    this.router = router;
+
     this.loginForm = this.fb.group({
       username: [''],
       password: ['']
@@ -36,8 +64,10 @@ export class LoginComponent {
 
   /**
    * Submits the login form.
-   * Calls the authentication service to log in the user and handles the response.
-   * @since v1.0.0
+   * Sends the form data to the authentication service to log in the user.
+   * Navigates to the home page upon successful login.
+   * Displays appropriate alerts for success or failure.
+   * @returns {void}
    */
   onSubmit(): void {
     this.authService.login(this.loginForm.value).subscribe(

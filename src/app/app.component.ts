@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
  * The root component of the application.
  * Displays the main content and handles global application logic.
  * @since v1.0.0
- * @autor Zirun Wang
+ * @author Zirun Wang
  */
 @Component({
   selector: 'app-root',

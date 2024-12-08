@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
 /**
  * Guard to protect routes that require authentication.
  * @since v1.0.0
- * @autor Zirun Wang
+ * @author Zirun Wang
  */
 @Injectable({
   providedIn: 'root'
@@ -14,17 +14,33 @@ import { AuthService } from '../../services/auth.service';
 export class AuthGuard implements CanActivate {
 
   /**
-   * @constructor
-   * @param { AuthService } authService - The authentication service to check login status.
-   * @param { Router } router - The router service to navigate if authentication fails.
+   * Service used to handle authentication logic.
+   * @type {AuthService}
    */
-  constructor(private authService: AuthService, private router: Router) {}
+  private authService: AuthService;
+
+  /**
+   * Service used to handle navigation in case of unauthenticated access.
+   * @type {Router}
+   */
+  private router: Router;
+
+  /**
+   * Initializes the guard with required services.
+   * @constructor
+   * @param {AuthService} authService - The authentication service to check login status.
+   * @param {Router} router - The router service to navigate if authentication fails.
+   */
+  constructor(authService: AuthService, router: Router) {
+    this.authService = authService;
+    this.router = router;
+  }
 
   /**
    * Determines if a route can be activated based on the user's authentication status.
-   * @param { ActivatedRouteSnapshot } next - The activated route snapshot.
-   * @param { RouterStateSnapshot } state - The router state snapshot.
-   * @returns { Observable<boolean> | Promise<boolean> | boolean } - True if the user is authenticated, otherwise false.
+   * @param {ActivatedRouteSnapshot} next - The activated route snapshot.
+   * @param {RouterStateSnapshot} state - The router state snapshot.
+   * @returns {Observable<boolean> | Promise<boolean> | boolean} True if the user is authenticated, otherwise false.
    * @since v1.0.0
    */
   canActivate(

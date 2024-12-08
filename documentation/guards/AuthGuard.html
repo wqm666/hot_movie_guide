@@ -136,6 +136,25 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#authService" >authService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#router" >router</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -171,12 +190,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/auth/guard/auth.guard.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/auth/guard/auth.guard.ts:26</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Initializes the guard with required services.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -259,8 +280,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">src/app/auth/guard/auth.guard.ts:30</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/auth/guard/auth.guard.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -327,9 +348,7 @@
 
                         </div>
                             <div class="io-description">
-                                <ul>
-<li>True if the user is authenticated, otherwise false.</li>
-</ul>
+                                <p>True if the user is authenticated, otherwise false.</p>
 
                             </div>
                 </td>
@@ -349,7 +368,7 @@ import { AuthService } from &#x27;../../services/auth.service&#x27;;
 /**
  * Guard to protect routes that require authentication.
  * @since v1.0.0
- * @autor Zirun Wang
+ * @author Zirun Wang
  */
 @Injectable({
   providedIn: &#x27;root&#x27;
@@ -357,17 +376,33 @@ import { AuthService } from &#x27;../../services/auth.service&#x27;;
 export class AuthGuard implements CanActivate {
 
   /**
-   * @constructor
-   * @param { AuthService } authService - The authentication service to check login status.
-   * @param { Router } router - The router service to navigate if authentication fails.
+   * Service used to handle authentication logic.
+   * @type {AuthService}
    */
-  constructor(private authService: AuthService, private router: Router) {}
+  private authService: AuthService;
+
+  /**
+   * Service used to handle navigation in case of unauthenticated access.
+   * @type {Router}
+   */
+  private router: Router;
+
+  /**
+   * Initializes the guard with required services.
+   * @constructor
+   * @param {AuthService} authService - The authentication service to check login status.
+   * @param {Router} router - The router service to navigate if authentication fails.
+   */
+  constructor(authService: AuthService, router: Router) {
+    this.authService &#x3D; authService;
+    this.router &#x3D; router;
+  }
 
   /**
    * Determines if a route can be activated based on the user&#x27;s authentication status.
-   * @param { ActivatedRouteSnapshot } next - The activated route snapshot.
-   * @param { RouterStateSnapshot } state - The router state snapshot.
-   * @returns { Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean } - True if the user is authenticated, otherwise false.
+   * @param {ActivatedRouteSnapshot} next - The activated route snapshot.
+   * @param {RouterStateSnapshot} state - The router state snapshot.
+   * @returns {Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean} True if the user is authenticated, otherwise false.
    * @since v1.0.0
    */
   canActivate(
@@ -381,7 +416,8 @@ export class AuthGuard implements CanActivate {
       return false;
     }
   }
-}</code></pre>
+}
+</code></pre>
         </div>
 </div>
 

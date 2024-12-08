@@ -123,7 +123,9 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Service for fetching weather data from OpenWeatherMap API.</p>
+                <p>Service for fetching weather data from OpenWeatherMap API.
+This service provides methods to retrieve current weather and 5-day forecast data
+for a specified city using the OpenWeatherMap API.</p>
 
             </p>
 
@@ -194,12 +196,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/services/weather.service.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/services/weather.service.ts:38</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The <code>HttpClient</code> service is injected to handle the API calls for retrieving weather data.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -225,7 +229,8 @@
                                                     
                                                         <td>
                                                                 <ul>
-<li>The HTTP client used for making API calls.</li>
+<li>The HTTP client used for making requests to the OpenWeatherMap API.
+The <code>HttpClient</code> service is injected to handle the API calls for retrieving weather data.</li>
 </ul>
 
                                                         </td>
@@ -264,15 +269,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="50"
-                                    class="link-to-prism">src/app/services/weather.service.ts:50</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/services/weather.service.ts:56</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Fetches the current weather data for a specified city.</p>
+                        <div class="io-description"><p>Fetches the current weather data for a specified city.
+This method retrieves the current weather conditions, including temperature, humidity, weather description, etc.
+The returned data includes properties such as temperature, weather conditions, humidity, and more.</p>
 </div>
 
                             <div class="io-description">
@@ -325,7 +332,7 @@
 
                                             <td>
                                                     <ul>
-<li>The units of measurement for the weather data (default: metric).</li>
+<li>The units of measurement for the weather data (default: &#39;metric&#39; for Celsius).</li>
 </ul>
 
                                             </td>
@@ -338,7 +345,10 @@
 
                         </div>
                             <div class="io-description">
-                                <p>An observable containing the current weather data.</p>
+                                <ul>
+<li>An observable containing the current weather data for the specified city.
+The returned data includes properties such as temperature, weather conditions, humidity, and more.</li>
+</ul>
 
                             </div>
                 </td>
@@ -365,15 +375,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="62"
-                                    class="link-to-prism">src/app/services/weather.service.ts:62</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/app/services/weather.service.ts:70</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Fetches the 5-day weather forecast data for a specified city.</p>
+                        <div class="io-description"><p>Fetches the 5-day weather forecast data for a specified city.
+This method retrieves forecast data for the next 5 days, with forecasts at regular intervals (every 3 hours).
+The returned data includes forecast information at 3-hour intervals for 5 days.</p>
 </div>
 
                             <div class="io-description">
@@ -426,7 +438,7 @@
 
                                             <td>
                                                     <ul>
-<li>The units of measurement for the weather forecast data (default: metric).</li>
+<li>The units of measurement for the weather forecast data (default: &#39;metric&#39; for Celsius).</li>
 </ul>
 
                                             </td>
@@ -439,7 +451,10 @@
 
                         </div>
                             <div class="io-description">
-                                <p>An observable containing the weather forecast data.</p>
+                                <ul>
+<li>An observable containing the 5-day weather forecast data for the specified city.
+The returned data includes forecast information at 3-hour intervals for 5 days.</li>
+</ul>
 
                             </div>
                 </td>
@@ -477,13 +492,14 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/weather.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/services/weather.service.ts:22</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>API key for OpenWeatherMap API.</p>
+                    <div class="io-description"><p>API key for OpenWeatherMap API.
+This key is used to authenticate requests to the OpenWeatherMap API.</p>
 </div>
                 </td>
             </tr>
@@ -515,13 +531,14 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/services/weather.service.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/services/weather.service.ts:30</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>URL for fetching current weather data.</p>
+                    <div class="io-description"><p>URL for fetching current weather data.
+This URL is used to fetch the current weather data for a specified city.</p>
 </div>
                 </td>
             </tr>
@@ -553,13 +570,14 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/services/weather.service.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/services/weather.service.ts:38</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>URL for fetching 5-day weather forecast data.</p>
+                    <div class="io-description"><p>URL for fetching 5-day weather forecast data.
+This URL is used to fetch the 5-day weather forecast data for a specified city.</p>
 </div>
                 </td>
             </tr>
@@ -578,7 +596,10 @@ import { Observable } from &#x27;rxjs&#x27;;
 
 /**
  * Service for fetching weather data from OpenWeatherMap API.
+ * This service provides methods to retrieve current weather and 5-day forecast data
+ * for a specified city using the OpenWeatherMap API.
  * @since v1.0.0
+ * @author Zirun Wang
  */
 @Injectable({
   providedIn: &#x27;root&#x27;
@@ -586,40 +607,43 @@ import { Observable } from &#x27;rxjs&#x27;;
 export class WeatherService {
   /**
    * API key for OpenWeatherMap API.
-   * @since v1.0.0
-   * @access private
+   * This key is used to authenticate requests to the OpenWeatherMap API.
+   * @private
    * @type {string}
    */
   private apiKey: string &#x3D; &#x27;0a070c9fb8d18888f29ef9bdefaf7737&#x27;;
 
   /**
    * URL for fetching current weather data.
-   * @since v1.0.0
-   * @access private
+   * This URL is used to fetch the current weather data for a specified city.
+   * @private
    * @type {string}
    */
   private currentWeatherApiUrl: string &#x3D; &#x27;https://api.openweathermap.org/data/2.5/weather&#x27;;
 
   /**
    * URL for fetching 5-day weather forecast data.
-   * @since v1.0.0
-   * @access private
+   * This URL is used to fetch the 5-day weather forecast data for a specified city.
+   * @private
    * @type {string}
    */
   private forecastApiUrl: string &#x3D; &#x27;https://api.openweathermap.org/data/2.5/forecast&#x27;;
 
   /**
    * @constructor
-   * @param {HttpClient} http - The HTTP client used for making API calls.
+   * @param {HttpClient} http - The HTTP client used for making requests to the OpenWeatherMap API.
+   * The &#x60;HttpClient&#x60; service is injected to handle the API calls for retrieving weather data.
    */
   constructor(private http: HttpClient) { }
 
   /**
    * Fetches the current weather data for a specified city.
+   * This method retrieves the current weather conditions, including temperature, humidity, weather description, etc.
    * @since v1.0.0
    * @param {string} city - The name of the city for which to fetch weather data.
-   * @param {string} [units&#x3D;&#x27;metric&#x27;] - The units of measurement for the weather data (default: metric).
-   * @returns {Observable&lt;any&gt;} An observable containing the current weather data.
+   * @param {string} [units&#x3D;&#x27;metric&#x27;] - The units of measurement for the weather data (default: &#x27;metric&#x27; for Celsius).
+   * @returns {Observable&lt;any&gt;} - An observable containing the current weather data for the specified city.
+   * The returned data includes properties such as temperature, weather conditions, humidity, and more.
    */
   getCurrentWeather(city: string, units: string &#x3D; &#x27;metric&#x27;): Observable&lt;any&gt; {
     const url &#x3D; &#x60;${this.currentWeatherApiUrl}?q&#x3D;${city}&amp;appid&#x3D;${this.apiKey}&amp;units&#x3D;${units}&#x60;;
@@ -628,10 +652,12 @@ export class WeatherService {
 
   /**
    * Fetches the 5-day weather forecast data for a specified city.
+   * This method retrieves forecast data for the next 5 days, with forecasts at regular intervals (every 3 hours).
    * @since v1.0.0
    * @param {string} city - The name of the city for which to fetch weather forecast data.
-   * @param {string} [units&#x3D;&#x27;metric&#x27;] - The units of measurement for the weather forecast data (default: metric).
-   * @returns {Observable&lt;any&gt;} An observable containing the weather forecast data.
+   * @param {string} [units&#x3D;&#x27;metric&#x27;] - The units of measurement for the weather forecast data (default: &#x27;metric&#x27; for Celsius).
+   * @returns {Observable&lt;any&gt;} - An observable containing the 5-day weather forecast data for the specified city.
+   * The returned data includes forecast information at 3-hour intervals for 5 days.
    */
   getWeatherForecast(city: string, units: string &#x3D; &#x27;metric&#x27;): Observable&lt;any&gt; {
     const url &#x3D; &#x60;${this.forecastApiUrl}?q&#x3D;${city}&amp;appid&#x3D;${this.apiKey}&amp;units&#x3D;${units}&#x60;;

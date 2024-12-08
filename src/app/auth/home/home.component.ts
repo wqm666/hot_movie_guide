@@ -6,9 +6,11 @@ import { Router } from '@angular/router';
 
 /**
  * Component for displaying the home page.
- * Handles loading movies, managing favorites, and user information.
+ * Handles loading movies, managing favorites, and displaying user information.
+ * The component supports displaying a list of movies, managing the user's favorite movies,
+ * and providing pagination controls for the movie list.
  * @since v1.0.0
- * @autor Zirun Wang
+ * @author Zirun Wang
  */
 @Component({
   selector: 'app-home',
@@ -17,46 +19,58 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   /**
-   * The list of movies.
+   * The list of movies fetched from the server.
+   * @type {any[]}
    */
   movies: any[] = [];
 
   /**
-   * The list of user's favorite movies.
+   * The list of user's favorite movies fetched from the server.
+   * @type {any[]}
    */
   favorites: any[] = [];
 
   /**
-   * The user's information.
+   * The user's information fetched from the server.
+   * Includes details like user name and admin status.
+   * @type {any}
    */
   userInfo: any = {};
 
   /**
-   * Indicates if the user is an admin.
+   * Indicates if the user is an admin. 
+   * This value is used to display admin-specific UI elements.
+   * @type {boolean}
    */
   is_admin: boolean = false;
 
   /**
    * The current page number for pagination.
+   * This value determines which page of movies to display.
+   * @type {number}
    */
   currentPage: number = 1;
 
   /**
    * The number of movies per page for pagination.
+   * This determines how many movies are displayed on each page.
+   * @type {number}
    */
   moviesPerPage: number = 12;
 
   /**
    * The page number input by the user for jumping to a specific page.
+   * This allows users to directly navigate to any page of movies.
+   * @type {number}
    */
   gotoPageNumber: number = 1;
 
   /**
    * @constructor
-   * @param { MoviesService } moviesService - The service used for fetching movies.
-   * @param { FavoritesService } favoritesService - The service used for managing favorite movies.
-   * @param { AuthService } authService - The authentication service used for fetching user info.
-   * @param { Router } router - The router service used for navigation.
+   * @param { MoviesService } moviesService - The service used for fetching movie data.
+   * @param { FavoritesService } favoritesService - The service used for managing user favorites.
+   * @param { AuthService } authService - The service used for fetching user information.
+   * @param { Router } router - The router service used for navigation actions like logout.
    */
   constructor(
     private moviesService: MoviesService,
@@ -68,6 +82,7 @@ export class HomeComponent implements OnInit {
   /**
    * Lifecycle hook that is called after data-bound properties are initialized.
    * Loads movies, favorites, and user information on component initialization.
+   * Fetches data from the backend and initializes the page.
    * @since v1.0.0
    */
   ngOnInit(): void {
@@ -76,7 +91,10 @@ export class HomeComponent implements OnInit {
   }
 
   /**
-   * Loads movies and user's favorite movies.
+   * Loads both movies and the user's favorite movies.
+   * This function first fetches the list of movies, then fetches the user's favorites,
+   * and finally updates the movies list to indicate which movies are favorites.
+   * If an error occurs while fetching favorites, the movie list is still updated.
    * @since v1.0.0
    */
   loadMoviesAndFavorites(): void {
@@ -95,7 +113,10 @@ export class HomeComponent implements OnInit {
   }
 
   /**
-   * Updates the movies list with favorite status.
+   * Updates the movies list by adding a favorite status.
+   * Each movie in the list is checked against the user's favorites, and a flag `isFavorite`
+   * is set to true for movies that are in the user's favorites.
+   * This method is invoked after fetching both movies and favorites.
    * @since v1.0.0
    */
   updateMoviesWithFavorites(): void {
@@ -107,6 +128,9 @@ export class HomeComponent implements OnInit {
 
   /**
    * Fetches the user's information from the server.
+   * The information includes details like username, email, and admin status.
+   * On success, updates `userInfo` and `is_admin`.
+   * On failure, logs an error to the console.
    * @since v1.0.0
    */
   getUserInfo(): void {
@@ -120,6 +144,10 @@ export class HomeComponent implements OnInit {
 
   /**
    * Adds a movie to the user's favorites.
+   * Sends the movie ID to the backend to add it to the favorites list.
+   * Upon success, updates the movie list and sets the `isFavorite` flag for the movie.
+   * Displays an alert to confirm the action to the user.
+   * On failure, logs the error and shows an alert indicating failure.
    * @param { string } movie_id - The ID of the movie to add to favorites.
    * @since v1.0.0
    */
@@ -140,6 +168,10 @@ export class HomeComponent implements OnInit {
 
   /**
    * Removes a movie from the user's favorites.
+   * Sends the favorite ID to the backend to remove it from the favorites list.
+   * Upon success, updates the movie list and resets the `isFavorite` flag for the movie.
+   * Displays an alert to confirm the action to the user.
+   * On failure, logs the error and shows an alert indicating failure.
    * @param { string } favorite_id - The ID of the favorite to remove.
    * @since v1.0.0
    */
@@ -158,7 +190,9 @@ export class HomeComponent implements OnInit {
   }
 
   /**
-   * Logs out the user and navigates to the login page.
+   * Logs out the user and redirects to the login page.
+   * Clears the session token and performs the logout action using the AuthService.
+   * Displays an alert indicating the success or failure of the logout action.
    * @since v1.0.0
    */
   logout(): void {
@@ -173,9 +207,11 @@ export class HomeComponent implements OnInit {
   }
 
   /**
-   * Retrieves the URL of the movie's poster.
+   * Retrieves the URL of the movie's poster image.
+   * The URL is extracted from the `images` array of the movie object, where the type is 'Poster'.
+   * If no poster image is found, a default image URL is returned.
    * @param { any } movie - The movie object.
-   * @returns { string | undefined } - The URL of the poster image, or a default URL if not found.
+   * @returns { string | undefined } - The URL of the poster image, or a default image if not found.
    * @since v1.0.0
    */
   getPosterUrl(movie: any): string | undefined {
@@ -185,6 +221,7 @@ export class HomeComponent implements OnInit {
 
   /**
    * Calculates the total number of pages for pagination.
+   * The number of pages is determined by dividing the total number of movies by the number of movies per page.
    * @returns { number } - The total number of pages.
    * @since v1.0.0
    */
@@ -203,6 +240,7 @@ export class HomeComponent implements OnInit {
 
   /**
    * Navigates to the previous page in pagination.
+   * Decreases the current page number by 1 if it is greater than 1.
    * @since v1.0.0
    */
   previousPage(): void {
@@ -213,6 +251,7 @@ export class HomeComponent implements OnInit {
 
   /**
    * Navigates to the next page in pagination.
+   * Increases the current page number by 1 if it is less than the total number of pages.
    * @since v1.0.0
    */
   nextPage(): void {
@@ -223,6 +262,8 @@ export class HomeComponent implements OnInit {
 
   /**
    * Jumps to a specific page based on user input.
+   * Validates the page number input and updates the current page if valid.
+   * If the page number is invalid, an alert is displayed to the user.
    * @since v1.0.0
    */
   jumpToPage(): void {
@@ -234,7 +275,7 @@ export class HomeComponent implements OnInit {
   }
 
   /**
-   * Retrieves the movies for the current page in pagination.
+   * Retrieves the list of movies for the current page based on the current page number and pagination settings.
    * @returns { any[] } - The list of movies for the current page.
    * @since v1.0.0
    */

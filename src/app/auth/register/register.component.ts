@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
  * Component for handling user registration.
  * Provides a form for users to enter their registration details and handles registration logic.
  * @since v1.0.0
- * @autor Zirun Wang
+ * @author Zirun Wang
  */
 @Component({
   selector: 'app-register',
@@ -17,17 +17,45 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   /**
    * The form group for the registration form.
-   * @type { FormGroup }
+   * Contains fields for username, password, and email.
+   * Initialized with empty values.
+   * @type {FormGroup}
    */
   registerForm: FormGroup;
 
   /**
-   * @constructor
-   * @param { FormBuilder } fb - The form builder service to create forms.
-   * @param { AuthService } authService - The authentication service used for registering.
-   * @param { Router } router - The router service used for navigation.
+   * The form builder service to create forms.
+   * @type {FormBuilder}
+   * @private
    */
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  private fb: FormBuilder;
+
+  /**
+   * The authentication service used for registering users.
+   * @type {AuthService}
+   * @private
+   */
+  private authService: AuthService;
+
+  /**
+   * The router service used for navigation after successful registration.
+   * @type {Router}
+   * @private
+   */
+  private router: Router;
+
+  /**
+   * Initializes the registration component with required services.
+   * @constructor
+   * @param {FormBuilder} fb - The form builder service to create forms.
+   * @param {AuthService} authService - The authentication service used for registering.
+   * @param {Router} router - The router service used for navigation.
+   */
+  constructor(fb: FormBuilder, authService: AuthService, router: Router) {
+    this.fb = fb;
+    this.authService = authService;
+    this.router = router;
+
     this.registerForm = this.fb.group({
       username: [''],
       password: [''],
@@ -37,8 +65,10 @@ export class RegisterComponent {
 
   /**
    * Submits the registration form.
-   * Calls the authentication service to register the user and handles the response.
-   * @since v1.0.0
+   * Sends the form data to the authentication service to register the user.
+   * Navigates to the login page upon successful registration.
+   * Displays appropriate alerts for success or failure.
+   * @returns {void}
    */
   onSubmit(): void {
     this.authService.register(this.registerForm.value).subscribe(

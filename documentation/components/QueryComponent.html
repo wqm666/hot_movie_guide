@@ -201,9 +201,6 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#criteria" >criteria</a>
-                            </li>
-                            <li>
                                 <a href="#currentMovies" >currentMovies</a>
                             </li>
                             <li>
@@ -343,7 +340,7 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/auth/query/query.component.ts:112</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/app/auth/query/query.component.ts:126</a></div>
                             </td>
                         </tr>
 
@@ -471,15 +468,16 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="324"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:324</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="346"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:346</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Adds a movie to the user&#39;s favorites.</p>
+                        <div class="io-description"><p>Adds a movie to the user&#39;s favorites.
+After adding, it refreshes the list of favorites.</p>
 </div>
 
                             <div class="io-description">
@@ -547,15 +545,16 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="239"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:239</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="255"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:255</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Aggregates movies to calculate total and average statistics.</p>
+                        <div class="io-description"><p>Aggregates movies to calculate total and average statistics for each language.
+Displays the total number of movies and the average duration of movies per language.</p>
 </div>
 
                         <div class="io-description">
@@ -586,15 +585,16 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="205"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:205</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="219"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:219</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Filters movies based on the selected language.</p>
+                        <div class="io-description"><p>Filters the movies by the selected language.
+If the language filter is set, only movies with the specified language will be displayed.</p>
 </div>
 
                         <div class="io-description">
@@ -625,15 +625,16 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="314"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:314</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="335"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:335</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Retrieves the URL of the movie&#39;s poster.</p>
+                        <div class="io-description"><p>Retrieves the URL of the movie&#39;s poster image.
+If no poster is found, returns a default placeholder image.</p>
 </div>
 
                             <div class="io-description">
@@ -676,7 +677,7 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>The URL of the poster image, or a default URL if not found.</li>
+<li>The URL of the poster image, or a default image.</li>
 </ul>
 
                             </div>
@@ -704,15 +705,16 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="155"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:155</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="171"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:171</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Fetches the user&#39;s favorite movies from the server.</p>
+                        <div class="io-description"><p>Fetches the user&#39;s favorite movies from the server and updates the <code>favorites</code> list.
+If no favorites are found, it initializes an empty array.</p>
 </div>
 
                         <div class="io-description">
@@ -743,15 +745,16 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="142"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:142</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="157"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:157</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Fetches the user&#39;s information from the server.</p>
+                        <div class="io-description"><p>Fetches the user&#39;s information from the server.
+Sets the <code>userInfo</code> and <code>is_admin</code> properties based on the response.</p>
 </div>
 
                         <div class="io-description">
@@ -782,15 +785,16 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="299"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:299</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="319"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:319</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Jumps to a specific page based on user input.</p>
+                        <div class="io-description"><p>Jumps to a specific page based on user input.
+If the page number is invalid, it shows an alert.</p>
 </div>
 
                         <div class="io-description">
@@ -821,15 +825,16 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="174"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:174</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="191"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:191</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Loads all movies from the server.</p>
+                        <div class="io-description"><p>Loads all movies from the server.
+After loading, updates the favorite status for each movie and handles pagination.</p>
 </div>
 
                         <div class="io-description">
@@ -860,15 +865,16 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="353"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:353</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="377"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:377</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Logs out the user and navigates to the login page.</p>
+                        <div class="io-description"><p>Logs out the user and navigates to the login page.
+Clears the session token and redirects to the login route.</p>
 </div>
 
                         <div class="io-description">
@@ -899,15 +905,16 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="277"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:277</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="295"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:295</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Navigates to the next page in pagination.</p>
+                        <div class="io-description"><p>Navigates to the next page in the pagination system.
+If the current page is the last page, it does nothing.</p>
 </div>
 
                         <div class="io-description">
@@ -938,8 +945,8 @@ Provides functionality for filtering, sorting, and aggregating movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="133"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:133</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="147"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:147</a></div>
                         </td>
                     </tr>
 
@@ -978,15 +985,16 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="288"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:288</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="307"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:307</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Navigates to the previous page in pagination.</p>
+                        <div class="io-description"><p>Navigates to the previous page in the pagination system.
+If the current page is the first page, it does nothing.</p>
 </div>
 
                         <div class="io-description">
@@ -1017,15 +1025,16 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="339"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:339</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="362"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:362</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Removes a movie from the user&#39;s favorites.</p>
+                        <div class="io-description"><p>Removes a movie from the user&#39;s favorites.
+After removal, it refreshes the list of favorites.</p>
 </div>
 
                             <div class="io-description">
@@ -1093,15 +1102,16 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="222"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:222</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="237"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:237</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Sorts movies based on the selected field and order.</p>
+                        <div class="io-description"><p>Sorts the movies based on the selected field and order.
+Sort order can be ascending (1) or descending (-1).</p>
 </div>
 
                         <div class="io-description">
@@ -1132,15 +1142,15 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="260"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:260</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="276"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:276</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Toggles the display of aggregated results.</p>
+                        <div class="io-description"><p>Toggles the display of aggregated results, such as the total number of movies and average duration.</p>
 </div>
 
                         <div class="io-description">
@@ -1171,15 +1181,16 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="188"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:188</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="206"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:206</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Updates the favorite status of each movie.</p>
+                        <div class="io-description"><p>Updates the favorite status of each movie based on the <code>favorites</code> list.
+Movies found in <code>favorites</code> will have <code>isFavorite</code> set to true.</p>
 </div>
 
                         <div class="io-description">
@@ -1210,15 +1221,16 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="268"
-                                    class="link-to-prism">src/app/auth/query/query.component.ts:268</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="285"
+                                    class="link-to-prism">src/app/auth/query/query.component.ts:285</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Updates the pagination information.</p>
+                        <div class="io-description"><p>Updates the pagination information based on the current set of movies.
+It calculates the total number of pages and the movies to display on the current page.</p>
 </div>
 
                         <div class="io-description">
@@ -1235,43 +1247,6 @@ Fetches user information and user&#39;s favorite movies on component initializat
     <h3 id="inputs">
         Properties
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="criteria"></a>
-                    <span class="name">
-                        <span ><b>criteria</b></span>
-                        <a href="#criteria"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>{}</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/auth/query/query.component.ts:72</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>The criteria for filtering, sorting, or aggregating movies.</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -1296,13 +1271,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/auth/query/query.component.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/auth/query/query.component.ts:35</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The list of movies to display on the current page.</p>
+                    <div class="io-description"><p>The list of movies to be displayed based on the current page and filters.</p>
 </div>
                 </td>
             </tr>
@@ -1333,13 +1308,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/auth/query/query.component.ts:77</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/auth/query/query.component.ts:84</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The current page number for pagination.</p>
+                    <div class="io-description"><p>The current page number in the pagination system.</p>
 </div>
                 </td>
             </tr>
@@ -1370,13 +1345,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/auth/query/query.component.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/auth/query/query.component.ts:29</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The list of user&#39;s favorite movies.</p>
+                    <div class="io-description"><p>The list of the user&#39;s favorite movies, populated after fetching from the server.</p>
 </div>
                 </td>
             </tr>
@@ -1407,13 +1382,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/auth/query/query.component.ts:67</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/auth/query/query.component.ts:78</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The language to filter movies by.</p>
+                    <div class="io-description"><p>The language to filter movies by. If empty, no language filter is applied.</p>
 </div>
                 </td>
             </tr>
@@ -1444,7 +1419,7 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/auth/query/query.component.ts:92</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/auth/query/query.component.ts:102</a></div>
                         </td>
                     </tr>
 
@@ -1481,13 +1456,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/auth/query/query.component.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/auth/query/query.component.ts:47</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Indicates if the user is an admin.</p>
+                    <div class="io-description"><p>Indicates whether the user is an admin.</p>
 </div>
                 </td>
             </tr>
@@ -1518,13 +1493,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/auth/query/query.component.ts:102</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">src/app/auth/query/query.component.ts:114</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The list of statistics for each language.</p>
+                    <div class="io-description"><p>The statistics for movies grouped by language, including total count and average duration.</p>
 </div>
                 </td>
             </tr>
@@ -1555,13 +1530,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/auth/query/query.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/auth/query/query.component.ts:23</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The list of movies.</p>
+                    <div class="io-description"><p>The list of all movies fetched from the server.</p>
 </div>
                 </td>
             </tr>
@@ -1592,7 +1567,7 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/auth/query/query.component.ts:87</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/auth/query/query.component.ts:96</a></div>
                         </td>
                     </tr>
 
@@ -1629,13 +1604,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/auth/query/query.component.ts:52</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/auth/query/query.component.ts:60</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The type of query to perform.</p>
+                    <div class="io-description"><p>The type of query to perform (e.g., &#39;id&#39;, &#39;title&#39;).</p>
 </div>
                 </td>
             </tr>
@@ -1666,13 +1641,14 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/auth/query/query.component.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/auth/query/query.component.ts:54</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The search query string.</p>
+                    <div class="io-description"><p>The search query string entered by the user.
+Used for filtering movies based on title or ID.</p>
 </div>
                 </td>
             </tr>
@@ -1703,13 +1679,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/auth/query/query.component.ts:112</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/app/auth/query/query.component.ts:126</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Indicates if the aggregated results should be displayed.</p>
+                    <div class="io-description"><p>Indicates whether the aggregated results (like total and average statistics) should be displayed.</p>
 </div>
                 </td>
             </tr>
@@ -1740,13 +1716,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/auth/query/query.component.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/auth/query/query.component.ts:66</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The field to sort by.</p>
+                    <div class="io-description"><p>The field to sort movies by (e.g., &#39;release_date&#39;, &#39;duration&#39;).</p>
 </div>
                 </td>
             </tr>
@@ -1777,13 +1753,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/auth/query/query.component.ts:62</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/auth/query/query.component.ts:72</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The order to sort in (1 for ascending, -1 for descending).</p>
+                    <div class="io-description"><p>The order to sort the movies in (1 for ascending, -1 for descending).</p>
 </div>
                 </td>
             </tr>
@@ -1814,7 +1790,7 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/auth/query/query.component.ts:107</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">src/app/auth/query/query.component.ts:120</a></div>
                         </td>
                     </tr>
 
@@ -1851,7 +1827,7 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/app/auth/query/query.component.ts:97</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/auth/query/query.component.ts:108</a></div>
                         </td>
                     </tr>
 
@@ -1888,13 +1864,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/auth/query/query.component.ts:82</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/auth/query/query.component.ts:90</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The total number of pages for pagination.</p>
+                    <div class="io-description"><p>The total number of pages available based on the number of movies.</p>
 </div>
                 </td>
             </tr>
@@ -1925,13 +1901,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/auth/query/query.component.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/auth/query/query.component.ts:41</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The user&#39;s information.</p>
+                    <div class="io-description"><p>The user&#39;s information, fetched from the authentication service.</p>
 </div>
                 </td>
             </tr>
@@ -1954,115 +1930,129 @@ import { Router } from &#x27;@angular/router&#x27;;
  * Component for querying and displaying movies.
  * Provides functionality for filtering, sorting, and aggregating movie data.
  * @since v1.0.0
- * @autor Your Name
+ * @author Zirun Wang
  */
 @Component({
   selector: &#x27;app-query&#x27;,
   templateUrl: &#x27;./query.component.html&#x27;,
   styleUrls: [&#x27;./query.component.css&#x27;]
 })
-export class QueryComponent implements OnInit {
+export class QueryComponent implements OnInit {  
   /**
-   * The list of movies.
+   * The list of all movies fetched from the server.
+   * @type {any[]}
    */
   movies: any[] &#x3D; [];
 
   /**
-   * The list of user&#x27;s favorite movies.
+   * The list of the user&#x27;s favorite movies, populated after fetching from the server.
+   * @type {any[]}
    */
   favorites: any[] &#x3D; [];
 
   /**
-   * The list of movies to display on the current page.
+   * The list of movies to be displayed based on the current page and filters.
+   * @type {any[]}
    */
   currentMovies: any[] &#x3D; [];
 
   /**
-   * The user&#x27;s information.
+   * The user&#x27;s information, fetched from the authentication service.
+   * @type {any}
    */
   userInfo: any &#x3D; {};
 
   /**
-   * Indicates if the user is an admin.
+   * Indicates whether the user is an admin.
+   * @type {boolean}
    */
   is_admin: boolean &#x3D; false;
 
   /**
-   * The search query string.
+   * The search query string entered by the user.
+   * Used for filtering movies based on title or ID.
+   * @type {string}
    */
   searchQuery: string &#x3D; &#x27;&#x27;;
 
   /**
-   * The type of query to perform.
+   * The type of query to perform (e.g., &#x27;id&#x27;, &#x27;title&#x27;).
+   * @type {string}
    */
   queryType: string &#x3D; &#x27;id&#x27;;
 
   /**
-   * The field to sort by.
+   * The field to sort movies by (e.g., &#x27;release_date&#x27;, &#x27;duration&#x27;).
+   * @type {string}
    */
   sortField: string &#x3D; &#x27;release_date&#x27;;
 
   /**
-   * The order to sort in (1 for ascending, -1 for descending).
+   * The order to sort the movies in (1 for ascending, -1 for descending).
+   * @type {number}
    */
   sortOrder: number &#x3D; 1;
 
   /**
-   * The language to filter movies by.
+   * The language to filter movies by. If empty, no language filter is applied.
+   * @type {string}
    */
   filterLanguage: string &#x3D; &#x27;&#x27;;
 
   /**
-   * The criteria for filtering, sorting, or aggregating movies.
-   */
-  criteria: any &#x3D; {};
-
-  /**
-   * The current page number for pagination.
+   * The current page number in the pagination system.
+   * @type {number}
    */
   currentPage: number &#x3D; 1;
 
   /**
-   * The total number of pages for pagination.
+   * The total number of pages available based on the number of movies.
+   * @type {number}
    */
   totalPages: number &#x3D; 1;
 
   /**
    * The number of movies to display per page.
+   * @type {number}
    */
   moviesPerPage: number &#x3D; 12;
 
   /**
    * The page number input by the user for jumping to a specific page.
+   * @type {number}
    */
   gotoPageNumber: number &#x3D; 1;
 
   /**
    * The total number of movies after aggregation.
+   * @type {number}
    */
   totalMovies: number &#x3D; 0;
 
   /**
-   * The list of statistics for each language.
+   * The statistics for movies grouped by language, including total count and average duration.
+   * @type {any[]}
    */
   languageStats: any[] &#x3D; [];
 
   /**
    * The total average duration of all movies.
+   * @type {number}
    */
   totalAverageDuration: number &#x3D; 0;
 
   /**
-   * Indicates if the aggregated results should be displayed.
+   * Indicates whether the aggregated results (like total and average statistics) should be displayed.
+   * @type {boolean}
    */
   showAggregatedResults: boolean &#x3D; false;
-
+  
   /**
    * @constructor
-   * @param { MoviesService } moviesService - The service used for fetching movies.
-   * @param { FavoritesService } favoritesService - The service used for managing favorite movies.
-   * @param { AuthService } authService - The authentication service used for fetching user info.
-   * @param { Router } router - The router service used for navigation.
+   * @param {MoviesService} moviesService - The service used for fetching movies.
+   * @param {FavoritesService} favoritesService - The service used for managing favorite movies.
+   * @param {AuthService} authService - The authentication service used for fetching user info.
+   * @param {Router} router - The router service used for navigation.
    */
   constructor(
     private moviesService: MoviesService,
@@ -2070,7 +2060,7 @@ export class QueryComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) { }
-
+  
   /**
    * Lifecycle hook that is called after data-bound properties are initialized.
    * Fetches user information and user&#x27;s favorite movies on component initialization.
@@ -2083,6 +2073,7 @@ export class QueryComponent implements OnInit {
 
   /**
    * Fetches the user&#x27;s information from the server.
+   * Sets the &#x60;userInfo&#x60; and &#x60;is_admin&#x60; properties based on the response.
    * @since v1.0.0
    */
   getUserInfo(): void {
@@ -2095,7 +2086,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Fetches the user&#x27;s favorite movies from the server.
+   * Fetches the user&#x27;s favorite movies from the server and updates the &#x60;favorites&#x60; list.
+   * If no favorites are found, it initializes an empty array.
    * @since v1.0.0
    */
   getUserFavorites(): void {
@@ -2115,6 +2107,7 @@ export class QueryComponent implements OnInit {
 
   /**
    * Loads all movies from the server.
+   * After loading, updates the favorite status for each movie and handles pagination.
    * @since v1.0.0
    */
   loadMovies(): void {
@@ -2128,24 +2121,21 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Updates the favorite status of each movie.
+   * Updates the favorite status of each movie based on the &#x60;favorites&#x60; list.
+   * Movies found in &#x60;favorites&#x60; will have &#x60;isFavorite&#x60; set to true.
    * @since v1.0.0
    */
   updateMovieFavoriteStatus(): void {
     this.movies.forEach(movie &#x3D;&gt; {
       const favorite &#x3D; this.favorites.find(f &#x3D;&gt; f.movie_id &#x3D;&#x3D;&#x3D; movie._id);
-      if (favorite) {
-        movie.isFavorite &#x3D; true;
-        movie.favorite_id &#x3D; favorite._id;
-      } else {
-        movie.isFavorite &#x3D; false;
-        delete movie.favorite_id;
-      }
+      movie.isFavorite &#x3D; !!favorite;
+      movie.favorite_id &#x3D; favorite ? favorite._id : null;
     });
   }
 
   /**
-   * Filters movies based on the selected language.
+   * Filters the movies by the selected language.
+   * If the language filter is set, only movies with the specified language will be displayed.
    * @since v1.0.0
    */
   filterMovies(): void {
@@ -2162,7 +2152,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Sorts movies based on the selected field and order.
+   * Sorts the movies based on the selected field and order.
+   * Sort order can be ascending (1) or descending (-1).
    * @since v1.0.0
    */
   sortMovies(): void {
@@ -2179,7 +2170,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Aggregates movies to calculate total and average statistics.
+   * Aggregates movies to calculate total and average statistics for each language.
+   * Displays the total number of movies and the average duration of movies per language.
    * @since v1.0.0
    */
   aggregateMovies(): void {
@@ -2200,7 +2192,7 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Toggles the display of aggregated results.
+   * Toggles the display of aggregated results, such as the total number of movies and average duration.
    * @since v1.0.0
    */
   toggleAggregatedResults(): void {
@@ -2208,7 +2200,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Updates the pagination information.
+   * Updates the pagination information based on the current set of movies.
+   * It calculates the total number of pages and the movies to display on the current page.
    * @since v1.0.0
    */
   updatePagination(): void {
@@ -2217,7 +2210,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Navigates to the next page in pagination.
+   * Navigates to the next page in the pagination system.
+   * If the current page is the last page, it does nothing.
    * @since v1.0.0
    */
   nextPage(): void {
@@ -2228,7 +2222,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Navigates to the previous page in pagination.
+   * Navigates to the previous page in the pagination system.
+   * If the current page is the first page, it does nothing.
    * @since v1.0.0
    */
   previousPage(): void {
@@ -2240,6 +2235,7 @@ export class QueryComponent implements OnInit {
 
   /**
    * Jumps to a specific page based on user input.
+   * If the page number is invalid, it shows an alert.
    * @since v1.0.0
    */
   jumpToPage(): void {
@@ -2252,9 +2248,10 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Retrieves the URL of the movie&#x27;s poster.
-   * @param { any } movie - The movie object.
-   * @returns { string | undefined } - The URL of the poster image, or a default URL if not found.
+   * Retrieves the URL of the movie&#x27;s poster image.
+   * If no poster is found, returns a default placeholder image.
+   * @param {any} movie - The movie object.
+   * @returns {string} - The URL of the poster image, or a default image.
    * @since v1.0.0
    */
   getPosterUrl(movie: any): string | undefined {
@@ -2264,7 +2261,8 @@ export class QueryComponent implements OnInit {
 
   /**
    * Adds a movie to the user&#x27;s favorites.
-   * @param { string } movie_id - The ID of the movie to add to favorites.
+   * After adding, it refreshes the list of favorites.
+   * @param {string} movie_id - The ID of the movie to add to favorites.
    * @since v1.0.0
    */
   addToFavorites(movie_id: string): void {
@@ -2279,7 +2277,8 @@ export class QueryComponent implements OnInit {
 
   /**
    * Removes a movie from the user&#x27;s favorites.
-   * @param { string } favorite_id - The ID of the favorite to remove.
+   * After removal, it refreshes the list of favorites.
+   * @param {string} favorite_id - The ID of the favorite to remove.
    * @since v1.0.0
    */
   removeFromFavorites(favorite_id: string): void {
@@ -2294,6 +2293,7 @@ export class QueryComponent implements OnInit {
 
   /**
    * Logs out the user and navigates to the login page.
+   * Clears the session token and redirects to the login route.
    * @since v1.0.0
    */
   logout(): void {

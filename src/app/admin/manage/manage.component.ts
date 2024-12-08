@@ -4,25 +4,91 @@ import { AdminService } from '../../services/admin.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
+/**
+ * Component for managing movies and users in the admin panel.
+ * Handles adding, editing, and deleting movies, and managing user roles.
+ * @since v1.0.0
+ * @author Zirun Wang
+ */
 @Component({
   selector: 'app-manage',
   templateUrl: './manage.component.html',
   styleUrls: ['./manage.component.css']
 })
 export class ManageComponent implements OnInit {
+  /**
+   * Stores user information.
+   * @type {any}
+   */
   userInfo: any = {};
+
+  /**
+   * Indicates if the user is an admin.
+   * @type {boolean}
+   */
   is_admin: boolean = false;
+
+  /**
+   * Stores the list of users.
+   * @type {any[]}
+   */
   users: any[] = [];
+
+  /**
+   * Stores the list of movies.
+   * @type {any[]}
+   */
   movies: any[] = [];
+
+  /**
+   * Stores the new movie data.
+   * @type {any}
+   */
   newMovie: any = {};
+
+  /**
+   * Stores the selected movie data for editing.
+   * @type {any}
+   */
   selectedMovie: any = {};
+
+  /**
+   * Indicates if the add movie form is visible.
+   * @type {boolean}
+   */
   showAddMovieForm: boolean = false;
+
+  /**
+   * Indicates if the edit movie form is visible.
+   * @type {boolean}
+   */
   showEditMovieForm: boolean = false;
 
+  /**
+   * The current page number for pagination.
+   * @type {number}
+   */
   currentPage: number = 1;
+
+  /**
+   * The number of movies per page for pagination.
+   * @type {number}
+   */
   moviesPerPage: number = 12;
+
+  /**
+   * The page number input by the user for jumping to a specific page.
+   * @type {number}
+   */
   gotoPageNumber: number = 1;
 
+  /**
+   * @constructor
+   * @param {MoviesService} moviesService - The service used for fetching movies.
+   * @param {AdminService} adminService - The service used for managing admin operations.
+   * @param {AuthService} authService - The authentication service used for fetching user info.
+   * @param {Router} router - The router service used for navigation.
+   */
   constructor(
     private moviesService: MoviesService,
     private adminService: AdminService,
@@ -79,7 +145,7 @@ export class ManageComponent implements OnInit {
 
   /**
    * Toggles admin status for a user.
-   * @param { string } userId - The user ID.
+   * @param {string} userId - The user ID.
    * @since v1.0.0
    */
   toggleAdmin(userId: string): void {

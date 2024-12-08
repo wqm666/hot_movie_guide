@@ -8,115 +8,129 @@ import { Router } from '@angular/router';
  * Component for querying and displaying movies.
  * Provides functionality for filtering, sorting, and aggregating movie data.
  * @since v1.0.0
- * @autor Your Name
+ * @author Zirun Wang
  */
 @Component({
   selector: 'app-query',
   templateUrl: './query.component.html',
   styleUrls: ['./query.component.css']
 })
-export class QueryComponent implements OnInit {
+export class QueryComponent implements OnInit {  
   /**
-   * The list of movies.
+   * The list of all movies fetched from the server.
+   * @type {any[]}
    */
   movies: any[] = [];
 
   /**
-   * The list of user's favorite movies.
+   * The list of the user's favorite movies, populated after fetching from the server.
+   * @type {any[]}
    */
   favorites: any[] = [];
 
   /**
-   * The list of movies to display on the current page.
+   * The list of movies to be displayed based on the current page and filters.
+   * @type {any[]}
    */
   currentMovies: any[] = [];
 
   /**
-   * The user's information.
+   * The user's information, fetched from the authentication service.
+   * @type {any}
    */
   userInfo: any = {};
 
   /**
-   * Indicates if the user is an admin.
+   * Indicates whether the user is an admin.
+   * @type {boolean}
    */
   is_admin: boolean = false;
 
   /**
-   * The search query string.
+   * The search query string entered by the user.
+   * Used for filtering movies based on title or ID.
+   * @type {string}
    */
   searchQuery: string = '';
 
   /**
-   * The type of query to perform.
+   * The type of query to perform (e.g., 'id', 'title').
+   * @type {string}
    */
   queryType: string = 'id';
 
   /**
-   * The field to sort by.
+   * The field to sort movies by (e.g., 'release_date', 'duration').
+   * @type {string}
    */
   sortField: string = 'release_date';
 
   /**
-   * The order to sort in (1 for ascending, -1 for descending).
+   * The order to sort the movies in (1 for ascending, -1 for descending).
+   * @type {number}
    */
   sortOrder: number = 1;
 
   /**
-   * The language to filter movies by.
+   * The language to filter movies by. If empty, no language filter is applied.
+   * @type {string}
    */
   filterLanguage: string = '';
 
   /**
-   * The criteria for filtering, sorting, or aggregating movies.
-   */
-  criteria: any = {};
-
-  /**
-   * The current page number for pagination.
+   * The current page number in the pagination system.
+   * @type {number}
    */
   currentPage: number = 1;
 
   /**
-   * The total number of pages for pagination.
+   * The total number of pages available based on the number of movies.
+   * @type {number}
    */
   totalPages: number = 1;
 
   /**
    * The number of movies to display per page.
+   * @type {number}
    */
   moviesPerPage: number = 12;
 
   /**
    * The page number input by the user for jumping to a specific page.
+   * @type {number}
    */
   gotoPageNumber: number = 1;
 
   /**
    * The total number of movies after aggregation.
+   * @type {number}
    */
   totalMovies: number = 0;
 
   /**
-   * The list of statistics for each language.
+   * The statistics for movies grouped by language, including total count and average duration.
+   * @type {any[]}
    */
   languageStats: any[] = [];
 
   /**
    * The total average duration of all movies.
+   * @type {number}
    */
   totalAverageDuration: number = 0;
 
   /**
-   * Indicates if the aggregated results should be displayed.
+   * Indicates whether the aggregated results (like total and average statistics) should be displayed.
+   * @type {boolean}
    */
   showAggregatedResults: boolean = false;
-
+  
   /**
    * @constructor
-   * @param { MoviesService } moviesService - The service used for fetching movies.
-   * @param { FavoritesService } favoritesService - The service used for managing favorite movies.
-   * @param { AuthService } authService - The authentication service used for fetching user info.
-   * @param { Router } router - The router service used for navigation.
+   * @param {MoviesService} moviesService - The service used for fetching movies.
+   * @param {FavoritesService} favoritesService - The service used for managing favorite movies.
+   * @param {AuthService} authService - The authentication service used for fetching user info.
+   * @param {Router} router - The router service used for navigation.
    */
   constructor(
     private moviesService: MoviesService,
@@ -124,7 +138,7 @@ export class QueryComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) { }
-
+  
   /**
    * Lifecycle hook that is called after data-bound properties are initialized.
    * Fetches user information and user's favorite movies on component initialization.
@@ -137,6 +151,7 @@ export class QueryComponent implements OnInit {
 
   /**
    * Fetches the user's information from the server.
+   * Sets the `userInfo` and `is_admin` properties based on the response.
    * @since v1.0.0
    */
   getUserInfo(): void {
@@ -149,7 +164,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Fetches the user's favorite movies from the server.
+   * Fetches the user's favorite movies from the server and updates the `favorites` list.
+   * If no favorites are found, it initializes an empty array.
    * @since v1.0.0
    */
   getUserFavorites(): void {
@@ -169,6 +185,7 @@ export class QueryComponent implements OnInit {
 
   /**
    * Loads all movies from the server.
+   * After loading, updates the favorite status for each movie and handles pagination.
    * @since v1.0.0
    */
   loadMovies(): void {
@@ -182,24 +199,21 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Updates the favorite status of each movie.
+   * Updates the favorite status of each movie based on the `favorites` list.
+   * Movies found in `favorites` will have `isFavorite` set to true.
    * @since v1.0.0
    */
   updateMovieFavoriteStatus(): void {
     this.movies.forEach(movie => {
       const favorite = this.favorites.find(f => f.movie_id === movie._id);
-      if (favorite) {
-        movie.isFavorite = true;
-        movie.favorite_id = favorite._id;
-      } else {
-        movie.isFavorite = false;
-        delete movie.favorite_id;
-      }
+      movie.isFavorite = !!favorite;
+      movie.favorite_id = favorite ? favorite._id : null;
     });
   }
 
   /**
-   * Filters movies based on the selected language.
+   * Filters the movies by the selected language.
+   * If the language filter is set, only movies with the specified language will be displayed.
    * @since v1.0.0
    */
   filterMovies(): void {
@@ -216,7 +230,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Sorts movies based on the selected field and order.
+   * Sorts the movies based on the selected field and order.
+   * Sort order can be ascending (1) or descending (-1).
    * @since v1.0.0
    */
   sortMovies(): void {
@@ -233,7 +248,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Aggregates movies to calculate total and average statistics.
+   * Aggregates movies to calculate total and average statistics for each language.
+   * Displays the total number of movies and the average duration of movies per language.
    * @since v1.0.0
    */
   aggregateMovies(): void {
@@ -254,7 +270,7 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Toggles the display of aggregated results.
+   * Toggles the display of aggregated results, such as the total number of movies and average duration.
    * @since v1.0.0
    */
   toggleAggregatedResults(): void {
@@ -262,7 +278,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Updates the pagination information.
+   * Updates the pagination information based on the current set of movies.
+   * It calculates the total number of pages and the movies to display on the current page.
    * @since v1.0.0
    */
   updatePagination(): void {
@@ -271,7 +288,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Navigates to the next page in pagination.
+   * Navigates to the next page in the pagination system.
+   * If the current page is the last page, it does nothing.
    * @since v1.0.0
    */
   nextPage(): void {
@@ -282,7 +300,8 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Navigates to the previous page in pagination.
+   * Navigates to the previous page in the pagination system.
+   * If the current page is the first page, it does nothing.
    * @since v1.0.0
    */
   previousPage(): void {
@@ -294,6 +313,7 @@ export class QueryComponent implements OnInit {
 
   /**
    * Jumps to a specific page based on user input.
+   * If the page number is invalid, it shows an alert.
    * @since v1.0.0
    */
   jumpToPage(): void {
@@ -306,9 +326,10 @@ export class QueryComponent implements OnInit {
   }
 
   /**
-   * Retrieves the URL of the movie's poster.
-   * @param { any } movie - The movie object.
-   * @returns { string | undefined } - The URL of the poster image, or a default URL if not found.
+   * Retrieves the URL of the movie's poster image.
+   * If no poster is found, returns a default placeholder image.
+   * @param {any} movie - The movie object.
+   * @returns {string} - The URL of the poster image, or a default image.
    * @since v1.0.0
    */
   getPosterUrl(movie: any): string | undefined {
@@ -318,7 +339,8 @@ export class QueryComponent implements OnInit {
 
   /**
    * Adds a movie to the user's favorites.
-   * @param { string } movie_id - The ID of the movie to add to favorites.
+   * After adding, it refreshes the list of favorites.
+   * @param {string} movie_id - The ID of the movie to add to favorites.
    * @since v1.0.0
    */
   addToFavorites(movie_id: string): void {
@@ -333,7 +355,8 @@ export class QueryComponent implements OnInit {
 
   /**
    * Removes a movie from the user's favorites.
-   * @param { string } favorite_id - The ID of the favorite to remove.
+   * After removal, it refreshes the list of favorites.
+   * @param {string} favorite_id - The ID of the favorite to remove.
    * @since v1.0.0
    */
   removeFromFavorites(favorite_id: string): void {
@@ -348,6 +371,7 @@ export class QueryComponent implements OnInit {
 
   /**
    * Logs out the user and navigates to the login page.
+   * Clears the session token and redirects to the login route.
    * @since v1.0.0
    */
   logout(): void {

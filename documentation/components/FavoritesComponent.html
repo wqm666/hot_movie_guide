@@ -298,12 +298,14 @@ Handles loading favorite movies, pagination, and user interactions.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:62</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:69</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Initializes the component and its dependencies.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -329,7 +331,7 @@ Handles loading favorite movies, pagination, and user interactions.</p>
                                                     
                                                         <td>
                                                                 <ul>
-<li>The service used for fetching movies.</li>
+<li>The service used for fetching movie data.</li>
 </ul>
 
                                                         </td>
@@ -365,7 +367,7 @@ Handles loading favorite movies, pagination, and user interactions.</p>
                                                     
                                                         <td>
                                                                 <ul>
-<li>The authentication service used for fetching user info.</li>
+<li>The service used for user authentication and information retrieval.</li>
 </ul>
 
                                                         </td>
@@ -383,7 +385,7 @@ Handles loading favorite movies, pagination, and user interactions.</p>
                                                     
                                                         <td>
                                                                 <ul>
-<li>The router service used for navigation.</li>
+<li>The Angular router used for navigation.</li>
 </ul>
 
                                                         </td>
@@ -426,15 +428,15 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="187"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:187</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:194</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Adds a movie to the user&#39;s favorites.</p>
+                        <div class="io-description"><p>Adds a specific movie to the user&#39;s favorites.</p>
 </div>
 
                             <div class="io-description">
@@ -463,7 +465,7 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                                             <td>
                                                     <ul>
-<li>The ID of the movie to add to favorites.</li>
+<li>The ID of the movie to be added to the favorites list.</li>
 </ul>
 
                                             </td>
@@ -502,15 +504,16 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="234"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:234</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="240"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:240</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Retrieves the URL of the movie&#39;s poster.</p>
+                        <div class="io-description"><p>Retrieves the URL of the poster image for a given movie.
+If no valid poster URL is found, returns a default image URL.</p>
 </div>
 
                             <div class="io-description">
@@ -539,7 +542,7 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                                             <td>
                                                     <ul>
-<li>The movie object.</li>
+<li>The movie object containing image metadata.</li>
 </ul>
 
                                             </td>
@@ -553,7 +556,7 @@ Handles loading favorite movies, pagination, and user interactions.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>The URL of the poster image, or a default URL if not found.</li>
+<li>The poster URL or a default image path.</li>
 </ul>
 
                             </div>
@@ -581,15 +584,16 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="105"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:105</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:111</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Fetches the user&#39;s favorite movies from the server.</p>
+                        <div class="io-description"><p>Fetches the user&#39;s favorite movies metadata from the server.
+Invokes the <code>loadFavoriteMovies</code> method if favorites exist.</p>
 </div>
 
                         <div class="io-description">
@@ -620,15 +624,16 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="92"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:92</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:98</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Fetches the user&#39;s information from the server.</p>
+                        <div class="io-description"><p>Retrieves authenticated user information from the server.
+Updates the <code>userInfo</code> and <code>is_admin</code> properties based on the response.</p>
 </div>
 
                         <div class="io-description">
@@ -659,15 +664,16 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="173"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:173</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="181"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:181</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Jumps to a specific page based on user input.</p>
+                        <div class="io-description"><p>Directly jumps to a specific page number in the pagination view.
+Validates the page number entered by the user.</p>
 </div>
 
                         <div class="io-description">
@@ -698,15 +704,17 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="126"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:126</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:133</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Loads the user&#39;s favorite movies.</p>
+                        <div class="io-description"><p>Loads detailed movie data for all favorite movies.
+Uses the <code>moviesService</code> to fetch movie details based on <code>movie_id</code> from the <code>favorites</code> list.
+Updates the <code>movies</code> array with detailed movie data.</p>
 </div>
 
                         <div class="io-description">
@@ -737,15 +745,16 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="217"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:217</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="223"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:223</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Logs out the user and navigates to the login page.</p>
+                        <div class="io-description"><p>Logs out the current user and navigates to the login page.
+Clears the session storage to remove the authentication token.</p>
 </div>
 
                         <div class="io-description">
@@ -776,15 +785,16 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="151"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:151</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:159</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Navigates to the next page in pagination.</p>
+                        <div class="io-description"><p>Navigates to the next page in the pagination view.
+Updates the <code>currentPage</code> and refreshes <code>currentMovies</code>.</p>
 </div>
 
                         <div class="io-description">
@@ -815,16 +825,16 @@ Handles loading favorite movies, pagination, and user interactions.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="83"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:83</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:89</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Lifecycle hook that is called after data-bound properties are initialized.
-Fetches user information and user&#39;s favorite movies on component initialization.</p>
+                        <div class="io-description"><p>Angular lifecycle hook invoked after the component&#39;s data-bound properties are initialized.
+Responsible for initializing user data and loading favorite movies.</p>
 </div>
 
                         <div class="io-description">
@@ -855,15 +865,16 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="162"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:162</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="170"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:170</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Navigates to the previous page in pagination.</p>
+                        <div class="io-description"><p>Navigates to the previous page in the pagination view.
+Updates the <code>currentPage</code> and refreshes <code>currentMovies</code>.</p>
 </div>
 
                         <div class="io-description">
@@ -894,15 +905,15 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="202"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:202</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="208"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:208</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Removes a movie from the user&#39;s favorites.</p>
+                        <div class="io-description"><p>Removes a specific movie from the user&#39;s favorites.</p>
 </div>
 
                             <div class="io-description">
@@ -931,7 +942,7 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
                                             <td>
                                                     <ul>
-<li>The ID of the favorite to remove.</li>
+<li>The ID of the favorite record to be removed.</li>
 </ul>
 
                                             </td>
@@ -970,15 +981,17 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="142"
-                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:142</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">src/app/auth/favorites/favorites.component.ts:150</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Updates the pagination information.</p>
+                        <div class="io-description"><p>Updates pagination-related properties.
+Calculates <code>totalPages</code> based on the total number of movies and the per-page count.
+Updates <code>currentMovies</code> based on the current page.</p>
 </div>
 
                         <div class="io-description">
@@ -1019,13 +1032,14 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:62</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:69</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The list of movies to display on the current page.</p>
+                    <div class="io-description"><p>The list of movies currently displayed on the current page.
+This array updates dynamically based on pagination state.</p>
 </div>
                 </td>
             </tr>
@@ -1056,13 +1070,14 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:45</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The current page number for pagination.</p>
+                    <div class="io-description"><p>The current page number in the pagination view.
+Starts at 1 and increments or decrements based on user interaction.</p>
 </div>
                 </td>
             </tr>
@@ -1093,13 +1108,14 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:28</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The list of user&#39;s favorite movies.</p>
+                    <div class="io-description"><p>The list of user&#39;s favorite movies metadata.
+Each entry includes the <code>movie_id</code> and favorite record details.</p>
 </div>
                 </td>
             </tr>
@@ -1130,13 +1146,14 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:52</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:57</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The page number input by the user for jumping to a specific page.</p>
+                    <div class="io-description"><p>The page number entered by the user for direct navigation.
+Used in conjunction with the <code>jumpToPage</code> method.</p>
 </div>
                 </td>
             </tr>
@@ -1167,13 +1184,13 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:39</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Indicates if the user is an admin.</p>
+                    <div class="io-description"><p>Indicates if the authenticated user has admin privileges.</p>
 </div>
                 </td>
             </tr>
@@ -1210,7 +1227,7 @@ Fetches user information and user&#39;s favorite movies on component initializat
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The list of all movies.</p>
+                    <div class="io-description"><p>The list of all movies loaded from the user&#39;s favorites.</p>
 </div>
                 </td>
             </tr>
@@ -1241,13 +1258,14 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:51</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The number of movies per page for pagination.</p>
+                    <div class="io-description"><p>The number of movies displayed per page in the pagination view.
+Defaults to 12 items per page.</p>
 </div>
                 </td>
             </tr>
@@ -1278,13 +1296,14 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:63</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The total number of pages for pagination.</p>
+                    <div class="io-description"><p>The total number of pages calculated for the pagination view.
+Derived from the total number of movies divided by <code>moviesPerPage</code>.</p>
 </div>
                 </td>
             </tr>
@@ -1315,13 +1334,14 @@ Fetches user information and user&#39;s favorite movies on component initializat
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/auth/favorites/favorites.component.ts:34</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The user&#39;s information.</p>
+                    <div class="io-description"><p>The authenticated user&#39;s information.
+Includes user-specific data such as roles and permissions.</p>
 </div>
                 </td>
             </tr>
@@ -1344,7 +1364,7 @@ import { Router } from &#x27;@angular/router&#x27;;
  * Component for displaying and managing user&#x27;s favorite movies.
  * Handles loading favorite movies, pagination, and user interactions.
  * @since v1.0.0
- * @autor Zirun Wang
+ * @author Zirun Wang
  */
 @Component({
   selector: &#x27;app-favorites&#x27;,
@@ -1353,68 +1373,74 @@ import { Router } from &#x27;@angular/router&#x27;;
 })
 export class FavoritesComponent implements OnInit {
   /**
-   * The list of all movies.
+   * The list of all movies loaded from the user&#x27;s favorites.
    */
   movies: any[] &#x3D; [];
 
   /**
-   * The list of user&#x27;s favorite movies.
+   * The list of user&#x27;s favorite movies metadata.
+   * Each entry includes the &#x60;movie_id&#x60; and favorite record details.
    */
   favorites: any[] &#x3D; [];
 
   /**
-   * The user&#x27;s information.
+   * The authenticated user&#x27;s information.
+   * Includes user-specific data such as roles and permissions.
    */
   userInfo: any &#x3D; {};
 
   /**
-   * Indicates if the user is an admin.
+   * Indicates if the authenticated user has admin privileges.
    */
   is_admin: boolean &#x3D; false;
 
   /**
-   * The current page number for pagination.
+   * The current page number in the pagination view.
+   * Starts at 1 and increments or decrements based on user interaction.
    */
   currentPage: number &#x3D; 1;
 
   /**
-   * The number of movies per page for pagination.
+   * The number of movies displayed per page in the pagination view.
+   * Defaults to 12 items per page.
    */
   moviesPerPage: number &#x3D; 12;
 
   /**
-   * The page number input by the user for jumping to a specific page.
+   * The page number entered by the user for direct navigation.
+   * Used in conjunction with the &#x60;jumpToPage&#x60; method.
    */
   gotoPageNumber: number &#x3D; 1;
 
   /**
-   * The total number of pages for pagination.
+   * The total number of pages calculated for the pagination view.
+   * Derived from the total number of movies divided by &#x60;moviesPerPage&#x60;.
    */
   totalPages: number &#x3D; 1;
 
   /**
-   * The list of movies to display on the current page.
+   * The list of movies currently displayed on the current page.
+   * This array updates dynamically based on pagination state.
    */
   currentMovies: any[] &#x3D; [];
 
   /**
-   * @constructor
-   * @param { MoviesService } moviesService - The service used for fetching movies.
-   * @param { FavoritesService } favoritesService - The service used for managing favorite movies.
-   * @param { AuthService } authService - The authentication service used for fetching user info.
-   * @param { Router } router - The router service used for navigation.
+   * Initializes the component and its dependencies.
+   * @param {MoviesService} moviesService - The service used for fetching movie data.
+   * @param {FavoritesService} favoritesService - The service used for managing favorite movies.
+   * @param {AuthService} authService - The service used for user authentication and information retrieval.
+   * @param {Router} router - The Angular router used for navigation.
    */
   constructor(
     private moviesService: MoviesService,
     private favoritesService: FavoritesService,
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {}
 
   /**
-   * Lifecycle hook that is called after data-bound properties are initialized.
-   * Fetches user information and user&#x27;s favorite movies on component initialization.
-   * @since v1.0.0
+   * Angular lifecycle hook invoked after the component&#x27;s data-bound properties are initialized.
+   * Responsible for initializing user data and loading favorite movies.
    */
   ngOnInit(): void {
     this.getUserInfo();
@@ -1422,8 +1448,8 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Fetches the user&#x27;s information from the server.
-   * @since v1.0.0
+   * Retrieves authenticated user information from the server.
+   * Updates the &#x60;userInfo&#x60; and &#x60;is_admin&#x60; properties based on the response.
    */
   getUserInfo(): void {
     this.authService.getUserInfo().subscribe(data &#x3D;&gt; {
@@ -1435,8 +1461,8 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Fetches the user&#x27;s favorite movies from the server.
-   * @since v1.0.0
+   * Fetches the user&#x27;s favorite movies metadata from the server.
+   * Invokes the &#x60;loadFavoriteMovies&#x60; method if favorites exist.
    */
   getUserFavorites(): void {
     this.favoritesService.getUserFavorites().subscribe(favorites &#x3D;&gt; {
@@ -1456,8 +1482,9 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Loads the user&#x27;s favorite movies.
-   * @since v1.0.0
+   * Loads detailed movie data for all favorite movies.
+   * Uses the &#x60;moviesService&#x60; to fetch movie details based on &#x60;movie_id&#x60; from the &#x60;favorites&#x60; list.
+   * Updates the &#x60;movies&#x60; array with detailed movie data.
    */
   loadFavoriteMovies(): void {
     this.movies &#x3D; [];
@@ -1472,8 +1499,9 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Updates the pagination information.
-   * @since v1.0.0
+   * Updates pagination-related properties.
+   * Calculates &#x60;totalPages&#x60; based on the total number of movies and the per-page count.
+   * Updates &#x60;currentMovies&#x60; based on the current page.
    */
   updatePagination(): void {
     this.totalPages &#x3D; Math.ceil(this.movies.length / this.moviesPerPage);
@@ -1481,8 +1509,8 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Navigates to the next page in pagination.
-   * @since v1.0.0
+   * Navigates to the next page in the pagination view.
+   * Updates the &#x60;currentPage&#x60; and refreshes &#x60;currentMovies&#x60;.
    */
   nextPage(): void {
     if (this.currentPage &lt; this.totalPages) {
@@ -1492,8 +1520,8 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Navigates to the previous page in pagination.
-   * @since v1.0.0
+   * Navigates to the previous page in the pagination view.
+   * Updates the &#x60;currentPage&#x60; and refreshes &#x60;currentMovies&#x60;.
    */
   previousPage(): void {
     if (this.currentPage &gt; 1) {
@@ -1503,8 +1531,8 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Jumps to a specific page based on user input.
-   * @since v1.0.0
+   * Directly jumps to a specific page number in the pagination view.
+   * Validates the page number entered by the user.
    */
   jumpToPage(): void {
     if (this.gotoPageNumber &gt;&#x3D; 1 &amp;&amp; this.gotoPageNumber &lt;&#x3D; this.totalPages) {
@@ -1516,12 +1544,11 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Adds a movie to the user&#x27;s favorites.
-   * @param { string } movie_id - The ID of the movie to add to favorites.
-   * @since v1.0.0
+   * Adds a specific movie to the user&#x27;s favorites.
+   * @param {string} movie_id - The ID of the movie to be added to the favorites list.
    */
   addToFavorites(movie_id: string): void {
-    this.favoritesService.addFavorite(movie_id).subscribe((favorite) &#x3D;&gt; {
+    this.favoritesService.addFavorite(movie_id).subscribe(() &#x3D;&gt; {
       alert(&#x27;Movie added to favorites&#x27;);
       this.loadFavoriteMovies();
     }, error &#x3D;&gt; {
@@ -1531,9 +1558,8 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Removes a movie from the user&#x27;s favorites.
-   * @param { string } favorite_id - The ID of the favorite to remove.
-   * @since v1.0.0
+   * Removes a specific movie from the user&#x27;s favorites.
+   * @param {string} favorite_id - The ID of the favorite record to be removed.
    */
   removeFromFavorites(favorite_id: string): void {
     this.favoritesService.deleteFavorite(favorite_id).subscribe(() &#x3D;&gt; {
@@ -1547,8 +1573,8 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Logs out the user and navigates to the login page.
-   * @since v1.0.0
+   * Logs out the current user and navigates to the login page.
+   * Clears the session storage to remove the authentication token.
    */
   logout(): void {
     this.authService.logout().subscribe(() &#x3D;&gt; {
@@ -1562,10 +1588,10 @@ export class FavoritesComponent implements OnInit {
   }
 
   /**
-   * Retrieves the URL of the movie&#x27;s poster.
-   * @param { any } movie - The movie object.
-   * @returns { string | undefined } - The URL of the poster image, or a default URL if not found.
-   * @since v1.0.0
+   * Retrieves the URL of the poster image for a given movie.
+   * If no valid poster URL is found, returns a default image URL.
+   * @param {any} movie - The movie object containing image metadata.
+   * @returns {string | undefined} - The poster URL or a default image path.
    */
   getPosterUrl(movie: any): string | undefined {
     const posterUrl &#x3D; movie.images.find((image: any) &#x3D;&gt; image.type &#x3D;&#x3D;&#x3D; &#x27;Poster&#x27;)?.url;

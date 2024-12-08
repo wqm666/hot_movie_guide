@@ -124,7 +124,8 @@
             </p>
             <p class="comment">
                 <p>Service to manage movies.
-Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
+Provides methods to retrieve, filter, sort, and aggregate movie data.
+This service interacts with a backend to fetch, manipulate, and summarize movie data.</p>
 
             </p>
 
@@ -202,12 +203,14 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/movies.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/services/movies.service.ts:21</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The <code>HttpClient</code> is injected to perform API calls related to movie data.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -233,7 +236,8 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
                                                     
                                                         <td>
                                                                 <ul>
-<li>The HTTP client service used for making HTTP requests.</li>
+<li>The HTTP client service used for making HTTP requests to the backend.
+The <code>HttpClient</code> is injected to perform API calls related to movie data.</li>
 </ul>
 
                                                         </td>
@@ -272,15 +276,17 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="83"
-                                    class="link-to-prism">src/app/services/movies.service.ts:83</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/services/movies.service.ts:94</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Aggregates movie data based on provided criteria.</p>
+                        <div class="io-description"><p>Aggregates movie data based on provided criteria.
+This method performs aggregation on movie data, such as calculating average ratings,
+grouping movies by genre, etc.</p>
 </div>
 
                             <div class="io-description">
@@ -309,7 +315,7 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
 
                                             <td>
                                                     <ul>
-<li>The criteria to aggregate movie data.</li>
+<li>The criteria to aggregate movie data. It could include operations like &quot;average rating&quot; or &quot;count per genre&quot;.</li>
 </ul>
 
                                             </td>
@@ -351,15 +357,17 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="63"
-                                    class="link-to-prism">src/app/services/movies.service.ts:63</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/services/movies.service.ts:71</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Filters movies based on provided criteria.</p>
+                        <div class="io-description"><p>Filters movies based on provided criteria.
+This method sends a POST request to filter movies based on the provided criteria,
+such as genre, release date, rating, etc.</p>
 </div>
 
                             <div class="io-description">
@@ -388,7 +396,7 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
 
                                             <td>
                                                     <ul>
-<li>The criteria to filter movies.</li>
+<li>The criteria to filter movies. It may include parameters such as genre, release year, etc.</li>
 </ul>
 
                                             </td>
@@ -430,15 +438,16 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/app/services/movies.service.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/app/services/movies.service.ts:36</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Retrieves all movies.</p>
+                        <div class="io-description"><p>Retrieves all movies.
+This method fetches the list of all movies available in the backend system.</p>
 </div>
 
                         <div class="io-description">
@@ -475,15 +484,16 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="42"
-                                    class="link-to-prism">src/app/services/movies.service.ts:42</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/services/movies.service.ts:47</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Retrieves a movie by its ID.</p>
+                        <div class="io-description"><p>Retrieves a movie by its ID.
+This method fetches the details of a movie by its unique identifier.</p>
 </div>
 
                             <div class="io-description">
@@ -554,15 +564,16 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">src/app/services/movies.service.ts:53</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/services/movies.service.ts:59</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Retrieves the details of a specific movie.</p>
+                        <div class="io-description"><p>Retrieves the details of a specific movie.
+This method fetches a specific detail of a movie by its movie ID and detail ID.</p>
 </div>
 
                             <div class="io-description">
@@ -651,15 +662,16 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="73"
-                                    class="link-to-prism">src/app/services/movies.service.ts:73</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/app/services/movies.service.ts:82</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Sorts movies based on provided criteria.</p>
+                        <div class="io-description"><p>Sorts movies based on provided criteria.
+This method sorts the movies list based on parameters like title, rating, release year, etc.</p>
 </div>
 
                             <div class="io-description">
@@ -688,7 +700,7 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
 
                                             <td>
                                                     <ul>
-<li>The criteria to sort movies.</li>
+<li>The criteria to sort movies. It may include properties like &quot;rating&quot; or &quot;release year&quot;.</li>
 </ul>
 
                                             </td>
@@ -730,15 +742,17 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="92"
-                                    class="link-to-prism">src/app/services/movies.service.ts:92</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/services/movies.service.ts:105</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Summarizes movie data.</p>
+                        <div class="io-description"><p>Summarizes movie data.
+This method provides a summary of the entire movie database, including total movie count,
+average ratings, etc.</p>
 </div>
 
                         <div class="io-description">
@@ -786,7 +800,7 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/movies.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/services/movies.service.ts:21</a></div>
                         </td>
                     </tr>
 
@@ -806,14 +820,15 @@ Provides methods to retrieve, filter, sort, and aggregate movie data.</p>
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 
 /**
  * Service to manage movies.
  * Provides methods to retrieve, filter, sort, and aggregate movie data.
+ * This service interacts with a backend to fetch, manipulate, and summarize movie data.
  * @since v1.0.0
- * @autor Zirun Wang
+ * @author Zirun Wang
  */
 @Injectable({
   providedIn: &#x27;root&#x27;
@@ -822,19 +837,22 @@ export class MoviesService {
   /**
    * Base URL for the movies endpoint.
    * @private
+   * @type {string}
    */
   private baseUrl &#x3D; &#x27;http://127.0.0.1:5000/movies&#x27;;
 
   /**
    * @constructor
-   * @param { HttpClient } http - The HTTP client service used for making HTTP requests.
+   * @param { HttpClient } http - The HTTP client service used for making HTTP requests to the backend.
+   * The &#x60;HttpClient&#x60; is injected to perform API calls related to movie data.
    */
   constructor(private http: HttpClient) {}
 
   /**
    * Retrieves all movies.
-   * @returns { Observable&lt;any[]&gt; } - An observable that emits the list of all movies.
+   * This method fetches the list of all movies available in the backend system.
    * @since v1.0.0
+   * @returns { Observable&lt;any[]&gt; } - An observable that emits the list of all movies.
    */
   getAllMovies(): Observable&lt;any[]&gt; {
     return this.http.get&lt;any[]&gt;(&#x60;${this.baseUrl}/&#x60;, { withCredentials: true });
@@ -842,9 +860,10 @@ export class MoviesService {
 
   /**
    * Retrieves a movie by its ID.
+   * This method fetches the details of a movie by its unique identifier.
+   * @since v1.0.0
    * @param { string } movie_id - The ID of the movie to be retrieved.
    * @returns { Observable&lt;any&gt; } - An observable that emits the movie data.
-   * @since v1.0.0
    */
   getMovieById(movie_id: string): Observable&lt;any&gt; {
     return this.http.get&lt;any&gt;(&#x60;${this.baseUrl}/${movie_id}&#x60;, { withCredentials: true });
@@ -852,10 +871,11 @@ export class MoviesService {
 
   /**
    * Retrieves the details of a specific movie.
+   * This method fetches a specific detail of a movie by its movie ID and detail ID.
+   * @since v1.0.0
    * @param { string } movie_id - The ID of the movie.
    * @param { string } detailId - The ID of the detail to be retrieved.
    * @returns { Observable&lt;any&gt; } - An observable that emits the movie detail data.
-   * @since v1.0.0
    */
   getMovieDetails(movie_id: string, detailId: string): Observable&lt;any&gt; {
     return this.http.get&lt;any&gt;(&#x60;${this.baseUrl}/details/${movie_id}/${detailId}&#x60;, { withCredentials: true });
@@ -863,9 +883,11 @@ export class MoviesService {
 
   /**
    * Filters movies based on provided criteria.
-   * @param { any } criteria - The criteria to filter movies.
-   * @returns { Observable&lt;any[]&gt; } - An observable that emits the filtered list of movies.
+   * This method sends a POST request to filter movies based on the provided criteria, 
+   * such as genre, release date, rating, etc.
    * @since v1.0.0
+   * @param { any } criteria - The criteria to filter movies. It may include parameters such as genre, release year, etc.
+   * @returns { Observable&lt;any[]&gt; } - An observable that emits the filtered list of movies.
    */
   filterMovies(criteria: any): Observable&lt;any[]&gt; {
     return this.http.post&lt;any[]&gt;(&#x60;${this.baseUrl}/filter&#x60;, criteria, { withCredentials: true });
@@ -873,9 +895,10 @@ export class MoviesService {
 
   /**
    * Sorts movies based on provided criteria.
-   * @param { any } criteria - The criteria to sort movies.
-   * @returns { Observable&lt;any[]&gt; } - An observable that emits the sorted list of movies.
+   * This method sorts the movies list based on parameters like title, rating, release year, etc.
    * @since v1.0.0
+   * @param { any } criteria - The criteria to sort movies. It may include properties like &quot;rating&quot; or &quot;release year&quot;.
+   * @returns { Observable&lt;any[]&gt; } - An observable that emits the sorted list of movies.
    */
   sortMovies(criteria: any): Observable&lt;any[]&gt; {
     return this.http.post&lt;any[]&gt;(&#x60;${this.baseUrl}/sort&#x60;, criteria, { withCredentials: true });
@@ -883,9 +906,11 @@ export class MoviesService {
 
   /**
    * Aggregates movie data based on provided criteria.
-   * @param { any } criteria - The criteria to aggregate movie data.
-   * @returns { Observable&lt;any[]&gt; } - An observable that emits the aggregated movie data.
+   * This method performs aggregation on movie data, such as calculating average ratings, 
+   * grouping movies by genre, etc.
    * @since v1.0.0
+   * @param { any } criteria - The criteria to aggregate movie data. It could include operations like &quot;average rating&quot; or &quot;count per genre&quot;.
+   * @returns { Observable&lt;any[]&gt; } - An observable that emits the aggregated movie data.
    */
   aggregateMovies(criteria: any): Observable&lt;any[]&gt; {
     return this.http.post&lt;any[]&gt;(&#x60;${this.baseUrl}/aggregate&#x60;, criteria, { withCredentials: true });
@@ -893,8 +918,10 @@ export class MoviesService {
 
   /**
    * Summarizes movie data.
-   * @returns { Observable&lt;any[]&gt; } - An observable that emits the summary of movie data.
+   * This method provides a summary of the entire movie database, including total movie count, 
+   * average ratings, etc.
    * @since v1.0.0
+   * @returns { Observable&lt;any[]&gt; } - An observable that emits the summary of movie data.
    */
   summarizeMovies(): Observable&lt;any[]&gt; {
     return this.http.get&lt;any[]&gt;(&#x60;${this.baseUrl}/summarize&#x60;, { withCredentials: true });
