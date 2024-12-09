@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
-import { of, throwError } from 'rxjs';
+import { of } from 'rxjs';
 import { Router } from '@angular/router';
 
 describe('ManageComponent', () => {
@@ -143,7 +143,6 @@ describe('ManageComponent', () => {
     expect(window.alert).toHaveBeenCalledWith('Logout successfully');
   });
 
-  // 测试分页功能
   it('should calculate total pages', () => {
     component.movies = new Array(25);
     expect(component.totalPages).toBe(3);

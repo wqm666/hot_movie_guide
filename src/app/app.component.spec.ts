@@ -8,7 +8,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-      schemas: [NO_ERRORS_SCHEMA] // 添加这一行来忽略模板中的未知元素和属性
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 
