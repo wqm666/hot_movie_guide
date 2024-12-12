@@ -19,7 +19,7 @@ export class WeatherService {
    * @private
    * @type {string}
    */
-  private apiKey: string = 'e58642487129544b16dd9ff788bcd4c8';
+  private apiKey: string = '0a070c9fb8d18888f29ef9bdefaf7737';
 
   /**
    * URL for fetching current weather data.
